@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import CustomRow from '../container/CustomRow';
-import CustomColumn from '../container/CustomColumn';
-import CustomFont from '../container/CustomFont';
+import CustomRow from '../../container/CustomRow';
+import CustomFont from '../../container/CustomFont';
+import StyledImg from '../../container/StyledImg';
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -22,27 +22,28 @@ const HeaderContainer = styled.header`
 `;
 
 const Button = styled.button`
-border: 1px solid #626262;
-border-radius: 0.5rem;
-background-color: transparent;
-
-width: 4rem;
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 0.5rem;
-cursor: pointer;
+ border: none;
+  background-color: transparent;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 `;
 
-export default function Header() {
+export default function NewHeader() {
     const navigate = useNavigate();
+
+    const handleGoBack = () => {
+        navigate(-1);
+    };
 
     return (
         <HeaderContainer>
             <CustomRow width='100%' justifyContent='space-between'>
-                <CustomRow width='100%' justifyContent='flex-end' gap='1rem'>
-                    <Button>
-                        <CustomFont color='#626262' font='1rem'>LOGIN</CustomFont>
+                <CustomRow width='100%' justifyContent='flex-start'>
+                    <Button onClick={handleGoBack}>
+                        <StyledImg src={'icon_back.png'} width='2rem' height='2rem' />
                     </Button>
                 </CustomRow>
             </CustomRow>

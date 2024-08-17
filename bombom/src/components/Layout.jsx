@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from './header/header';
+import Header from './header/all_header/header';
+import NewHeader from './header/all_header/newHeader';
 import Footer from './footer/footer';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import ResetCss from '../ResetCss';
 
 const Container = styled.div`
@@ -19,12 +20,22 @@ const Main = styled.main`
 `;
 
 const Layout = () => {
+    const location = useLocation();
+
+    const renderHeader = () => {
+        if (location.pathname === '/protectorloginpage' || location.pathname === '/dolbomloginpage'
+            || location.pathname === '/firstloginpage' || location.pathname === '/protectorsignuppage' ||
+            location.pathname === '/dolbomsignuppage' || location.pathname === '/seconddolbomsignuppage') {
+            return <NewHeader />;
+        }
+        return <Header />;
+    };
 
     return (
         <>
             <ResetCss />
             <Container>
-                <Header />
+                {renderHeader()}
                 <Main>
                     <Outlet />
                 </Main>
