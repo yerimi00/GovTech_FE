@@ -1,8 +1,9 @@
+import React from "react";
 import styled from "styled-components";
 
-const WantCard = ({ title, location, caregiverInfo, hourlyRate }) => {
+const WantCard = ({ title, location, caregiverInfo, hourlyRate, onClick }) => {
   return (
-    <CardContainer>
+    <CardContainer onClick={onClick}>
       <Title>{title}</Title>
       <Location>{location}</Location>
       <CaregiverInfo>{caregiverInfo}</CaregiverInfo>
@@ -23,6 +24,7 @@ const CardContainer = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   width: 20rem;
+  cursor: pointer; /* 클릭 가능한 요소로 표시 */
 `;
 
 const Title = styled.h2`
