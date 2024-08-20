@@ -24,7 +24,6 @@ const NaviContainer = styled.footer`
 const Footer = () => {
   const navigate = useNavigate();
 
-  // FindIcon 클릭 시 /want 경로로 이동
   const handleFindClick = () => {
     navigate("/want");
   };
