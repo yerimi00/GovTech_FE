@@ -35,7 +35,7 @@ export default function NewHeader() {
     const location = useLocation();
 
     const getBackgroundColor = () => {
-        if (location.pathname === '/protectorloginpage') {
+        if (location.pathname === '/protectorloginpage' || location.pathname === '/protectorsignuppage') {
             return '#FBDA8B';
         } else if (location.pathname === '/dolbomloginpage') {
             return '#D8F0B2';
