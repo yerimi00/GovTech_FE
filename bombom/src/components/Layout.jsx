@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from './header/all_header/header';
 import NewHeader from './header/all_header/newHeader';
 import Footer from './footer/footer';
+import AdminFooter from './footer/adminFooter';
 import { Outlet, useLocation } from 'react-router-dom';
 import ResetCss from '../ResetCss';
 
@@ -33,6 +34,13 @@ const Layout = () => {
         return <Header />;
     };
 
+    const renderFooter = () => {
+        if (location.pathname === '/adminpage') {
+            return <AdminFooter />;
+        }
+        return <Footer />;
+    };
+
     return (
         <>
             <ResetCss />
@@ -41,7 +49,7 @@ const Layout = () => {
                 <Main>
                     <Outlet />
                 </Main>
-                <Footer />
+                {renderFooter()}
             </Container>
         </>
     );
