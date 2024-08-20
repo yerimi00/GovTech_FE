@@ -28,6 +28,8 @@ import LowProtectorOkPage from "./pages/subpage/adminpage/all_lowprotectorok/Low
 import DetailLowProtectorPage from "./pages/subpage/adminpage/all_lowprotectorok/DetailLowProtector";
 import NoticePage from "./pages/subpage/adminpage/all_notice/Notice";
 import DetailNoticePage from "./pages/subpage/adminpage/all_notice/DetailNotice";
+import ChatPage from "./pages/chatpage/chatpage";
+import MorePage from "./pages/morepage/morepage";
 
 const AppRouter = () => {
   return (
@@ -72,6 +74,8 @@ const AppRouter = () => {
             <Route path="/detaillowprotectorpage" element={<DetailLowProtectorPage />} />
             <Route path="/noticepage" element={<NoticePage />} />
             <Route path="/detailnoticepage" element={<DetailNoticePage />} />
+            <Route path="/chatpage" element={<ChatPage />} />
+            <Route path="/morepage" element={<MorePage />} />
           </Route>
         </Routes>
       </Router>

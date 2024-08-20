@@ -33,11 +33,11 @@ const Footer = () => {
   };
 
   const handleChatClick = () => {
-    navigate("/chatting");
+    navigate("/chatpage");
   };
 
   const handleMoreClick = () => {
-    navigate("/more");
+    navigate("/morepage");
   };
 
   return (
