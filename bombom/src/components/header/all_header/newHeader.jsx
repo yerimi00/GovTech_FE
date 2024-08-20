@@ -35,9 +35,14 @@ export default function NewHeader() {
     const location = useLocation();
 
     const getBackgroundColor = () => {
-        if (location.pathname === '/protectorloginpage' || location.pathname === '/protectorsignuppage') {
+        const { pathname, search } = location;
+
+        if (pathname === '/protectorloginpage' || pathname === '/protectorsignuppage') {
             return '#FBDA8B';
-        } else if (location.pathname === '/dolbomloginpage' || location.pathname === '/firstdolbomsignuppage') {
+        } else if (pathname === '/dolbomloginpage' || pathname === '/firstdolbomsignuppage') {
+            return '#D8F0B2';
+        } else if (pathname === '/seconddolbomsignuppage' && search === '?type=cert' ||
+            pathname === '/seconddolbomsignuppage' && search === '?type=arbeit') {
             return '#D8F0B2';
         }
         return '#E5DDC9';
