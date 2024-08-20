@@ -38,7 +38,7 @@ export default function NewHeader() {
         const { pathname, search } = location;
 
         if (pathname === '/protectorloginpage' || pathname === '/protectorsignuppage' || pathname === '/dolbomokpage'
-            || pathname === '/detaildolbomokpage') {
+            || pathname === '/detaildolbomokpage' || pathname === '/dolbomeduvideopage') {
             return '#FBDA8B';
         } else if (pathname === '/dolbomloginpage' || pathname === '/firstdolbomsignuppage' || pathname === '/certificatedolbomsignuppage' ||
             pathname === '/arbeitdolbomsignuppage') {

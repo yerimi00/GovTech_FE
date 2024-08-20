@@ -138,25 +138,28 @@ const DolbomOkPage = () => {
                         </CustomRow>
 
                         <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='2rem'>
+                            <CustomRow width='90%' alignItems='center' justifyContent='flex-start'>
+                                <CustomFont color='#6E5F3B' font='1.3rem' fontWeight='bold'>돌보미 인증 수락</CustomFont>
+                            </CustomRow>
                             <MenuContainer>
                                 <CustomRow width='100%' alignItems='center' justifyContent='space-between'>
                                     <MenuButton
                                         isActive={activeButton === '인증 대기 중'}
                                         onClick={() => handleMenuClick('인증 대기 중')}
                                     >
-                                        <CustomFont color='6E5F3B' font='0.8rem'>인증 대기 중</CustomFont>
+                                        <CustomFont color='#6E5F3B' font='0.8rem'>인증 대기 중</CustomFont>
                                     </MenuButton>
                                     <MenuButton
                                         isActive={activeButton === '인증 승인'}
                                         onClick={() => handleMenuClick('인증 승인')}
                                     >
-                                        <CustomFont color='6E5F3B' font='0.8rem'>인증 승인</CustomFont>
+                                        <CustomFont color='#6E5F3B' font='0.8rem'>인증 승인</CustomFont>
                                     </MenuButton>
                                     <MenuButton
                                         isActive={activeButton === '인증 미승인'}
                                         onClick={() => handleMenuClick('인증 미승인')}
                                     >
-                                        <CustomFont color='6E5F3B' font='0.8rem'>인증 미승인</CustomFont>
+                                        <CustomFont color='#6E5F3B' font='0.8rem'>인증 미승인</CustomFont>
                                     </MenuButton>
                                 </CustomRow>
                             </MenuContainer>
