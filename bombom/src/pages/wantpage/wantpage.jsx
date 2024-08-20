@@ -52,7 +52,7 @@ const WantPage = () => {
           gap="1rem"
         >
           <MainDiv backgroundColor="white" borderRadius="35px">
-            <CustomRow width="100%" justifyContent="space-between">
+            <CustomRow width="90%" justifyContent="space-between">
               <Category
                 fontFamily="Cafe24SsurroundAir"
                 width="40%"
@@ -60,9 +60,10 @@ const WantPage = () => {
               >
                 1 : 1 돌봄
               </Category>
-              <MainDiv backgroundColor="whtie" width="30%">
+              <WriteIconDiv backgroundColor="white" width="50px" height="50px">
                 <Bolbomwrite />
-              </MainDiv>
+                <p>글쓰기</p>
+              </WriteIconDiv>
             </CustomRow>
             <FindLocation placeholder="위치로 검색하기" />
             {cardData.map((card, index) => (
@@ -123,27 +124,48 @@ const MainDiv = styled.div`
   justify-content: center;
   font-family: ${(props) => props.fontFamily || "Noto Sans KR"};
 `;
+
+const WriteIconDiv = styled.div`
+  border: none;
+  width: ${(props) => props.width || "100%"};
+  height: ${(props) => props.height || "auto"};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  flex-direction: column;
+  padding: 6px;
+  p {
+    font-size: 13px;
+    font-family: "Noto Sans KR";
+  }
+
+  &:hover {
+    background-color: ${({ theme }) =>
+      theme.colors.lightGray || "#ccc"} !important;
+  }
+`;
 const FindLocation = styled.input.attrs({ type: "text" })`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 85%;
-  padding: 10px;
+  padding: 10px 30px 10px 30px;
   border: 1.5px solid ${({ theme }) => theme.colors.lightGray};
   border-radius: 35px;
   font-size: 18px;
   outline: none;
   color: #3e3537;
 `;
+
 const Category = styled.div`
-  // display: flex;
   padding: 10px 30px 10px 30px;
   background-color: ${({ theme }) => theme.colors.lightGrayHover};
   border-radius: 35px;
   position: relative;
   float: left;
   left: 10px;
-  top: -50px;
+  top: -30px;
   font-size: 30px;
   font-weight: bold;
 `;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { CloseIcon } from "../icons/wantbolbom";
 
 const Modal = ({ show, onClose, cardData }) => {
   if (!show) return null;
@@ -9,16 +10,37 @@ const Modal = ({ show, onClose, cardData }) => {
       <ModalContainer>
         <ModalHeader>
           <ModalTitle>{cardData.title}</ModalTitle>
-          <CloseButton onClick={onClose}>X</CloseButton>
+          <CloseButton onClick={onClose}>
+            <CloseIcon />
+          </CloseButton>
         </ModalHeader>
         <ModalContent>
-          <p>위치: {cardData.location}</p>
-          <p>횟수: {cardData.frequency || "N/A"}</p>
-          <p>시급: {cardData.hourlyRate}</p>
-          <p>돌봄자 정보:</p>
-          {cardData.caregiverInfo.map((info, index) => (
-            <p key={index}>{info}</p>
-          ))}
+          <p>
+            <BText fontSize="18px">위치:</BText> {cardData.location}
+          </p>
+          <p>
+            <BText fontSize="18px">횟수:</BText> {cardData.frequency || "N/A"}
+          </p>
+          <p>
+            <BText fontSize="18px">시급:</BText> {cardData.hourlyRate}
+          </p>
+          <CareInformationDiv>
+            <p>
+              <BText fontSize="18px">돌봄자 정보:</BText>
+            </p>
+            <p>
+              <BText fontSize="16px">나이:</BText> {cardData.location}
+            </p>
+            <p>
+              <BText fontSize="16px">특징:</BText> {cardData.frequency || "N/A"}
+            </p>
+            <p>
+              <BText fontSize="16px">병력:</BText> {cardData.hourlyRate}
+            </p>
+            <p>
+              <BText fontSize="16px">기타:</BText> {cardData.hourlyRate}
+            </p>
+          </CareInformationDiv>
         </ModalContent>
         <ChatButton>채팅방 생성하기</ChatButton>
       </ModalContainer>
@@ -44,7 +66,7 @@ const Overlay = styled.div`
 const ModalContainer = styled.div`
   background: white;
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 35px;
   width: 90%;
   max-width: 500px;
   position: relative;
@@ -62,10 +84,13 @@ const CloseButton = styled.button`
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+  width: 24px;
+  height: 24px;
 `;
 
 const ModalTitle = styled.h2`
   margin: 0;
+  font-size: 22px;
 `;
 
 const ModalContent = styled.div`
@@ -75,8 +100,13 @@ const ModalContent = styled.div`
   }
 `;
 
+const BText = styled.span`
+  font-weight: bold;
+  font-size: ${(props) => props.fontSize || "18px"};
+`;
+
 const ChatButton = styled.button`
-  background: #007bff;
+  background: #c6c0af;
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -84,4 +114,10 @@ const ChatButton = styled.button`
   cursor: pointer;
   font-size: 1rem;
   width: 100%;
+`;
+
+const CareInformationDiv = styled.div`
+  background-color: #eae4d4;
+  padding: 1rem;
+  border-radius: 8px;
 `;

@@ -16,7 +16,7 @@ export default WantCard;
 
 const CardContainer = styled.div`
   background-color: #eae4d4;
-  border-radius: 8px;
+  border-radius: 20px;
   padding: 1rem;
   margin: 0.5rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -24,26 +24,30 @@ const CardContainer = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   width: 20rem;
-  cursor: pointer; /* 클릭 가능한 요소로 표시 */
+  cursor: pointer;
 `;
 
 const Title = styled.h2`
-  font-size: 1.5rem;
+  font-size: 22px;
+  font-weight: light;
   color: #333;
 `;
 
 const Location = styled.p`
-  font-size: 1rem;
+  font-size: 14px;
   color: #777;
+  text-align: right;
 `;
 
 const CaregiverInfo = styled.p`
-  font-size: 1rem;
+  font-size: 14px;
   color: #555;
+  text-align: right;
 `;
 
 const HourlyRate = styled.p`
-  font-size: 1rem;
+  font-size: 14px;
   color: #000;
   font-weight: bold;
+  text-align: right;
 `;
