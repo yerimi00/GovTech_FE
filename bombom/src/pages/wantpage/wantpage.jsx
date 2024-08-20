@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import CustomRow from "../../components/container/CustomRow";
 import CustomColumn from "../../components/container/CustomColumn";
@@ -9,6 +10,8 @@ import Modal from "../../components/modal/Modal";
 import { Bolbomwrite } from "../../components/icons/wantbolbom";
 
 const WantPage = () => {
+  const navigate = useNavigate();
+
   const [selectedCard, setSelectedCard] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -32,6 +35,10 @@ const WantPage = () => {
       hourlyRate: "시급: 18,000원",
     },
   ];
+
+  const handleWriteClick = () => {
+    navigate("/carewrite");
+  };
 
   const handleCardClick = (card) => {
     console.log("Card clicked:", card);
@@ -58,7 +65,12 @@ const WantPage = () => {
               <WantCategory width="40%" borderRadius="20px">
                 1 : 1 돌봄
               </WantCategory>
-              <WriteIconDiv backgroundColor="white" width="50px" height="50px">
+              <WriteIconDiv
+                backgroundColor="white"
+                width="50px"
+                height="50px"
+                onClick={handleWriteClick}
+              >
                 <Bolbomwrite />
                 <p>글쓰기</p>
               </WriteIconDiv>
