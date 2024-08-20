@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import CustomRow from "../../components/container/CustomRow";
 import CustomColumn from "../../components/container/CustomColumn";
+import WantCategory from "../../components/container/WantCategory";
 import WantCard from "../../components/card/wantcard";
+import InputContainer from "../../components/container/InputContainer";
 import Modal from "../../components/modal/Modal";
 import { Bolbomwrite } from "../../components/icons/wantbolbom";
 
@@ -53,19 +55,15 @@ const WantPage = () => {
         >
           <MainDiv backgroundColor="white" borderRadius="35px">
             <CustomRow width="90%" justifyContent="space-between">
-              <Category
-                fontFamily="Cafe24SsurroundAir"
-                width="40%"
-                borderRadius="20px"
-              >
+              <WantCategory width="40%" borderRadius="20px">
                 1 : 1 돌봄
-              </Category>
+              </WantCategory>
               <WriteIconDiv backgroundColor="white" width="50px" height="50px">
                 <Bolbomwrite />
                 <p>글쓰기</p>
               </WriteIconDiv>
             </CustomRow>
-            <FindLocation placeholder="위치로 검색하기" />
+            <InputContainer placeholder="위치로 검색하기" />
             {cardData.map((card, index) => (
               <WantCard
                 key={index}
@@ -144,28 +142,4 @@ const WriteIconDiv = styled.div`
     background-color: ${({ theme }) =>
       theme.colors.lightGray || "#ccc"} !important;
   }
-`;
-const FindLocation = styled.input.attrs({ type: "text" })`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 85%;
-  padding: 10px 30px 10px 30px;
-  border: 1.5px solid ${({ theme }) => theme.colors.lightGray};
-  border-radius: 35px;
-  font-size: 18px;
-  outline: none;
-  color: #3e3537;
-`;
-
-const Category = styled.div`
-  padding: 10px 30px 10px 30px;
-  background-color: ${({ theme }) => theme.colors.lightGrayHover};
-  border-radius: 35px;
-  position: relative;
-  float: left;
-  left: 10px;
-  top: -30px;
-  font-size: 30px;
-  font-weight: bold;
 `;

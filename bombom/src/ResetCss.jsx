@@ -9,18 +9,24 @@ const ResetCss = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
 }
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif;
   }
+
   html, body {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .cafe-font {
+    font-family: 'Cafe24SsurroundAir', sans-serif;
   }
 `;
 

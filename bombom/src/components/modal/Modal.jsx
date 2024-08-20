@@ -16,17 +16,17 @@ const Modal = ({ show, onClose, cardData }) => {
         </ModalHeader>
         <ModalContent>
           <p>
-            <BText fontSize="18px">위치:</BText> {cardData.location}
+            <BText fontSize="16px">위치:</BText> {cardData.location}
           </p>
           <p>
-            <BText fontSize="18px">횟수:</BText> {cardData.frequency || "N/A"}
+            <BText fontSize="16px">횟수:</BText> {cardData.frequency || "N/A"}
           </p>
           <p>
-            <BText fontSize="18px">시급:</BText> {cardData.hourlyRate}
+            <BText fontSize="16px">시급:</BText> {cardData.hourlyRate}
           </p>
           <CareInformationDiv>
             <p>
-              <BText fontSize="18px">돌봄자 정보:</BText>
+              <BText fontSize="18px">돌봄자 정보</BText>
             </p>
             <p>
               <BText fontSize="16px">나이:</BText> {cardData.location}
@@ -91,6 +91,7 @@ const CloseButton = styled.button`
 const ModalTitle = styled.h2`
   margin: 0;
   font-size: 22px;
+  font-weight: light;
 `;
 
 const ModalContent = styled.div`
@@ -107,17 +108,20 @@ const BText = styled.span`
 
 const ChatButton = styled.button`
   background: #c6c0af;
+  font-family:"Cafe24SsurroundAir"
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 35px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 24px;
+  font-weight: bold;
   width: 100%;
+  font-family: "Cafe24SsurroundAir", sans-serif;
 `;
 
 const CareInformationDiv = styled.div`
   background-color: #eae4d4;
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 20px;
 `;

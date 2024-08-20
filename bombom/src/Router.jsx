@@ -19,6 +19,7 @@ import SecondDolbomSignupPage from "./components/header/all_signup/all_dolbomsig
 import ArbeitDolbomSignupPage from "./components/header/all_signup/all_dolbomsignup/ArbeitDolbomSignup";
 import CertificateDolbomSignupPage from "./components/header/all_signup/all_dolbomsignup/CertificateDolbomSignup";
 import WantPage from "./pages/wantpage/wantpage";
+import CareWrite from "./pages/careWrite/careWrite";
 
 const AppRouter = () => {
   return (
@@ -54,6 +55,7 @@ const AppRouter = () => {
               element={<CertificateDolbomSignupPage />}
             />
             <Route path="/want" element={<WantPage />} />
+            <Route path="/carewrite" element={<CareWrite />} />
           </Route>
         </Routes>
       </Router>
