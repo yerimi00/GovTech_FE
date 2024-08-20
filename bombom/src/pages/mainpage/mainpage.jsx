@@ -5,6 +5,8 @@ import CustomFont from '../../components/container/CustomFont';
 import CustomColumn from '../../components/container/CustomColumn';
 import StyledImg from '../../components/container/StyledImg';
 import { FaArrowRight } from 'react-icons/fa';
+import { BsFillPersonFill } from 'react-icons/bs';
+import { BsPeopleFill } from 'react-icons/bs';
 
 const ContainerCenter = styled.div`
   display: flex;
@@ -73,7 +75,7 @@ const HomePage = () => {
                   </Button>
                 </CustomRow>
                 <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
-                  <StyledImg src={'icon_person.png'} />
+                  <BsFillPersonFill style={{ color: 'black', fontSize: '4rem' }} />
                 </CustomRow>
                 <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
                   <CustomFont color='black' font='1.5rem' fontWeight='bold'>
@@ -100,7 +102,7 @@ const HomePage = () => {
                   </Button>
                 </CustomRow>
                 <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
-                  <StyledImg src={'icon_person.png'} />
+                  <BsPeopleFill style={{ color: 'black', fontSize: '4rem' }} />
                 </CustomRow>
                 <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
                   <CustomFont color='black' font='1.5rem' fontWeight='bold'>

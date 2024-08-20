@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import CustomRow from '../../container/CustomRow';
 import CustomColumn from '../../container/CustomColumn';
 import CustomFont from '../../container/CustomFont';
+import { BsPersonCircle } from 'react-icons/bs';
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -16,8 +17,7 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #E5DDC9;
   z-index: 999;
 `;
 
@@ -31,6 +31,17 @@ display: flex;
 align-items: center;
 justify-content: center;
 padding: 0.5rem;
+cursor: pointer;
+`;
+
+const MyButton = styled.button`
+border-radius: 50%;
+border: none;
+background-color: transparent;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0.1rem;
 cursor: pointer;
 `;
 
@@ -49,6 +60,10 @@ export default function Header() {
 
     const goAdmin = () => {
         navigate('/adminpage'); // 관리자화면. 나중에 조건부 렌더링으로 수정할 것임!
+    }
+
+    const goMy = () => {
+        navigate('/mypage');
     }
 
     const handleGoBack = () => {
@@ -70,6 +85,12 @@ export default function Header() {
                     )}
 
                     <CustomRow>
+                        <MyButton onClick={goMy}>
+                            <CustomColumn gap='0.1rem' alignItems='center' justifyContent='center'>
+                                <BsPersonCircle style={{ color: 'black', fontSize: '1.5rem' }} />
+                                <CustomFont color='black' font='0.6rem'>마이</CustomFont>
+                            </CustomColumn>
+                        </MyButton>
                         <Button onClick={goAdmin}>
                             <CustomFont color='#626262' font='0.8rem'>관리자 화면</CustomFont>
                         </Button>
