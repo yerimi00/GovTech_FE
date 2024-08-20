@@ -30,7 +30,8 @@ const Layout = () => {
             location.pathname === '/firstdolbomsignuppage' || location.pathname === '/certificatedolbomsignuppage' ||
             location.pathname === '/arbeitdolbomsignuppage' || location.pathname === '/dolbomokpage' ||
             location.pathname === '/detaildolbomokpage' || location.pathname === '/dolbomeduvideopage' ||
-            location.pathname === '/eduvideodetailpage' || location.pathname === '/lowprotectorokpage' || location.pathname === '/detaillowprotectorpage') {
+            location.pathname === '/eduvideodetailpage' || location.pathname === '/lowprotectorokpage' ||
+            location.pathname === '/detaillowprotectorpage' || location.pathname === '/noticepage') {
             return <NewHeader />;
         }
         return <Header />;
