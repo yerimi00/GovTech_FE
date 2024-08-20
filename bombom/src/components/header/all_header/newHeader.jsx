@@ -37,7 +37,7 @@ export default function NewHeader() {
     const getBackgroundColor = () => {
         if (location.pathname === '/protectorloginpage' || location.pathname === '/protectorsignuppage') {
             return '#FBDA8B';
-        } else if (location.pathname === '/dolbomloginpage') {
+        } else if (location.pathname === '/dolbomloginpage' || location.pathname === '/firstdolbomsignuppage') {
             return '#D8F0B2';
         }
         return '#E5DDC9';
