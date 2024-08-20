@@ -4,6 +4,7 @@ import CustomRow from "../../components/container/CustomRow";
 import CustomColumn from "../../components/container/CustomColumn";
 import WantCard from "../../components/card/wantcard";
 import Modal from "../../components/modal/Modal";
+import { Bolbomwrite } from "../../components/icons/wantbolbom";
 
 const WantPage = () => {
   const [selectedCard, setSelectedCard] = useState(null);
@@ -50,12 +51,21 @@ const WantPage = () => {
           justifyContent="flex-start"
           gap="1rem"
         >
-          <CustomRow width="100%" justifyContent="space-between">
-            <MainDiv width="40%">일대일돌봄</MainDiv>
-            <MainDiv width="30%">글작성하기</MainDiv>
-          </CustomRow>
-          <MainDiv backgroundColor="blue">
-            <MainDiv>위치로 검색하기</MainDiv>
+          <MainDiv backgroundColor="white" borderRadius="35px">
+            <CustomRow width="90%" justifyContent="space-between">
+              <Category
+                fontFamily="Cafe24SsurroundAir"
+                width="40%"
+                borderRadius="20px"
+              >
+                1 : 1 돌봄
+              </Category>
+              <WriteIconDiv backgroundColor="white" width="50px" height="50px">
+                <Bolbomwrite />
+                <p>글쓰기</p>
+              </WriteIconDiv>
+            </CustomRow>
+            <FindLocation placeholder="위치로 검색하기" />
             {cardData.map((card, index) => (
               <WantCard
                 key={index}
@@ -96,7 +106,7 @@ const PageContainer = styled(ContainerCenter)`
   flex-direction: row;
   justify-content: center;
   position: relative;
-  background-color: white;
+  background: linear-gradient(to bottom, #e5ddc9, white);
   gap: 2rem;
 `;
 
@@ -105,10 +115,57 @@ const MainDiv = styled.div`
   border: none;
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "auto"};
+  border-radius: ${(props) => props.borderRadius || "auto"};
   min-height: 6rem;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: ${(props) => props.fontFamily || "Noto Sans KR"};
+`;
+
+const WriteIconDiv = styled.div`
+  border: none;
+  width: ${(props) => props.width || "100%"};
+  height: ${(props) => props.height || "auto"};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  flex-direction: column;
+  padding: 6px;
+  p {
+    font-size: 13px;
+    font-family: "Noto Sans KR";
+  }
+
+  &:hover {
+    background-color: ${({ theme }) =>
+      theme.colors.lightGray || "#ccc"} !important;
+  }
+`;
+const FindLocation = styled.input.attrs({ type: "text" })`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  padding: 10px 30px 10px 30px;
+  border: 1.5px solid ${({ theme }) => theme.colors.lightGray};
+  border-radius: 35px;
+  font-size: 18px;
+  outline: none;
+  color: #3e3537;
+`;
+
+const Category = styled.div`
+  padding: 10px 30px 10px 30px;
+  background-color: ${({ theme }) => theme.colors.lightGrayHover};
+  border-radius: 35px;
+  position: relative;
+  float: left;
+  left: 10px;
+  top: -30px;
+  font-size: 30px;
+  font-weight: bold;
 `;
