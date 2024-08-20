@@ -41,7 +41,7 @@ export default function NewHeader() {
             || pathname === '/detaildolbomokpage' || pathname === '/dolbomeduvideopage' || pathname === '/eduvideodetailpage') {
             return '#FBDA8B';
         } else if (pathname === '/dolbomloginpage' || pathname === '/firstdolbomsignuppage' || pathname === '/certificatedolbomsignuppage' ||
-            pathname === '/arbeitdolbomsignuppage' || pathname === '/lowprotectorokpage') {
+            pathname === '/arbeitdolbomsignuppage' || pathname === '/lowprotectorokpage' || pathname === '/detaillowprotectorpage') {
             return '#D8F0B2';
         } else if (pathname === '/seconddolbomsignuppage' && search === '?type=cert' ||
             pathname === '/seconddolbomsignuppage' && search === '?type=arbeit') {
