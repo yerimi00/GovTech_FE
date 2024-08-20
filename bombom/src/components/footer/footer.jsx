@@ -12,13 +12,15 @@ const NaviContainer = styled.footer`
   gap: 3rem;
   align-items: center;
   width: 100%;
-  height: 8vh;
+  height: 11vh;
   background-color: white;
   bottom: 0;
   left: 0;
   pointer-events: auto;
   position: fixed;
-  //   margin: 15px;
+  border-top: 0.5rem solid #C6C0AF;
+  padding-top: 0.7rem;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
 `;
 
 const Footer = () => {
