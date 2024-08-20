@@ -37,7 +37,8 @@ export default function NewHeader() {
     const getBackgroundColor = () => {
         const { pathname, search } = location;
 
-        if (pathname === '/protectorloginpage' || pathname === '/protectorsignuppage' || pathname === '/dolbomokpage') {
+        if (pathname === '/protectorloginpage' || pathname === '/protectorsignuppage' || pathname === '/dolbomokpage'
+            || pathname === '/detaildolbomokpage') {
             return '#FBDA8B';
         } else if (pathname === '/dolbomloginpage' || pathname === '/firstdolbomsignuppage' || pathname === '/certificatedolbomsignuppage' ||
             pathname === '/arbeitdolbomsignuppage') {
