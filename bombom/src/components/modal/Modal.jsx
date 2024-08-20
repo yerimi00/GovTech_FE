@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { CloseIcon } from "../icons/wantbolbom";
+import CustomButtonSubmit from "../container/CustomButtonSubmit";
 
 const Modal = ({ show, onClose, cardData }) => {
   if (!show) return null;
@@ -42,7 +43,7 @@ const Modal = ({ show, onClose, cardData }) => {
             </p>
           </CareInformationDiv>
         </ModalContent>
-        <ChatButton>채팅방 생성하기</ChatButton>
+        <CustomButtonSubmit>채팅방 생성하기</CustomButtonSubmit>
       </ModalContainer>
     </Overlay>
   );
@@ -104,20 +105,6 @@ const ModalContent = styled.div`
 const BText = styled.span`
   font-weight: bold;
   font-size: ${(props) => props.fontSize || "18px"};
-`;
-
-const ChatButton = styled.button`
-  background: #c6c0af;
-  font-family:"Cafe24SsurroundAir"
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 35px;
-  cursor: pointer;
-  font-size: 24px;
-  font-weight: bold;
-  width: 100%;
-  font-family: "Cafe24SsurroundAir", sans-serif;
 `;
 
 const CareInformationDiv = styled.div`
