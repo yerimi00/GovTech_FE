@@ -21,18 +21,20 @@ const PageContainer = styled(ContainerCenter)`
   justify-content: center;
   gap: 4rem;
   position: relative;
-  background-color: white;
+  background: linear-gradient(to bottom, #D9F0B4 0%, #D9F0B4 10%, white 90%, white 100%);
 `;
 
 const Button = styled.button`
   width: ${props => props.width || 'auto'};
-  background-color: ${(props) => (props.disabled ? '#D9D9D9' : '#AFAFAF')};
+  background-color: ${(props) => (props.disabled ? '#D6EFAE' : '#5E694D')};
+  color: ${(props) => (props.disabled ? '#5E694D' : 'white')};
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 1rem;
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   border: none;
+  border-radius: 5rem;
 `;
 
 const ModalBackground = styled.div`
@@ -79,6 +81,7 @@ const ArbeitDolbomSignupPage = () => {
     const navigate = useNavigate();
     const [showModal, setShowModal] = useState(false);
     const [countdown, setCountdown] = useState(5);
+    const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
     useEffect(() => {
         if (countdown > 0) {
@@ -87,13 +90,19 @@ const ArbeitDolbomSignupPage = () => {
             }, 1000);
             return () => clearTimeout(timer);
         } else {
+            setIsButtonEnabled(true);
+        }
+    }, [countdown]);
+
+    const handleButtonClick = () => {
+        if (isButtonEnabled) {
             setShowModal(true);
             setTimeout(() => {
                 setShowModal(false);
                 navigate('/');
             }, 2000);
         }
-    }, [countdown, navigate]);
+    };
 
     return (
         <ContainerCenter>
@@ -113,6 +122,20 @@ const ArbeitDolbomSignupPage = () => {
                             {countdown > 0 ? countdown : null}
                         </Countdown>
                     </CustomColumn>
+
+                    <Button
+                        width='100%'
+                        disabled={!isButtonEnabled}
+                        onClick={handleButtonClick}
+                    >
+                        <CustomFont
+                            color={isButtonEnabled ? 'white' : '#5E694D'}
+                            fontWeight='bold'
+                            font='1rem'
+                        >
+                            돌보미 아르바이트 회원가입 신청하기
+                        </CustomFont>
+                    </Button>
 
                     {showModal && (
                         <ModalBackground>

@@ -39,7 +39,8 @@ export default function NewHeader() {
 
         if (pathname === '/protectorloginpage' || pathname === '/protectorsignuppage') {
             return '#FBDA8B';
-        } else if (pathname === '/dolbomloginpage' || pathname === '/firstdolbomsignuppage' || pathname === '/certificatedolbomsignuppage') {
+        } else if (pathname === '/dolbomloginpage' || pathname === '/firstdolbomsignuppage' || pathname === '/certificatedolbomsignuppage' ||
+            pathname === '/arbeitdolbomsignuppage') {
             return '#D8F0B2';
         } else if (pathname === '/seconddolbomsignuppage' && search === '?type=cert' ||
             pathname === '/seconddolbomsignuppage' && search === '?type=arbeit') {
