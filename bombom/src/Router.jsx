@@ -20,6 +20,17 @@ import ArbeitDolbomSignupPage from "./components/header/all_signup/all_dolbomsig
 import CertificateDolbomSignupPage from "./components/header/all_signup/all_dolbomsignup/CertificateDolbomSignup";
 import WantPage from "./pages/wantpage/wantpage";
 import CareWrite from "./pages/careWrite/careWrite";
+import AdminPage from "./pages/subpage/adminpage/adminpage";
+import DolbomOkPage from "./pages/subpage/adminpage/all_dolbomok/DolbomOk";
+import DetailDolbomOkPage from "./pages/subpage/adminpage/all_dolbomok/DetailDolbomOk";
+import DolbomEduVideoPage from "./pages/subpage/adminpage/all_video/DolbomEduVideo";
+import EduVideoDetailPage from "./pages/subpage/adminpage/all_video/EduVideoDetail";
+import LowProtectorOkPage from "./pages/subpage/adminpage/all_lowprotectorok/LowProtectorOk";
+import DetailLowProtectorPage from "./pages/subpage/adminpage/all_lowprotectorok/DetailLowProtector";
+import NoticePage from "./pages/subpage/adminpage/all_notice/Notice";
+import DetailNoticePage from "./pages/subpage/adminpage/all_notice/DetailNotice";
+import ChatPage from "./pages/chatpage/chatpage";
+import MorePage from "./pages/morepage/morepage";
 
 const AppRouter = () => {
   return (
@@ -56,6 +67,17 @@ const AppRouter = () => {
             />
             <Route path="/want" element={<WantPage />} />
             <Route path="/carewrite" element={<CareWrite />} />
+            <Route path="/adminpage" element={<AdminPage />} />
+            <Route path="/dolbomokpage" element={<DolbomOkPage />} />
+            <Route path="/detaildolbomokpage" element={<DetailDolbomOkPage />} />
+            <Route path="/dolbomeduvideopage" element={<DolbomEduVideoPage />} />
+            <Route path="/eduvideodetailpage" element={<EduVideoDetailPage />} />
+            <Route path="/lowprotectorokpage" element={<LowProtectorOkPage />} />
+            <Route path="/detaillowprotectorpage" element={<DetailLowProtectorPage />} />
+            <Route path="/noticepage" element={<NoticePage />} />
+            <Route path="/detailnoticepage" element={<DetailNoticePage />} />
+            <Route path="/chatpage" element={<ChatPage />} />
+            <Route path="/morepage" element={<MorePage />} />
           </Route>
         </Routes>
       </Router>
