@@ -26,6 +26,8 @@ import DolbomEduVideoPage from "./pages/subpage/adminpage/all_video/DolbomEduVid
 import EduVideoDetailPage from "./pages/subpage/adminpage/all_video/EduVideoDetail";
 import LowProtectorOkPage from "./pages/subpage/adminpage/all_lowprotectorok/LowProtectorOk";
 import DetailLowProtectorPage from "./pages/subpage/adminpage/all_lowprotectorok/DetailLowProtector";
+import NoticePage from "./pages/subpage/adminpage/all_notice/Notice";
+import DetailNoticePage from "./pages/subpage/adminpage/all_notice/DetailNotice";
 
 const AppRouter = () => {
   return (
@@ -68,6 +70,8 @@ const AppRouter = () => {
             <Route path="/eduvideodetailpage" element={<EduVideoDetailPage />} />
             <Route path="/lowprotectorokpage" element={<LowProtectorOkPage />} />
             <Route path="/detaillowprotectorpage" element={<DetailLowProtectorPage />} />
+            <Route path="/noticepage" element={<NoticePage />} />
+            <Route path="/detailnoticepage" element={<DetailNoticePage />} />
           </Route>
         </Routes>
       </Router>
