@@ -19,6 +19,13 @@ import SecondDolbomSignupPage from "./components/header/all_signup/all_dolbomsig
 import ArbeitDolbomSignupPage from "./components/header/all_signup/all_dolbomsignup/ArbeitDolbomSignup";
 import CertificateDolbomSignupPage from "./components/header/all_signup/all_dolbomsignup/CertificateDolbomSignup";
 import WantPage from "./pages/wantpage/wantpage";
+import AdminPage from "./pages/subpage/adminpage/adminpage";
+import DolbomOkPage from "./pages/subpage/adminpage/all_dolbomok/DolbomOk";
+import DetailDolbomOkPage from "./pages/subpage/adminpage/all_dolbomok/DetailDolbomOk";
+import DolbomEduVideoPage from "./pages/subpage/adminpage/all_video/DolbomEduVideo";
+import EduVideoDetailPage from "./pages/subpage/adminpage/all_video/EduVideoDetail";
+import LowProtectorOkPage from "./pages/subpage/adminpage/all_lowprotectorok/LowProtectorOk";
+import DetailLowProtectorPage from "./pages/subpage/adminpage/all_lowprotectorok/DetailLowProtector";
 
 const AppRouter = () => {
   return (
@@ -54,6 +61,13 @@ const AppRouter = () => {
               element={<CertificateDolbomSignupPage />}
             />
             <Route path="/want" element={<WantPage />} />
+            <Route path="/adminpage" element={<AdminPage />} />
+            <Route path="/dolbomokpage" element={<DolbomOkPage />} />
+            <Route path="/detaildolbomokpage" element={<DetailDolbomOkPage />} />
+            <Route path="/dolbomeduvideopage" element={<DolbomEduVideoPage />} />
+            <Route path="/eduvideodetailpage" element={<EduVideoDetailPage />} />
+            <Route path="/lowprotectorokpage" element={<LowProtectorOkPage />} />
+            <Route path="/detaillowprotectorpage" element={<DetailLowProtectorPage />} />
           </Route>
         </Routes>
       </Router>

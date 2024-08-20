@@ -26,7 +26,7 @@ border: 1px solid #626262;
 border-radius: 0.5rem;
 background-color: transparent;
 
-width: 3rem;
+min-width: 3rem;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -41,14 +41,24 @@ export default function Header() {
         navigate('/firstloginpage'); // 보호자 로그인, 돌보미 로그인 중 선택하는 화면으로 넘어감 
     }
 
+    const goAdmin = () => {
+        navigate('/adminpage'); // 관리자화면. 나중에 조건부 렌더링으로 수정할 것임!
+    }
+
     return (
         <HeaderContainer>
             <CustomRow width='100%' justifyContent='space-between'>
                 <CustomRow width='100%' justifyContent='space-between' gap='1rem'>
                     <CustomFont color='#626262' font='0.8rem'>여기 로고</CustomFont>
-                    <Button onClick={goLogin}>
-                        <CustomFont color='#626262' font='0.8rem'>LOGIN</CustomFont>
-                    </Button>
+
+                    <CustomRow>
+                        <Button onClick={goAdmin}>
+                            <CustomFont color='#626262' font='0.8rem'>관리자 화면</CustomFont>
+                        </Button>
+                        <Button onClick={goLogin}>
+                            <CustomFont color='#626262' font='0.8rem'>LOGIN</CustomFont>
+                        </Button>
+                    </CustomRow>
                 </CustomRow>
             </CustomRow>
         </HeaderContainer>
