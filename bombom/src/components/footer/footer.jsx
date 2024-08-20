@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import CustomColumn from '../container/CustomColumn';
-import CustomRow from '../container/CustomRow';
-import CustomFont from '../container/CustomFont';
-import StyledImg from '../container/StyledImg';
+import React from "react";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import CustomColumn from "../container/CustomColumn";
+import CustomFont from "../container/CustomFont";
+import { MainPageIcon, ChatIcon, FindIcon, More } from "../icons/footer";
 
 const NaviContainer = styled.footer`
   display: flex;
@@ -13,40 +12,59 @@ const NaviContainer = styled.footer`
   gap: 3rem;
   align-items: center;
   width: 100%;
-  height: 7vh;
-  background-color: #FBDA8B;
+  height: 8vh;
+  background-color: white;
   bottom: 0;
   left: 0;
   pointer-events: auto;
   position: fixed;
+  //   margin: 15px;
 `;
 
 const Footer = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    return (
-        <NaviContainer>
-            <CustomColumn gap='0.2rem' alignItems='center' justifyContent='center'>
-                <StyledImg src={'ex_nav_icon.png'} width='1rem' height='1rem' />
-                <CustomFont color='black' font='0.7rem'>홈</CustomFont>
-            </CustomColumn>
+  const handleFindClick = () => {
+    navigate("/want");
+  };
 
-            <CustomColumn gap='0.2rem' alignItems='center' justifyContent='center'>
-                <StyledImg src={'ex_nav_icon.png'} width='1rem' height='1rem' />
-                <CustomFont color='black' font='0.7rem'>돌보미 찾기</CustomFont>
-            </CustomColumn>
+  return (
+    <NaviContainer>
+      <CustomColumn gap="0.2rem" alignItems="center" justifyContent="center">
+        <MainPageIcon />
+        <CustomFont color="black" font="0.7rem">
+          홈
+        </CustomFont>
+      </CustomColumn>
 
-            <CustomColumn gap='0.2rem' alignItems='center' justifyContent='center'>
-                <StyledImg src={'ex_nav_icon.png'} width='1rem' height='1rem' />
-                <CustomFont color='black' font='0.7rem'>채팅방</CustomFont>
-            </CustomColumn>
+      <CustomColumn
+        gap="0.2rem"
+        alignItems="center"
+        justifyContent="center"
+        onClick={handleFindClick}
+        style={{ cursor: "pointer" }}
+      >
+        <FindIcon />
+        <CustomFont color="black" font="0.7rem">
+          돌보미 찾기
+        </CustomFont>
+      </CustomColumn>
 
-            <CustomColumn gap='0.2rem' alignItems='center' justifyContent='center'>
-                <StyledImg src={'ex_nav_icon.png'} width='1rem' height='1rem' />
-                <CustomFont color='black' font='0.7rem'>더보기</CustomFont>
-            </CustomColumn>
-        </NaviContainer>
-    );
+      <CustomColumn gap="0.2rem" alignItems="center" justifyContent="center">
+        <ChatIcon />
+        <CustomFont color="black" font="0.7rem">
+          채팅방
+        </CustomFont>
+      </CustomColumn>
+
+      <CustomColumn gap="0.2rem" alignItems="center" justifyContent="center">
+        <More />
+        <CustomFont color="black" font="0.7rem">
+          더보기
+        </CustomFont>
+      </CustomColumn>
+    </NaviContainer>
+  );
 };
 
 export default Footer;
