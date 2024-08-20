@@ -29,7 +29,8 @@ const Layout = () => {
             location.pathname === '/dolbomsignuppage' || location.pathname === '/seconddolbomsignuppage' ||
             location.pathname === '/firstdolbomsignuppage' || location.pathname === '/certificatedolbomsignuppage' ||
             location.pathname === '/arbeitdolbomsignuppage' || location.pathname === '/dolbomokpage' ||
-            location.pathname === '/detaildolbomokpage' || location.pathname === '/dolbomeduvideopage') {
+            location.pathname === '/detaildolbomokpage' || location.pathname === '/dolbomeduvideopage' ||
+            location.pathname === '/eduvideodetailpage') {
             return <NewHeader />;
         }
         return <Header />;
