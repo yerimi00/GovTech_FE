@@ -24,13 +24,25 @@ const NaviContainer = styled.footer`
 const Footer = () => {
   const navigate = useNavigate();
 
+  const handleMainClick = () => {
+    navigate("/");
+  };
+
   const handleFindClick = () => {
     navigate("/want");
   };
 
+  const handleChatClick = () => {
+    navigate("/chatting");
+  };
+
+  const handleMoreClick = () => {
+    navigate("/more");
+  };
+
   return (
     <NaviContainer>
-      <CustomColumn gap="0.2rem" alignItems="center" justifyContent="center">
+      <CustomColumn gap="0.2rem" alignItems="center" justifyContent="center" onClick={handleMainClick}>
         <MainPageIcon />
         <CustomFont color="black" font="0.7rem">
           홈
@@ -50,14 +62,14 @@ const Footer = () => {
         </CustomFont>
       </CustomColumn>
 
-      <CustomColumn gap="0.2rem" alignItems="center" justifyContent="center">
+      <CustomColumn gap="0.2rem" alignItems="center" justifyContent="center" onClick={handleChatClick}>
         <ChatIcon />
         <CustomFont color="black" font="0.7rem">
           채팅방
         </CustomFont>
       </CustomColumn>
 
-      <CustomColumn gap="0.2rem" alignItems="center" justifyContent="center">
+      <CustomColumn gap="0.2rem" alignItems="center" justifyContent="center" onClick={handleMoreClick}>
         <More />
         <CustomFont color="black" font="0.7rem">
           더보기
