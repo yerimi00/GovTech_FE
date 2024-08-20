@@ -4,6 +4,7 @@ const CustomFont = styled.a`
   font-size: ${props => props.font || '0.8rem'};
   color: ${props => props.color || '#F0F0F0'};
   font-weight: ${props => props.fontWeight || 'normal'};
+  font-family: ${(props) => props.fontFamily || "Cafe24SsurroundAir"};
 `;
 
 export default CustomFont;

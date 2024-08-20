@@ -84,10 +84,10 @@ const HomePage = () => {
                 </CustomRow>
 
                 <CustomColumn width='100%' alignItems='flex-start' justifyContent='center' gap='0.1rem'>
-                  <CustomFont color='black' font='0.8rem' fontWeight='bold'>
+                  <CustomFont color='black' font='0.7rem' fontWeight='bold'>
                     집중 케어를 원하신다면
                   </CustomFont>
-                  <CustomFont color='black' font='0.8rem' fontWeight='bold'>
+                  <CustomFont color='black' font='0.7rem' fontWeight='bold'>
                     선택해주세요.
                   </CustomFont>
                 </CustomColumn>
@@ -111,10 +111,10 @@ const HomePage = () => {
                 </CustomRow>
 
                 <CustomColumn width='100%' alignItems='flex-start' justifyContent='center' gap='0.1rem'>
-                  <CustomFont color='black' font='0.8rem' fontWeight='bold'>
+                  <CustomFont color='black' font='0.7rem' fontWeight='bold'>
                     저렴한 비용을 원하신다면
                   </CustomFont>
-                  <CustomFont color='black' font='0.8rem' fontWeight='bold'>
+                  <CustomFont color='black' font='0.7rem' fontWeight='bold'>
                     선택해주세요.
                   </CustomFont>
                 </CustomColumn>
