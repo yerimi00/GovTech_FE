@@ -31,6 +31,8 @@ import NoticePage from "./pages/subpage/adminpage/all_notice/Notice";
 import DetailNoticePage from "./pages/subpage/adminpage/all_notice/DetailNotice";
 import ChatPage from "./pages/chatpage/chatpage";
 import MorePage from "./pages/morepage/morepage";
+import WantPageN from "./pages/wantpage/wantpage_n";
+import MainWantPage from "./pages/wantpage/mainwantpage";
 
 const AppRouter = () => {
   return (
@@ -65,7 +67,9 @@ const AppRouter = () => {
               path="/certificatedolbomsignuppage"
               element={<CertificateDolbomSignupPage />}
             />
+            <Route path="/mainwantpage" element={<MainWantPage />} />
             <Route path="/want" element={<WantPage />} />
+            <Route path="/wantpagen" element={<WantPageN />} />
             <Route path="/carewrite" element={<CareWrite />} />
             <Route path="/adminpage" element={<AdminPage />} />
             <Route path="/dolbomokpage" element={<DolbomOkPage />} />

@@ -47,7 +47,7 @@ const Footer = () => {
   };
 
   const handleFindClick = () => {
-    navigate("/want");
+    navigate("/mainwantpage");
   };
 
   const handleChatClick = () => {
@@ -78,7 +78,7 @@ const Footer = () => {
         alignItems="center"
         justifyContent="center"
         onClick={handleFindClick}
-        isActive={location.pathname === "/want"}
+        isActive={location.pathname === "/mainwantpage"}
       >
         <FindIcon />
         <CustomFont color="black" font="0.7rem">

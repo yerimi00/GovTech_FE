@@ -4,6 +4,8 @@ import CustomRow from '../../components/container/CustomRow';
 import CustomFont from '../../components/container/CustomFont';
 import CustomColumn from '../../components/container/CustomColumn';
 import StyledImg from '../../components/container/StyledImg';
+import { useNavigate } from 'react-router-dom';
+
 import { FaArrowRight } from 'react-icons/fa';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { BsPeopleFill } from 'react-icons/bs';
@@ -55,6 +57,17 @@ background-color: #E5DDC9;
 `;
 
 const HomePage = () => {
+
+  const navigate = useNavigate();
+
+  const goDolbomWant = () => {
+    navigate('/want');
+  };
+
+  const goDolbomWantN = () => {
+    navigate('/wantpagen');
+  };
+
   return (
     <ContainerCenter>
       <PageContainer>
@@ -70,7 +83,7 @@ const HomePage = () => {
             <MainDiv backgroundColor="white" width='50%' height='30vh' borderRadius="35px">
               <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='1rem'>
                 <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
-                  <Button>
+                  <Button onClick={goDolbomWant}>
                     <FaArrowRight style={{ color: 'white' }} />
                   </Button>
                 </CustomRow>
@@ -97,7 +110,7 @@ const HomePage = () => {
             <MainDiv backgroundColor="white" width='50%' height='30vh' borderRadius="35px">
               <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='1rem'>
                 <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
-                  <Button>
+                  <Button onClick={goDolbomWantN}>
                     <FaArrowRight style={{ color: 'white' }} />
                   </Button>
                 </CustomRow>

@@ -47,7 +47,7 @@ const AdminFooter = () => {
     };
 
     const handleFindClick = () => {
-        navigate("/want");
+        navigate("/mainwantpage");
     };
 
     const handleMoreClick = () => {

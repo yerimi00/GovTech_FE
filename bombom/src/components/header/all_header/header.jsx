@@ -70,7 +70,7 @@ export default function Header() {
         navigate(-1);
     };
 
-    const isSpecialRoute = ['/', '/want', '/chatting', '/more'].includes(location.pathname);
+    const isSpecialRoute = ['/', '/mainwantpage', '/chatting', '/more'].includes(location.pathname);
 
     return (
         <HeaderContainer>
