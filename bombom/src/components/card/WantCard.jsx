@@ -15,7 +15,7 @@ const WantCard = ({ title, location, caregiverInfo, hourlyRate, onClick }) => {
 export default WantCard;
 
 const CardContainer = styled.div`
-  background-color: #f9f9f9;
+  background-color: #eae4d4;
   border-radius: 8px;
   padding: 1rem;
   margin: 0.5rem 0;

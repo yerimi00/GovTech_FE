@@ -6,6 +6,8 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import theme from "./theme";
 import Layout from "./components/Layout";
 import HomePage from "./pages/mainpage/mainpage";
 import ProtectorLoginPage from "./components/header/all_login/Protectorlogin";
@@ -20,37 +22,42 @@ import WantPage from "./pages/wantpage/wantpage";
 
 const AppRouter = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/firstloginpage" element={<FirstLoginPage />} />
-          <Route path="/protectorloginpage" element={<ProtectorLoginPage />} />
-          <Route path="/dolbomloginpage" element={<DolbomLoginPage />} />
-          <Route
-            path="/protectorsignuppage"
-            element={<ProtectorSignupPage />}
-          />
-          <Route
-            path="/firstdolbomsignuppage"
-            element={<FirstDolbomSignupPage />}
-          />
-          <Route
-            path="/seconddolbomsignuppage"
-            element={<SecondDolbomSignupPage />}
-          />
-          <Route
-            path="/arbeitdolbomsignuppage"
-            element={<ArbeitDolbomSignupPage />}
-          />
-          <Route
-            path="/certificatedolbomsignuppage"
-            element={<CertificateDolbomSignupPage />}
-          />
-          <Route path="/want" element={<WantPage />} />
-        </Route>
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/firstloginpage" element={<FirstLoginPage />} />
+            <Route
+              path="/protectorloginpage"
+              element={<ProtectorLoginPage />}
+            />
+            <Route path="/dolbomloginpage" element={<DolbomLoginPage />} />
+            <Route
+              path="/protectorsignuppage"
+              element={<ProtectorSignupPage />}
+            />
+            <Route
+              path="/firstdolbomsignuppage"
+              element={<FirstDolbomSignupPage />}
+            />
+            <Route
+              path="/seconddolbomsignuppage"
+              element={<SecondDolbomSignupPage />}
+            />
+            <Route
+              path="/arbeitdolbomsignuppage"
+              element={<ArbeitDolbomSignupPage />}
+            />
+            <Route
+              path="/certificatedolbomsignuppage"
+              element={<CertificateDolbomSignupPage />}
+            />
+            <Route path="/want" element={<WantPage />} />
+          </Route>
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 };
 
