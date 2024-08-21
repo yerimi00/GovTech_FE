@@ -6,16 +6,18 @@ import WantCategory from "../../components/container/WantCategory";
 import WantCard from "../../components/card/wantcard";
 import { ReturnBtn } from "../../components/icons/wantbolbom";
 import CardContainer from "../../components/container/CardContainer";
+import Modal from "../../components/modal/Modal";
 
 const ChatPage = () => {
   const [inputValue, setInputValue] = useState("");
   const [chatData, setChatData] = useState([
-    { chat: "안녕하세여", isMe: false },
-    { chat: "안녕하세여", isMe: true },
-    { chat: "안녕하세여", isMe: false },
-    { chat: "안녕하세여", isMe: true },
+    { chat: "안녕하세요", isMe: false },
+    { chat: "안녕하세요", isMe: true },
+    // 채팅 데이터 추가...
   ]);
   const [showOptions, setShowOptions] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [paymentRequested, setPaymentRequested] = useState(false);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -36,6 +38,19 @@ const ChatPage = () => {
     navigate("/want");
   };
 
+  const handlePaymentRequest = () => {
+    setShowModal(false);
+    setPaymentRequested(true);
+    setChatData([
+      ...chatData,
+      { chat: "결제를 요청합니다", isMe: true, showPaymentButton: true },
+    ]);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   const cardData = {
     title: "돌봄 원해요01",
     location: "경기도 성남시",
@@ -45,7 +60,7 @@ const ChatPage = () => {
 
   return (
     <ChatPageContainer>
-      <PageContainer>
+      <PageContainer height="50vh">
         <CustomColumn
           width="90%"
           alignItems="center"
@@ -53,24 +68,28 @@ const ChatPage = () => {
           gap="1rem"
         >
           <MainDiv backgroundColor="white" borderRadius="35px">
-            <CustomRow
-              width="90%"
-              justifyContent="flex-start"
-              position="relative"
-            >
-              <ReturnIconWrapper
-                width="40%"
-                borderRadius="20px"
-                backgroundColor="#E2DFD6"
-                onClick={handleFindClick}
+            <HeaderContainer>
+              <CustomRow
+                width="90%"
+                justifyContent="flex-start"
+                position="relative"
               >
-                <ReturnBtn />
-              </ReturnIconWrapper>
-              <WantCategory width="40%" borderRadius="20px" zIndex="2">
-                제목 돌봄 원해요01
-              </WantCategory>
-            </CustomRow>
-            <MainDiv backgroundColor="white">
+                <ReturnIconWrapper
+                  width="40%"
+                  borderRadius="20px"
+                  backgroundColor="#E2DFD6"
+                  onClick={handleFindClick}
+                  zIndex="4"
+                >
+                  <ReturnBtn />
+                </ReturnIconWrapper>
+                <WantCategory width="40%" borderRadius="20px" zIndex="5">
+                  제목 돌봄 원해요01
+                </WantCategory>
+              </CustomRow>
+            </HeaderContainer>
+
+            <ContentContainer>
               <WantCard
                 title={cardData.title}
                 location={cardData.location}
@@ -96,16 +115,18 @@ const ChatPage = () => {
                 {chatData.map((message, index) => (
                   <ChatMessage key={index} isMe={message.isMe}>
                     {message.chat}
+                    {message.showPaymentButton && (
+                      <PaymentButton>결제하기</PaymentButton>
+                    )}
                   </ChatMessage>
                 ))}
               </ChatMessages>
-            </MainDiv>
+            </ContentContainer>
           </MainDiv>
         </CustomColumn>
       </PageContainer>
 
       {/* 채팅 작성부분 */}
-      {/* <MainDiv> */}
       <ChatInputContainer showOptions={showOptions}>
         <PlusButton onClick={handlePlusButtonClick}>+</PlusButton>
         <ChatInput
@@ -119,15 +140,24 @@ const ChatPage = () => {
 
       {showOptions && (
         <OptionsContainer>
-          <OptionButton onClick={() => alert("결제 요청하기 클릭됨")}>
-            결제 요청하기
-          </OptionButton>
+          {!paymentRequested && (
+            <OptionButton onClick={() => setShowModal(true)}>
+              결제 요청하기
+            </OptionButton>
+          )}
           <OptionButton onClick={() => alert("리뷰 작성하기 클릭됨")}>
             리뷰 작성하기
           </OptionButton>
         </OptionsContainer>
       )}
-      {/* </MainDiv> */}
+
+      {showModal && (
+        <Modal show={showModal} onClose={handleCloseModal} cardData={cardData}>
+          <OptionButton onClick={handlePaymentRequest}>
+            결제 요청하기
+          </OptionButton>
+        </Modal>
+      )}
     </ChatPageContainer>
   );
 };
@@ -151,28 +181,44 @@ const PageContainer = styled(ChatPageContainer)`
   position: relative;
   background: linear-gradient(to bottom, #e5ddc9, white);
   gap: 2rem;
+  padding-top: 10vh;
 `;
 
 const MainDiv = styled.div`
   background-color: ${(props) => props.backgroundColor || "#AFAFAF"};
   border: none;
   width: ${(props) => props.width || "100%"};
-  height: ${(props) => props.height || "auto"};
   border-radius: ${(props) => props.borderRadius || "auto"};
-  min-height: 6rem;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-family: ${(props) => props.fontFamily || "Noto Sans KR"};
   position: relative;
 `;
 
+const HeaderContainer = styled.div`
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 10;
+  padding-bottom: 1rem;
+`;
+
+const ContentContainer = styled.div`
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 60vh; /* MainDiv 내부에서 스크롤 가능하게 높이 설정 */
+`;
+
 const ReturnIconWrapper = styled.div`
   position: absolute;
-  top: -20px;
-  left: 0px;
+  top: -30px;
+  left: -30px;
   padding: 13px 50px 13px 10px;
   background-color: ${(props) =>
     props.backgroundColor || props.theme.colors.lightGrayHover};
@@ -185,11 +231,13 @@ const ReturnIconWrapper = styled.div`
 
 const ChatMessages = styled.div`
   flex: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  overflow-y: auto;
-  width: 100%;
+  overflow-y: auto; /* 채팅이 많아지면 스크롤이 가능하도록 설정 */
+  padding: 1rem; /* padding 추가로 가독성 개선 */
+  box-sizing: border-box; /* 패딩이 포함된 크기 계산 */
 `;
 
 const ChatMessage = styled.div`
@@ -209,9 +257,26 @@ const ChatInputContainer = styled.div`
   background-color: #ffffff;
   border-top: 1px solid #dddddd;
   position: fixed;
-  bottom: ${(props) => (props.showOptions ? "40vh" : "11vh")};
+  bottom: ${(props) => (props.showOptions ? "30vh" : "11vh")};
   left: 0;
   transition: bottom 0.3s ease;
+  z-index: 2;
+`;
+
+const OptionsContainer = styled.div`
+  position: fixed;
+  bottom: 10vh;
+  left: 0;
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  border-top: 1px solid #dddddd;
+  transition: bottom 0.3s ease;
+  z-index: 1;
 `;
 
 const ChatInput = styled.input`
@@ -244,20 +309,6 @@ const SendButton = styled.button`
   font-size: 16px;
 `;
 
-const OptionsContainer = styled.div`
-  position: fixed;
-  bottom: 10vh;
-  left: 0;
-  width: 100%;
-  height: 30vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px;
-  background-color: white;
-  border-top: 1px solid #dddddd;
-`;
-
 const OptionButton = styled.button`
   padding: 10px 20px;
   background-color: #e5ddc9;
@@ -269,4 +320,15 @@ const OptionButton = styled.button`
   cursor: pointer;
   font-size: 16px;
   height: 135px;
+`;
+
+const PaymentButton = styled.button`
+  padding: 5px 10px;
+  background-color: #c6c0af;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 5px;
 `;
