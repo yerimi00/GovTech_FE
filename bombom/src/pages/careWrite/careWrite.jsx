@@ -54,7 +54,7 @@ const CareWrite = () => {
               </CustomColumn>
               <CustomColumn gap="0.1" width="80%">
                 <InputTitle>피돌봄자 정보/구인 글</InputTitle>
-                <CardContainer>
+                <CardContainer width="100%">
                   <InputTextArea placeholder="피 돌봄자의 정보와 구인글을 작성해주세요.(나이, 특징, 병력, 기타 등등)" />
                 </CardContainer>
               </CustomColumn>
@@ -142,6 +142,6 @@ const InputTextArea = styled.textarea`
   outline: none;
   color: #3e3537;
   resize: vertical;
-  min-height: 150px;
+  min-height: 110px;
   background-color: ${({ theme }) => theme.colors.lightGray};
 `;

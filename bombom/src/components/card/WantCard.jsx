@@ -4,7 +4,7 @@ import CardContainer from "../container/CardContainer";
 
 const WantCard = ({ title, location, caregiverInfo, hourlyRate, onClick }) => {
   return (
-    <CardContainer onClick={onClick}>
+    <CardContainer onClick={onClick} backgroundColor="white">
       <Title>{title}</Title>
       <Location>{location}</Location>
       <CaregiverInfo>{caregiverInfo}</CaregiverInfo>
