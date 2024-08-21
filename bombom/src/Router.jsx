@@ -35,6 +35,7 @@ import WantPageN from "./pages/wantpage/wantpage_n";
 import MainWantPage from "./pages/wantpage/mainwantpage";
 import MyPage from "./components/header/mypage/mypage";
 import MainEditMyInfoPage from "./components/header/mypage/all_editmyinfo/MainEditMyInfo";
+import EditPasswordPage from "./components/header/mypage/all_editmyinfo/editpassword";
 
 const AppRouter = () => {
   return (
@@ -86,6 +87,7 @@ const AppRouter = () => {
             <Route path="/morepage" element={<MorePage />} />
             <Route path="/mypage" element={<MyPage />} />
             <Route path="/maineditmyinfopage" element={<MainEditMyInfoPage />} />
+            <Route path="/editpasswordpage" element={<EditPasswordPage />} />
           </Route>
         </Routes>
       </Router>
