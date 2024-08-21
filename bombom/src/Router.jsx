@@ -33,6 +33,7 @@ import ChatPage from "./pages/chatpage/chatpage";
 import MorePage from "./pages/morepage/morepage";
 import WantPageN from "./pages/wantpage/wantpage_n";
 import MainWantPage from "./pages/wantpage/mainwantpage";
+import MyPage from "./components/header/mypage/mypage";
 
 const AppRouter = () => {
   return (
@@ -82,6 +83,7 @@ const AppRouter = () => {
             <Route path="/detailnoticepage" element={<DetailNoticePage />} />
             <Route path="/chatpage" element={<ChatPage />} />
             <Route path="/morepage" element={<MorePage />} />
+            <Route path="/mypage" element={<MyPage />} />
           </Route>
         </Routes>
       </Router>
