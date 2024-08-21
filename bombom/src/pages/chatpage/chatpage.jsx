@@ -15,7 +15,7 @@ const ChatPage = () => {
     { chat: "안녕하세여", isMe: false },
     { chat: "안녕하세여", isMe: true },
   ]);
-  const [showOptions, setShowOptions] = useState(false); // 버튼 표시 여부 상태
+  const [showOptions, setShowOptions] = useState(false);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -29,7 +29,7 @@ const ChatPage = () => {
   };
 
   const handlePlusButtonClick = () => {
-    setShowOptions(!showOptions); // 버튼 표시/숨기기 토글
+    setShowOptions(!showOptions);
   };
 
   const handleFindClick = () => {
@@ -104,7 +104,9 @@ const ChatPage = () => {
         </CustomColumn>
       </PageContainer>
 
-      <ChatInputContainer>
+      {/* 채팅 작성부분 */}
+      {/* <MainDiv> */}
+      <ChatInputContainer showOptions={showOptions}>
         <PlusButton onClick={handlePlusButtonClick}>+</PlusButton>
         <ChatInput
           type="text"
@@ -115,7 +117,7 @@ const ChatPage = () => {
         <SendButton onClick={handleSendClick}>전송</SendButton>
       </ChatInputContainer>
 
-      {showOptions && ( // 옵션 버튼을 표시할 조건
+      {showOptions && (
         <OptionsContainer>
           <OptionButton onClick={() => alert("결제 요청하기 클릭됨")}>
             결제 요청하기
@@ -125,6 +127,7 @@ const ChatPage = () => {
           </OptionButton>
         </OptionsContainer>
       )}
+      {/* </MainDiv> */}
     </ChatPageContainer>
   );
 };
@@ -137,7 +140,7 @@ const ChatPageContainer = styled.div`
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  padding-bottom: 10vh; /* Footer 높이를 고려하여 padding 추가 */
+  padding-bottom: 10vh;
 `;
 
 const PageContainer = styled(ChatPageContainer)`
@@ -206,8 +209,9 @@ const ChatInputContainer = styled.div`
   background-color: #ffffff;
   border-top: 1px solid #dddddd;
   position: fixed;
-  bottom: 10vh;
+  bottom: ${(props) => (props.showOptions ? "40vh" : "11vh")};
   left: 0;
+  transition: bottom 0.3s ease;
 `;
 
 const ChatInput = styled.input`
@@ -223,7 +227,8 @@ const PlusButton = styled.button`
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  background-color: #dddddd;
+  background-color: #c6c0af;
+  color: #ffffff;
   border: none;
   font-size: 20px;
   cursor: pointer;
@@ -231,8 +236,8 @@ const PlusButton = styled.button`
 
 const SendButton = styled.button`
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #ffffff;
+  background-color: #c6c0af;
+  color: ${({ theme }) => theme.colors.mainDark};
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -241,11 +246,13 @@ const SendButton = styled.button`
 
 const OptionsContainer = styled.div`
   position: fixed;
-  bottom: 20vh; /* ChatInputContainer 위에 나타나도록 위치 조정 */
+  bottom: 10vh;
   left: 0;
   width: 100%;
+  height: 30vh;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding: 10px;
   background-color: white;
   border-top: 1px solid #dddddd;
@@ -253,10 +260,13 @@ const OptionsContainer = styled.div`
 
 const OptionButton = styled.button`
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  background-color: #e5ddc9;
+  color: ${({ theme }) => theme.colors.mainDark};
+  font-family: "Cafe24SsurroundAir";
+  font-weight: bold;
   border: none;
-  border-radius: 20px;
+  border-radius: 35px;
   cursor: pointer;
   font-size: 16px;
+  height: 135px;
 `;
