@@ -41,6 +41,7 @@ import EditSentencePage from "./components/header/mypage/all_editmyinfo/editsent
 import CertificateCardPage from "./components/header/mypage/all_certificatecard/certificatecardpage";
 import CardCameraPage from "./components/header/mypage/all_certificatecard/cardcamerapage";
 import MainMyNoticePage from "./components/header/mypage/all_detailmynotice/mainmynoticepage";
+import DetailMyNoticePage from "./components/header/mypage/all_detailmynotice/detailmynoticepage";
 
 const AppRouter = () => {
   return (
@@ -98,6 +99,7 @@ const AppRouter = () => {
             <Route path="/certificatecardpage" element={<CertificateCardPage />} />
             <Route path="/cardcamerapage" element={<CardCameraPage />} />
             <Route path="/mainmynoticepage" element={<MainMyNoticePage />} />
+            <Route path="/detailmynoticepage" element={<DetailMyNoticePage />} />
           </Route>
         </Routes>
       </Router>

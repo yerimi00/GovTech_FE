@@ -24,23 +24,6 @@ const PageContainer = styled(ContainerCenter)`
   padding-top: 30vh;
 `;
 
-const MenuButton = styled.button`
-  background-color: ${({ isActive }) => (isActive ? '#D9BD78' : '#FBDA8B')};
-  border: none;
-  border-radius: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  color: black;
-  padding: 0.5rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #D9BD78;
-  }
-`;
-
 const MainButton = styled.button`
   background-color: #FCECC4;
   border: none;
@@ -50,16 +33,6 @@ const MainButton = styled.button`
   justify-content: center;
   width: 100%;
   color: black;
-  padding: 0.5rem;
-`;
-
-const MenuContainer = styled.div`
-  background-color: #FBDA8B;
-  border-radius: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
   padding: 0.5rem;
 `;
 
@@ -130,12 +103,12 @@ const MainMyNoticePage = () => {
 
                             <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='1rem'>
                                 <MainButton onClick={goMyNoticeDetail}>
-                                    <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='1rem'>
+                                    <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='0.5rem'>
                                         <CustomRow width='90%' alignItems='center' justifyContent='flex-start'>
                                             <CustomFont color='#6E5F3B' font='1.5rem' fontWeight='bold'>민원 제목</CustomFont>
                                         </CustomRow>
                                         <CustomRow width='90%' alignItems='center' justifyContent='flex-end'>
-                                            <CustomFont color='#6E5F3B' font='0.8rem'>
+                                            <CustomFont color='#6E5F3B' font='1rem'>
                                                 00:00:00
                                             </CustomFont>
                                         </CustomRow>
@@ -146,7 +119,7 @@ const MainMyNoticePage = () => {
                                         </CustomRow>
                                         <CustomRow width='90%' alignItems='center' justifyContent='flex-end'>
                                             <Detail>
-                                                <CustomFont color='black' font='0.8rem'>
+                                                <CustomFont color='white' font='0.8rem' fontWeight='bold'>
                                                     답변대기중
                                                 </CustomFont>
                                             </Detail>
