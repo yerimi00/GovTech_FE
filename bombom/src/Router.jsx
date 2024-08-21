@@ -38,6 +38,7 @@ import MainEditMyInfoPage from "./components/header/mypage/all_editmyinfo/MainEd
 import EditPasswordPage from "./components/header/mypage/all_editmyinfo/editpassword";
 import EditKeywordPage from "./components/header/mypage/all_editmyinfo/editkeyword";
 import EditSentencePage from "./components/header/mypage/all_editmyinfo/editsentence";
+import CertificateCardPage from "./components/header/mypage/all_certificatecard/certificatecardpage";
 
 const AppRouter = () => {
   return (
@@ -92,6 +93,7 @@ const AppRouter = () => {
             <Route path="/editpasswordpage" element={<EditPasswordPage />} />
             <Route path="/editkeywordpage" element={<EditKeywordPage />} />
             <Route path="/editsentencepage" element={<EditSentencePage />} />
+            <Route path="/certificatecardpage" element={<CertificateCardPage />} />
           </Route>
         </Routes>
       </Router>
