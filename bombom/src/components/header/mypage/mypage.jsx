@@ -78,7 +78,7 @@ const MyPage = () => {
     }
 
     const DetailMyNotice = () => {
-        navigate('/detailmynotice'); // 나의 민원 확인하기
+        navigate('/mainmynoticepage'); // 나의 민원 확인하기
     }
 
     return (
