@@ -12,6 +12,7 @@ const WantCategory = styled.div`
   font-size: 30px;
   font-weight: bold;
   font-family: "Cafe24SsurroundAir", sans-serif;
+  // width: 100%;
 `;
 
 export default WantCategory;
