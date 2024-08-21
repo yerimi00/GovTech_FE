@@ -35,7 +35,7 @@ const Layout = () => {
             location.pathname === '/detailnoticepage' || location.pathname === '/mypage' ||
             location.pathname === '/maineditmyinfopage' || location.pathname === '/editpasswordpage' ||
             location.pathname === '/editkeywordpage' || location.pathname === '/editsentencepage' ||
-            location.pathname === '/certificatecardpage') {
+            location.pathname === '/certificatecardpage' || location.pathname === '/cardcamerapage') {
             return <NewHeader />;
         }
         return <Header />;

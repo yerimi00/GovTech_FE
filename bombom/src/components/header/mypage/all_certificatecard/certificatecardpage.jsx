@@ -158,7 +158,7 @@ const CertificateCardPage = () => {
 
                             </CustomColumn>
 
-                            <BigButton onVlick={goAdd}>
+                            <BigButton onClick={goAdd}>
                                 <CustomFont color='#6E5F3B' font='1.2rem'>행복카드 인증 후 추가하기</CustomFont>
                             </BigButton>
                         </CustomColumn>
