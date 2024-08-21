@@ -31,6 +31,16 @@ import NoticePage from "./pages/subpage/adminpage/all_notice/Notice";
 import DetailNoticePage from "./pages/subpage/adminpage/all_notice/DetailNotice";
 import ChatPage from "./pages/chatpage/chatpage";
 import MorePage from "./pages/morepage/morepage";
+import WantPageN from "./pages/wantpage/wantpage_n";
+import MainWantPage from "./pages/wantpage/mainwantpage";
+import MyPage from "./components/header/mypage/mypage";
+import MainEditMyInfoPage from "./components/header/mypage/all_editmyinfo/MainEditMyInfo";
+import EditPasswordPage from "./components/header/mypage/all_editmyinfo/editpassword";
+import EditKeywordPage from "./components/header/mypage/all_editmyinfo/editkeyword";
+import EditSentencePage from "./components/header/mypage/all_editmyinfo/editsentence";
+import CertificateCardPage from "./components/header/mypage/all_certificatecard/certificatecardpage";
+import CardCameraPage from "./components/header/mypage/all_certificatecard/cardcamerapage";
+import MainMyNoticePage from "./components/header/mypage/all_detailmynotice/mainmynoticepage";
 
 const AppRouter = () => {
   return (
@@ -65,7 +75,9 @@ const AppRouter = () => {
               path="/certificatedolbomsignuppage"
               element={<CertificateDolbomSignupPage />}
             />
+            <Route path="/mainwantpage" element={<MainWantPage />} />
             <Route path="/want" element={<WantPage />} />
+            <Route path="/wantpagen" element={<WantPageN />} />
             <Route path="/carewrite" element={<CareWrite />} />
             <Route path="/adminpage" element={<AdminPage />} />
             <Route path="/dolbomokpage" element={<DolbomOkPage />} />
@@ -78,6 +90,14 @@ const AppRouter = () => {
             <Route path="/detailnoticepage" element={<DetailNoticePage />} />
             <Route path="/chatpage" element={<ChatPage />} />
             <Route path="/morepage" element={<MorePage />} />
+            <Route path="/mypage" element={<MyPage />} />
+            <Route path="/maineditmyinfopage" element={<MainEditMyInfoPage />} />
+            <Route path="/editpasswordpage" element={<EditPasswordPage />} />
+            <Route path="/editkeywordpage" element={<EditKeywordPage />} />
+            <Route path="/editsentencepage" element={<EditSentencePage />} />
+            <Route path="/certificatecardpage" element={<CertificateCardPage />} />
+            <Route path="/cardcamerapage" element={<CardCameraPage />} />
+            <Route path="/mainmynoticepage" element={<MainMyNoticePage />} />
           </Route>
         </Routes>
       </Router>

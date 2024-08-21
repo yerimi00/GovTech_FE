@@ -21,18 +21,23 @@ const PageContainer = styled(ContainerCenter)`
   justify-content: center;
   gap: 4rem;
   position: relative;
-  background-color: white;
+  background: linear-gradient(to bottom, #DAF0B6 0%, #DAF0B6 10%, white 90%, white 100%);
 `;
 
 const Button = styled.button`
-width: ${props => props.width || 'auto'};
-  background-color: ${(props) => (props.disabled ? '#D9D9D9' : '#AFAFAF')};
+  width: ${props => props.width || 'auto'};
+  border-radius: 5rem;
+  background-color: ${(props) => (props.disabled ? '#BDD398' : '#5E694D')};
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 1rem;
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   border: none;
+
+  & > span {
+    color: ${(props) => (props.disabled ? '#6E5F3B' : 'white')};
+  }
 `;
 
 const Button2 = styled.button`
@@ -51,13 +56,13 @@ const IDInput = styled.input.attrs({
 })`
   width: 100%;
   height: 3rem;
-  border: 1px solid black;
-  border-radius: 0.5rem;
+  border: 2px solid #DAF0B6;
+  border-radius: 5rem;
   padding: 0.5rem;
   box-sizing: border-box;
 
   &::placeholder {
-    color: #D9D9D9;
+    color: #5E694D;
   }
 `;
 
@@ -67,13 +72,13 @@ const PWInput = styled.input.attrs({
 })`
   width: 100%;
   height: 3rem;
-  border: 1px solid black;
-  border-radius: 0.5rem;
+  border: 2px solid #DAF0B6;
+  border-radius: 5rem;
   padding: 0.5rem;
   box-sizing: border-box;
 
   &::placeholder {
-    color: #D9D9D9;
+    color: #5E694D;
   }
 `;
 
@@ -123,31 +128,42 @@ const DolbomLoginPage = () => {
     return (
         <ContainerCenter>
             <PageContainer>
-                <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='2rem'>
-                    <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
+                <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='5rem'>
+                    <CustomColumn width='100%' alignItems='flex-start' justifyContent='center'>
                         <StyledImg src={'ex_nav_icon.png'} width='2rem' height='2rem' />
-                        <CustomFont color='black' fontWeight='bold' font='1rem'>돌보미 로그인하기</CustomFont>
-                    </CustomRow>
-
-                    <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='1rem'>
-                        <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='0.5rem'>
-                            <IDInput value={id} onChange={(e) => setId(e.target.value)} />
-                            <PWInput value={pw} onChange={(e) => setPw(e.target.value)} />
-                        </CustomColumn>
-
-                        <Button onClick={doneLogin} disabled={isButtonDisabled} width='100%'>
-                            <CustomFont color='white' fontWeight='bold' font='1rem'>돌보미 로그인하기</CustomFont>
-                        </Button>
+                        <CustomFont color='#6E5F3B' fontWeight='bold' font='1.5rem'>돌보미 로그인 화면입니다.</CustomFont>
                     </CustomColumn>
 
-                    <CustomRow width='100%' alignItems='center' justifyContent='space-between' gap='1rem'>
-                        <Button2>
-                            <CustomFont color='#383838' font='0.8rem' fontWeight='bold'>
+                    <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='1rem'>
+                        <CustomFont color='#6E5F3B' font='1rem'>카카오로 로그인하기</CustomFont>
+                        <StyledImg src={'kakao_banner.png'} width='90%' />
+                    </CustomColumn>
+
+                    <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='0.5rem'>
+                        <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='1rem'>
+                            <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='0.5rem'>
+                                <IDInput value={id} onChange={(e) => setId(e.target.value)} />
+                                <PWInput value={pw} onChange={(e) => setPw(e.target.value)} />
+                            </CustomColumn>
+
+                            <Button onClick={doneLogin} disabled={isButtonDisabled} width='100%'>
+                                <CustomFont color={isButtonDisabled ? '#6E5F3B' : 'white'} fontWeight='bold' font='1rem'>돌보미 로그인하기</CustomFont>
+                            </Button>
+                        </CustomColumn>
+
+                        <CustomRow width='100%' alignItems='center' justifyContent='space-around' gap='1rem'>
+
+                            <CustomFont color='#5E694D' font='0.6rem' fontWeight='bold'>
                                 아이디찾기/비밀번호찾기
                             </CustomFont>
-                        </Button2>
-                        <Button onClick={goSignup}>돌보미로 회원가입하기</Button>
-                    </CustomRow>
+
+                            <Button2 onClick={goSignup}>
+                                <CustomFont color='#5E694D' font='0.6rem'>
+                                    돌보미로 회원가입하기
+                                </CustomFont>
+                            </Button2>
+                        </CustomRow>
+                    </CustomColumn>
 
                     {showModal && (
                         <ModalBackground>

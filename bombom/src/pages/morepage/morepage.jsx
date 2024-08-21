@@ -17,19 +17,21 @@ const PageContainer = styled(ContainerCenter)`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: flex-start;
+  padding-top: 10vh;
   position: relative;
-  background-color: white;
+  background: linear-gradient(to bottom, #e5ddc9, white);
   gap: 2rem;
 `;
 
 const MorePage = () => {
-    return (
-        <ContainerCenter>
-            <PageContainer>
-                더보기 화면
-            </PageContainer>
-        </ContainerCenter>
-    );
+  return (
+    <ContainerCenter>
+      <PageContainer>
+        더보기 화면
+      </PageContainer>
+    </ContainerCenter>
+  );
 };
 
 export default MorePage;

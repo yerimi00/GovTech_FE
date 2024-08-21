@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';  // useLocation 추가
 import CustomRow from '../../container/CustomRow';
 import CustomFont from '../../container/CustomFont';
 import StyledImg from '../../container/StyledImg';
@@ -16,12 +16,12 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: #E5DDC9;
+  background-color: ${(props) => props.bgColor || '#E5DDC9'};
   z-index: 999;
 `;
 
 const Button = styled.button`
- border: none;
+  border: none;
   background-color: transparent;
   width: 3rem;
   display: flex;
@@ -32,13 +32,32 @@ const Button = styled.button`
 
 export default function NewHeader() {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const getBackgroundColor = () => {
+        const { pathname, search } = location;
+
+        if (pathname === '/protectorloginpage' || pathname === '/protectorsignuppage' || pathname === '/dolbomokpage' || pathname === '/mypage'
+            || pathname === '/detaildolbomokpage' || pathname === '/dolbomeduvideopage' || pathname === '/eduvideodetailpage' ||
+            pathname === '/maineditmyinfopage' || pathname === '/editpasswordpage' || pathname === '/editkeywordpage' || pathname === '/editsentencepage' ||
+            pathname === '/certificatecardpage' || pathname === '/cardcamerapage' || pathname === '/mainmynoticepage') {
+            return '#FBDA8B';
+        } else if (pathname === '/dolbomloginpage' || pathname === '/firstdolbomsignuppage' || pathname === '/certificatedolbomsignuppage' ||
+            pathname === '/arbeitdolbomsignuppage' || pathname === '/lowprotectorokpage' || pathname === '/detaillowprotectorpage') {
+            return '#D8F0B2';
+        } else if (pathname === '/seconddolbomsignuppage' && search === '?type=cert' ||
+            pathname === '/seconddolbomsignuppage' && search === '?type=arbeit') {
+            return '#D8F0B2';
+        }
+        return '#E5DDC9';
+    };
 
     const handleGoBack = () => {
         navigate(-1);
     };
 
     return (
-        <HeaderContainer>
+        <HeaderContainer bgColor={getBackgroundColor()}>
             <CustomRow width='100%' justifyContent='space-between'>
                 <CustomRow width='100%' justifyContent='flex-start'>
                     <Button onClick={handleGoBack}>

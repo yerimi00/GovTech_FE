@@ -41,6 +41,12 @@ const MainDiv = styled.div`
   justify-content: center;
   font-family: ${(props) => props.fontFamily || "Noto Sans KR"};
   box-shadow: 0px 4px 6px #E5DDC9;
+
+  transition: background-color 0.3s ease;
+
+//   &:hover {
+//     background-color: white;
+//   }
 `;
 
 const Button = styled.button`
@@ -51,6 +57,8 @@ align-items: center;
 justify-content: center;
 padding: 0.5rem;
 background-color: white;
+background-color: ${(props) =>
+        props.isClicked ? props.clickedColor : props.backgroundColor};
 `;
 
 const AdminButton = styled.button`
@@ -94,7 +102,7 @@ const FirstLoginPage = () => {
                         <MainDiv backgroundColor="#FBDA8B" width='50%' height='30vh' borderRadius="35px">
                             <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='4rem'>
                                 <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
-                                    <Button onClick={goProtectoeLogin}>
+                                    <Button clickedColor='#D9BD78' onClick={goProtectoeLogin}>
                                         <FaArrowRight style={{ color: '#FBDA8B' }} />
                                     </Button>
                                 </CustomRow>
@@ -109,7 +117,7 @@ const FirstLoginPage = () => {
                         <MainDiv backgroundColor="#D6EFAE" width='50%' height='30vh' borderRadius="35px">
                             <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='4rem'>
                                 <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
-                                    <Button onClick={goDolbomLogin}>
+                                    <Button clickedColor='#BDD398' onClick={goDolbomLogin}>
                                         <FaArrowRight style={{ color: '#D6EFAE' }} />
                                     </Button>
                                 </CustomRow>
