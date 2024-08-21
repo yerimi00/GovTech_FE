@@ -33,7 +33,8 @@ const Layout = () => {
             location.pathname === '/eduvideodetailpage' || location.pathname === '/lowprotectorokpage' ||
             location.pathname === '/detaillowprotectorpage' || location.pathname === '/noticepage' ||
             location.pathname === '/detailnoticepage' || location.pathname === '/mypage' ||
-            location.pathname === '/maineditmyinfopage' || location.pathname === '/editpasswordpage') {
+            location.pathname === '/maineditmyinfopage' || location.pathname === '/editpasswordpage' ||
+            location.pathname === '/editkeywordpage') {
             return <NewHeader />;
         }
         return <Header />;
