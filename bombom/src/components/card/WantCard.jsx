@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import CardContainer from "../container/CardContainer";
 
 const WantCard = ({ title, location, caregiverInfo, hourlyRate, onClick }) => {
   return (
-    <CardContainer onClick={onClick}>
+    <CardContainer onClick={onClick} backgroundColor="white">
       <Title>{title}</Title>
       <Location>{location}</Location>
       <CaregiverInfo>{caregiverInfo}</CaregiverInfo>
@@ -13,19 +14,6 @@ const WantCard = ({ title, location, caregiverInfo, hourlyRate, onClick }) => {
 };
 
 export default WantCard;
-
-const CardContainer = styled.div`
-  background-color: #eae4d4;
-  border-radius: 20px;
-  padding: 1rem;
-  margin: 0.5rem 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 20rem;
-  cursor: pointer;
-`;
 
 const Title = styled.h2`
   font-size: 22px;
