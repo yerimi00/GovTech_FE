@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import CustomRow from "../../components/container/CustomRow";
@@ -15,6 +15,15 @@ const ChatPage = () => {
   const [chatData, setChatData] = useState([
     { chat: "안녕하세요", isMe: false },
     { chat: "안녕하세요", isMe: true },
+
+    { chat: "안녕하세요", isMe: false },
+    { chat: "안녕하세요", isMe: true },
+    { chat: "안녕하세요", isMe: false },
+    { chat: "안녕하세요", isMe: true },
+    { chat: "안녕하세요", isMe: false },
+    { chat: "안녕하세요", isMe: true },
+    { chat: "안녕하세요", isMe: false },
+    { chat: "안녕하세요", isMe: true },
     { chat: "안녕하세요", isMe: false },
     { chat: "안녕하세요", isMe: true },
     { chat: "안녕하세요", isMe: false },
@@ -25,12 +34,14 @@ const ChatPage = () => {
   const [showOptions, setShowOptions] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [paymentRequested, setPaymentRequested] = useState(false);
-  const [contentHeight, setContentHeight] = useState("calc(100vh - 30vh)");
+  const contentRef = useRef(null);
 
   useEffect(() => {
-    // 채팅 입력창의 상태에 따라 ContentContainer의 높이를 동적으로 설정
-    setContentHeight(showOptions ? "calc(100vh - 50vh)" : "calc(100vh - 30vh)");
-  }, [showOptions]);
+    // 채팅 메시지가 업데이트될 때마다 스크롤을 아래로 설정
+    if (contentRef.current) {
+      contentRef.current.scrollTop = contentRef.current.scrollHeight;
+    }
+  }, [chatData, showOptions]);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -80,7 +91,13 @@ const ChatPage = () => {
           justifyContent="flex-start"
           gap="1rem"
         >
-          <MainDiv backgroundColor="red" borderRadius="35px">
+          <MainDiv
+            backgroundColor="white"
+            borderRadius="35px"
+            position="fixed"
+            top="10vh"
+            style={{ height: showOptions ? "calc(100vh - 50vh)" : "70vh" }} // height 조절
+          >
             <HeaderContainer>
               <CustomRow
                 width="90%"
@@ -102,7 +119,7 @@ const ChatPage = () => {
               </CustomRow>
             </HeaderContainer>
 
-            <ContentContainer style={{ height: contentHeight }}>
+            <ContentContainer ref={contentRef}>
               <WantCard
                 title={cardData.title}
                 location={cardData.location}
@@ -110,21 +127,21 @@ const ChatPage = () => {
                 hourlyRate={cardData.hourlyRate}
                 styled={{ backgroundColor: "white", border: "none" }}
               />
-              <CardContainer
-                alignItems="center"
-                height="5em"
-                borderRadius="35px"
-              >
-                위 글에 대한 채팅이 시작됩니다.
-                <div>
-                  <p>보호자 AAA님의 프로필 보러가기</p>
-                </div>
-                <div>
-                  <p>돌보미 BBB님의 프로필 보러가기</p>
-                </div>
-              </CardContainer>
 
               <ChatMessages>
+                <CardContainer
+                  alignItems="center"
+                  height="5em"
+                  borderRadius="35px"
+                >
+                  위 글에 대한 채팅이 시작됩니다.
+                  <div>
+                    <p>보호자 AAA님의 프로필 보러가기</p>
+                  </div>
+                  <div>
+                    <p>돌보미 BBB님의 프로필 보러가기</p>
+                  </div>
+                </CardContainer>
                 {chatData.map((message, index) => (
                   <ChatMessage key={index} isMe={message.isMe}>
                     {message.chat}
@@ -201,15 +218,18 @@ const PageContainer = styled(ChatPageContainer)`
 const MainDiv = styled.div`
   background-color: ${(props) => props.backgroundColor || "#AFAFAF"};
   border: none;
-  width: ${(props) => props.width || "100%"};
-  height: 600px;
+  width: ${(props) => props.width || "90%"};
   border-radius: ${(props) => props.borderRadius || "auto"};
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: ${(props) => props.fontFamily || "Noto Sans KR"};
-  position: relative;
+  // position: relative;
+  position: ${(props) => props.position || "relative"};
+  top: ${(props) => props.top || "auto"};
+
+  transition: height 0.3s ease; /* height 변경시 애니메이션 효과 추가 */
 `;
 
 const HeaderContainer = styled.div`
@@ -228,12 +248,10 @@ const ContentContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  overflow-y: auto; /* 스크롤이 가능하도록 설정 */
+  overflow-y: auto;
   padding: 1rem;
   box-sizing: border-box;
-  max-height: calc(
-    100vh - 20vh
-  ); /* HeaderContainer의 높이를 제외한 부분만 차지 */
+  max-height: 100%; /* 최대 높이 설정 */
 `;
 
 const ReturnIconWrapper = styled.div`
@@ -278,7 +296,7 @@ const ChatInputContainer = styled.div`
   background-color: #ffffff;
   border-top: 1px solid #dddddd;
   position: fixed;
-  bottom: ${(props) => (props.showOptions ? "30vh" : "11vh")};
+  bottom: ${(props) => (props.showOptions ? "30vh" : "11vh")}; /* 위치 조정 */
   left: 0;
   transition: bottom 0.3s ease;
   z-index: 2;
