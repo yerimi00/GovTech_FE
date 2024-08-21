@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import CustomRow from "../../components/container/CustomRow";
 import CustomColumn from "../../components/container/CustomColumn";
@@ -9,15 +10,27 @@ import CardContainer from "../../components/container/CardContainer";
 import Modal from "../../components/modal/Modal";
 
 const ChatPage = () => {
+  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
   const [chatData, setChatData] = useState([
     { chat: "안녕하세요", isMe: false },
     { chat: "안녕하세요", isMe: true },
-    // 채팅 데이터 추가...
+    { chat: "안녕하세요", isMe: false },
+    { chat: "안녕하세요", isMe: true },
+    { chat: "안녕하세요", isMe: false },
+    { chat: "안녕하세요", isMe: true },
+    { chat: "안녕하세요", isMe: false },
+    { chat: "안녕하세요", isMe: true },
   ]);
   const [showOptions, setShowOptions] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [paymentRequested, setPaymentRequested] = useState(false);
+  const [contentHeight, setContentHeight] = useState("calc(100vh - 30vh)");
+
+  useEffect(() => {
+    // 채팅 입력창의 상태에 따라 ContentContainer의 높이를 동적으로 설정
+    setContentHeight(showOptions ? "calc(100vh - 50vh)" : "calc(100vh - 30vh)");
+  }, [showOptions]);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -60,14 +73,14 @@ const ChatPage = () => {
 
   return (
     <ChatPageContainer>
-      <PageContainer height="50vh">
+      <PageContainer>
         <CustomColumn
           width="90%"
           alignItems="center"
           justifyContent="flex-start"
           gap="1rem"
         >
-          <MainDiv backgroundColor="white" borderRadius="35px">
+          <MainDiv backgroundColor="red" borderRadius="35px">
             <HeaderContainer>
               <CustomRow
                 width="90%"
@@ -89,13 +102,13 @@ const ChatPage = () => {
               </CustomRow>
             </HeaderContainer>
 
-            <ContentContainer>
+            <ContentContainer style={{ height: contentHeight }}>
               <WantCard
                 title={cardData.title}
                 location={cardData.location}
                 caregiverInfo={cardData.caregiverInfo.join(", ")}
                 hourlyRate={cardData.hourlyRate}
-                styled={{ backgroundColor: "white" }}
+                styled={{ backgroundColor: "white", border: "none" }}
               />
               <CardContainer
                 alignItems="center"
@@ -169,6 +182,7 @@ const ChatPageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 100%;
   min-height: 100vh;
   padding-bottom: 10vh;
 `;
@@ -188,6 +202,7 @@ const MainDiv = styled.div`
   background-color: ${(props) => props.backgroundColor || "#AFAFAF"};
   border: none;
   width: ${(props) => props.width || "100%"};
+  height: 600px;
   border-radius: ${(props) => props.borderRadius || "auto"};
   padding: 0.5rem;
   display: flex;
@@ -211,8 +226,14 @@ const ContentContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  height: 60vh; /* MainDiv 내부에서 스크롤 가능하게 높이 설정 */
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: auto; /* 스크롤이 가능하도록 설정 */
+  padding: 1rem;
+  box-sizing: border-box;
+  max-height: calc(
+    100vh - 20vh
+  ); /* HeaderContainer의 높이를 제외한 부분만 차지 */
 `;
 
 const ReturnIconWrapper = styled.div`

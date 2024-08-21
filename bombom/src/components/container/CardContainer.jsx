@@ -4,6 +4,7 @@ const CardContainer = styled.div`
   background-color: ${(props) =>
     props.backgroundColor || props.theme.colors.lightGray};
   border-radius: ${(props) => props.borderRadius || "20px"};
+  border: ${(props) => props.border || "auto"};
   padding: 1rem;
   margin: 0.5rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
