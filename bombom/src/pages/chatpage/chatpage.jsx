@@ -41,7 +41,7 @@ const ChatPage = () => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [confirmRequested, setConfirmRequested] = useState(false);
 
-  const [showReviewModal, setshowReviewModal] = useState(false);
+  const [showReviewModal, setShowReviewModal] = useState(false);
   const [reviewRequested, setReviewRequested] = useState(false);
 
   const contentRef = useRef(null);
@@ -94,13 +94,8 @@ const ChatPage = () => {
   };
 
   const handleReviewClick = () => {
-    setshowReviewModal(true);
-    console.log("리뷰 작성하기 버튼 클릭");
-  };
-
-  const handleReviewRequest = () => {
-    setReviewRequested(true);
-    setChatData([...chatData, { chat: "리뷰가 작성되었습니다", isMe: true }]);
+    setShowReviewModal(true);
+    console.log("리뷰버튼 클릭");
   };
 
   const cardData = {
@@ -237,7 +232,7 @@ const ChatPage = () => {
         <ReviewModal
           show={showReviewModal}
           onClose={() => setShowReviewModal(false)}
-          onReviewRequest={handleReviewRequest}
+          cardData={cardData}
         />
       )}
     </ChatPageContainer>
