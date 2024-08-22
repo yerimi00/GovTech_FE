@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
@@ -62,16 +62,44 @@ const SuccessMessage = styled.div`
   box-sizing: border-box;
 `;
 
+const Modal = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  display: ${(props) => (props.show ? 'block' : 'none')};
+`;
+
 const DolbomFindIdPage = () => {
     const navigate = useNavigate();
     const [id, setId] = useState('');
     const [showMessage, setShowMessage] = useState(false);
+    const [buttonText, setButtonText] = useState('확인하기');
+    const [showModal, setShowModal] = useState(false);
+    const textToCopyRef = useRef(null);
 
     const isButtonDisabled = id === '';
 
     const handleButtonClick = () => {
-        if (id !== '') {
-            setShowMessage(true);
+        if (showMessage) {
+            if (textToCopyRef.current) {
+                navigator.clipboard.writeText(textToCopyRef.current.innerText).then(() => {
+                    setShowModal(true);
+                    setTimeout(() => {
+                        setShowModal(false);
+                        navigate(-1);
+                    }, 2000);
+                });
+            }
+        } else {
+            if (id !== '') {
+                setShowMessage(true);
+                setButtonText('복사하고 돌아가기');
+            }
         }
     };
 
@@ -91,18 +119,22 @@ const DolbomFindIdPage = () => {
                                 <IDInput value={id} onChange={(e) => setId(e.target.value)} />
 
                                 <SuccessMessage show={showMessage}>
-                                    등록된 이메일은 aaa 입니다.
+                                    등록된 아이디는 <span ref={textToCopyRef}>bbbb</span> 입니다.
                                 </SuccessMessage>
                             </CustomColumn>
 
                             <Button disabled={isButtonDisabled} width='100%' onClick={handleButtonClick}>
-                                <CustomFont color='#5E694D' fontWeight='bold' font='1rem'>확인하기</CustomFont>
+                                <CustomFont color='#5E694D' fontWeight='bold' font='1rem'>{buttonText}</CustomFont>
                             </Button>
                         </CustomColumn>
 
                     </CustomColumn>
                 </CustomColumn>
             </PageContainer>
+
+            <Modal show={showModal}>
+                클립보드에 아이디가 복사되었습니다!
+            </Modal>
         </ContainerCenter>
     );
 };
