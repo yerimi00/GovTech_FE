@@ -8,6 +8,8 @@ import WantCard from "../../components/card/wantcard";
 import { ReturnBtn } from "../../components/icons/wantbolbom";
 import CardContainer from "../../components/container/CardContainer";
 import PaymentModal from "../../components/modal/PaymentModal";
+import ConfirmModal from "../../components/modal/ConfirmModal";
+import ReviewModal from "../../components/modal/ReviewModal";
 
 const ChatPage = () => {
   const navigate = useNavigate();
@@ -32,12 +34,19 @@ const ChatPage = () => {
     { chat: "안녕하세요", isMe: true },
   ]);
   const [showOptions, setShowOptions] = useState(false);
+
   const [showModal, setShowModal] = useState(false);
   const [paymentRequested, setPaymentRequested] = useState(false);
+
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [confirmRequested, setConfirmRequested] = useState(false);
+
+  const [showReviewModal, setshowReviewModal] = useState(false);
+  const [reviewRequested, setReviewRequested] = useState(false);
+
   const contentRef = useRef(null);
 
   useEffect(() => {
-    // 채팅 메시지가 업데이트될 때마다 스크롤을 아래로 설정
     if (contentRef.current) {
       contentRef.current.scrollTop = contentRef.current.scrollHeight;
     }
@@ -75,6 +84,25 @@ const ChatPage = () => {
     setShowModal(false);
   };
 
+  const handlePaymentClick = () => {
+    setShowConfirmModal(true);
+  };
+
+  const handleConfirmRequest = () => {
+    setConfirmRequested(true);
+    setChatData([...chatData, { chat: "결제가 완료되었습니다", isMe: true }]);
+  };
+
+  const handleReviewClick = () => {
+    setshowReviewModal(true);
+    console.log("리뷰 작성하기 버튼 클릭");
+  };
+
+  const handleReviewRequest = () => {
+    setReviewRequested(true);
+    setChatData([...chatData, { chat: "리뷰가 작성되었습니다", isMe: true }]);
+  };
+
   const cardData = {
     title: "돌봄 원해요01",
     location: "경기도 성남시",
@@ -96,7 +124,7 @@ const ChatPage = () => {
             borderRadius="35px"
             position="fixed"
             top="10vh"
-            style={{ height: showOptions ? "calc(100vh - 50vh)" : "70vh" }} // height 조절
+            style={{ height: showOptions ? "calc(100vh - 50vh)" : "70vh" }}
           >
             <HeaderContainer>
               <CustomRow
@@ -146,7 +174,13 @@ const ChatPage = () => {
                 </MainDiv>
 
                 {chatData.map((message, index) => (
-                  <ChatMessage key={index} isMe={message.isMe}>
+                  <ChatMessage
+                    key={index}
+                    isMe={message.isMe}
+                    onClick={
+                      message.showPaymentButton ? handlePaymentClick : null
+                    }
+                  >
                     {message.chat}
                     {message.showPaymentButton && (
                       <PaymentButton>결제하기</PaymentButton>
@@ -159,7 +193,6 @@ const ChatPage = () => {
         </CustomColumn>
       </PageContainer>
 
-      {/* 채팅 작성부분 */}
       <ChatInputContainer showOptions={showOptions}>
         <PlusButton onClick={handlePlusButtonClick}>+</PlusButton>
         <ChatInput
@@ -178,9 +211,7 @@ const ChatPage = () => {
               결제 요청하기
             </OptionButton>
           )}
-          <OptionButton onClick={() => alert("리뷰 작성하기 클릭됨")}>
-            리뷰 작성하기
-          </OptionButton>
+          <OptionButton onClick={handleReviewClick}>리뷰 작성하기</OptionButton>
         </OptionsContainer>
       )}
 
@@ -190,9 +221,24 @@ const ChatPage = () => {
           onClose={handleCloseModal}
           cardData={cardData}
           onPaymentRequest={handlePaymentRequest}
-        >
-          <OptionButton>결제 요청하기</OptionButton>
-        </PaymentModal>
+        />
+      )}
+
+      {showConfirmModal && (
+        <ConfirmModal
+          show={showConfirmModal}
+          onClose={() => setShowConfirmModal(false)}
+          cardData={cardData}
+          onConfirmRequest={handleConfirmRequest}
+        />
+      )}
+
+      {showReviewModal && (
+        <ReviewModal
+          show={showReviewModal}
+          onClose={() => setShowReviewModal(false)}
+          onReviewRequest={handleReviewRequest}
+        />
       )}
     </ChatPageContainer>
   );

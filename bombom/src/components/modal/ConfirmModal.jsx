@@ -1,21 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import CustomButtonSubmit from "../container/CustomButtonSubmit";
-import WantCategory from "../container/WantCategory";
 import InputContainer from "../container/InputContainer";
 
-const PaymentModal = ({ show, onClose, cardData, onPaymentRequest }) => {
+const ConfirmModal = ({ show, onClose, cardData, onConfirmRequest }) => {
   if (!show) return null;
 
-  const handlePaymentClick = async () => {
-    console.log("결제 요청 시작");
+  const handleConfirmClick = async () => {
+    console.log("결제확인 요청 시작");
     try {
-      await onPaymentRequest();
-      console.log("결제 요청 완료");
+      await onConfirmRequest();
+      console.log("결제확인 요청 완료");
       onClose();
-      console.log("모달 닫기 요청");
+      console.log("결제확인모달 닫기 요청");
     } catch (error) {
-      console.error("결제 요청 중 오류 발생:", error);
+      console.error("결제확인 요청 중 오류 발생:", error);
     }
   };
 
@@ -24,11 +23,10 @@ const PaymentModal = ({ show, onClose, cardData, onPaymentRequest }) => {
       <ModalContainer>
         <ModalHeader>
           <ModalTitle>
-            <WantCategory top="0px">결제창</WantCategory>
+            <ModalTitle>{cardData.title}</ModalTitle>
           </ModalTitle>
         </ModalHeader>
         <ModalContent>
-          <ModalTitle>{cardData.title}</ModalTitle>
           <p>
             <BText fontSize="16px">위치:</BText> {cardData.location}
           </p>
@@ -65,15 +63,15 @@ const PaymentModal = ({ show, onClose, cardData, onPaymentRequest }) => {
             <span>45,000원</span>
           </ResultDiv>
         </ModalContent>
-        <CustomButtonSubmit onClick={handlePaymentClick}>
-          결제 요청하기
+        <CustomButtonSubmit onClick={handleConfirmClick}>
+          결제하기
         </CustomButtonSubmit>
       </ModalContainer>
     </Overlay>
   );
 };
 
-export default PaymentModal;
+export default ConfirmModal;
 
 const Overlay = styled.div`
   position: fixed;
