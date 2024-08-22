@@ -61,6 +61,10 @@ const SubDiv = styled.button`
   align-items: center;
   justify-content: flex-start;
   cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #C6C0AF;
+}
 `;
 
 const MainChatPage = () => {
