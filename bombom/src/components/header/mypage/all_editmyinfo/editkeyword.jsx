@@ -107,6 +107,7 @@ const EditButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 const StyledInput = styled.input.attrs({

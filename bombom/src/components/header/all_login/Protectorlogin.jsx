@@ -104,6 +104,17 @@ const Modal = styled.div`
   z-index: 1001;
 `;
 
+const Button3 = styled.button`
+background-color: transparent;
+border: none;
+display: flex;
+align-items: center;
+justify-content: center;
+width: ${props => props.width || 'auto'};
+height: ${props => props.height || 'auto'};
+cursor: pointer;
+`;
+
 const ProtectorLoginPage = () => {
     const navigate = useNavigate();
     const [id, setId] = useState('');
@@ -137,7 +148,9 @@ const ProtectorLoginPage = () => {
 
                     <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='1rem'>
                         <CustomFont color='#6E5F3B' font='1rem'>카카오로 로그인하기</CustomFont>
-                        <StyledImg src={'kakao_banner.png'} width='90%' />
+                        <Button3>
+                            <StyledImg src={'kakao_banner.png'} width='90%' />
+                        </Button3>
                     </CustomColumn>
 
                     <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='0.5rem'>
@@ -154,9 +167,11 @@ const ProtectorLoginPage = () => {
 
                         <CustomRow width='100%' alignItems='center' justifyContent='space-around' gap='1rem'>
 
-                            <CustomFont color='#6E5F3B' font='0.6rem'>
-                                아이디찾기/비밀번호찾기
-                            </CustomFont>
+                            <Button3>
+                                <CustomFont color='#6E5F3B' font='0.6rem'>
+                                    아이디찾기/비밀번호찾기
+                                </CustomFont>
+                            </Button3>
 
                             <Button2 onClick={goSignup}>
                                 <CustomFont color='#6E5F3B' font='0.6rem'>

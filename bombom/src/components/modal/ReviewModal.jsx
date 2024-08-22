@@ -140,7 +140,7 @@ const InputTextArea = styled.textarea.attrs({
 })`
   width: 100%;
   height: 7rem;
-  border: 2px solid #eae4d4;
+  border: none;
   border-radius: 1rem;
   padding: 0.5rem;
   box-sizing: border-box;

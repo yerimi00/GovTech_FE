@@ -224,7 +224,7 @@ const SecondDolbomSignupPage = () => {
           {showModal && (
             <ModalBackground>
               <Modal>
-                <CustomFont fontWeight='bold' font='1.2rem'>다음 단계로 이동합니다.</CustomFont>
+                <CustomFont color='black' fontWeight='bold' font='1.2rem'>다음 단계로 이동합니다.</CustomFont>
               </Modal>
             </ModalBackground>
           )}

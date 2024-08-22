@@ -33,7 +33,7 @@ const MainButton = styled.button`
   justify-content: center;
   width: 100%;
   color: black;
-  padding: 0.5rem;
+  padding: 1rem;
   cursor: pointer;
 `;
 

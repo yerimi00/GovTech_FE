@@ -209,7 +209,7 @@ const ProtectorSignupPage = () => {
           {showModal && (
             <ModalBackground>
               <Modal>
-                <CustomFont color='black' fontWeight='bold' font='1.2rem'>로그인되었습니다!</CustomFont>
+                <CustomFont color='black' fontWeight='bold' font='1.2rem'>보호자로 회원가입되었습니다!</CustomFont>
               </Modal>
             </ModalBackground>
           )}

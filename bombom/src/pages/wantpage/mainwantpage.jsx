@@ -53,6 +53,11 @@ align-items: center;
 justify-content: center;
 padding: 0.5rem;
 background-color: #E5DDC9;
+cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #C6C0AF;
+}
 `;
 
 const MainWantPage = () => {
@@ -82,7 +87,7 @@ const MainWantPage = () => {
                                 </CustomRow>
                                 <CustomRow width='100%' alignItems='center' justifyContent='center' gap='1rem'>
                                     <CustomRow width='30%' alignItems='center' justifyContent='flex-start'>
-                                        <BsFillPersonFill style={{ color: 'black', fontSize: '2rem' }} />
+                                        <BsFillPersonFill style={{ color: 'black', fontSize: '3.5rem' }} />
                                     </CustomRow>
 
                                     <CustomColumn width='70%' alignItems='center' justifyContent='center' gap='0.5rem'>
@@ -114,7 +119,7 @@ const MainWantPage = () => {
                                 </CustomRow>
                                 <CustomRow width='100%' alignItems='center' justifyContent='center' gap='1rem'>
                                     <CustomRow width='30%' alignItems='center' justifyContent='flex-start'>
-                                        <BsPeopleFill style={{ color: 'black', fontSize: '2rem' }} />
+                                        <BsPeopleFill style={{ color: 'black', fontSize: '3.5rem' }} />
                                     </CustomRow>
                                     <CustomColumn width='70%' alignItems='center' justifyContent='center' gap='0.5rem'>
                                         <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>

@@ -319,7 +319,27 @@ const ChatMessages = styled.div`
   overflow-y: auto;
   padding: 1rem;
   box-sizing: border-box;
+
+  /* 스크롤바 스타일 */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #E7E0CE;
+    border-radius: 5px;
+    border: 2px solid #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #c6c0af;
+  }
 `;
+
 
 const ChatMessage = styled.div`
   max-width: 60%;

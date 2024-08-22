@@ -27,7 +27,7 @@ const PageContainer = styled(ContainerCenter)`
   gap: 2rem;
 `;
 
-const MainDiv = styled.div`
+const MainDiv = styled.button`
   background-color: ${(props) => props.backgroundColor || "#AFAFAF"};
   border: none;
   width: ${(props) => props.width || "100%"};
@@ -42,11 +42,11 @@ const MainDiv = styled.div`
   font-family: ${(props) => props.fontFamily || "Noto Sans KR"};
   box-shadow: 0px 4px 6px #E5DDC9;
 
+  cursor: pointer;
   transition: background-color 0.3s ease;
-
-//   &:hover {
-//     background-color: white;
-//   }
+  &:hover {
+    background-color: ${(props) => props.hoverBackgroundColor || "#D9BD78"};
+  }
 `;
 
 const Button = styled.button`
@@ -100,42 +100,46 @@ const FirstLoginPage = () => {
                         </CustomColumn>
                     </CustomColumn>
 
-                    <CustomRow width='100%' alignItems='center' justifyContent='space-between' gap='1rem'>
-                        <MainDiv backgroundColor="#FBDA8B" width='50%' height='30vh' borderRadius="35px">
-                            <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='4rem'>
-                                <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
-                                    <Button clickedColor='#D9BD78' onClick={goProtectoeLogin}>
-                                        <FaArrowRight style={{ color: '#FBDA8B' }} />
-                                    </Button>
-                                </CustomRow>
+                    <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='10rem'>
+                        <CustomRow width='100%' alignItems='center' justifyContent='space-between' gap='1rem'>
+                            <MainDiv backgroundColor="#FBDA8B" width='50%' height='30vh' borderRadius="35px"
+                                hoverBackgroundColor="#D9BD78" onClick={goProtectoeLogin}>
+                                <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='4rem'>
+                                    <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
+                                        <Button clickedColor='#D9BD78' onClick={goProtectoeLogin}>
+                                            <FaArrowRight style={{ color: '#FBDA8B' }} />
+                                        </Button>
+                                    </CustomRow>
 
-                                <CustomColumn width='100%' alignItems='flex-start' justifyContent='center' gap='0.1rem'>
-                                    <CustomFont color='black' font='1rem' fontFamily='Cafe24SsurroundAir'>보호자</CustomFont>
-                                    <CustomFont color='black' font='1.7rem' fontWeight='bold' fontFamily='Cafe24SsurroundAir'>로그인</CustomFont>
+                                    <CustomColumn width='100%' alignItems='flex-start' justifyContent='center' gap='0.1rem'>
+                                        <CustomFont color='black' font='1rem' fontFamily='Cafe24SsurroundAir'>보호자</CustomFont>
+                                        <CustomFont color='black' font='1.7rem' fontWeight='bold' fontFamily='Cafe24SsurroundAir'>로그인</CustomFont>
+                                    </CustomColumn>
                                 </CustomColumn>
-                            </CustomColumn>
-                        </MainDiv>
+                            </MainDiv>
 
-                        <MainDiv backgroundColor="#D6EFAE" width='50%' height='30vh' borderRadius="35px">
-                            <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='4rem'>
-                                <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
-                                    <Button clickedColor='#BDD398' onClick={goDolbomLogin}>
-                                        <FaArrowRight style={{ color: '#D6EFAE' }} />
-                                    </Button>
-                                </CustomRow>
+                            <MainDiv backgroundColor="#D6EFAE" width='50%' height='30vh' borderRadius="35px"
+                                hoverBackgroundColor='#BDD398' onClick={goDolbomLogin}>
+                                <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='4rem'>
+                                    <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
+                                        <Button clickedColor='#BDD398' onClick={goDolbomLogin}>
+                                            <FaArrowRight style={{ color: '#D6EFAE' }} />
+                                        </Button>
+                                    </CustomRow>
 
-                                <CustomColumn width='100%' alignItems='flex-start' justifyContent='center' gap='0.1rem'>
-                                    <CustomFont color='black' font='1rem' fontFamily='Cafe24SsurroundAir'>돌보미</CustomFont>
-                                    <CustomFont color='black' font='1.7rem' fontWeight='bold' fontFamily='Cafe24SsurroundAir'>로그인</CustomFont>
+                                    <CustomColumn width='100%' alignItems='flex-start' justifyContent='center' gap='0.1rem'>
+                                        <CustomFont color='black' font='1rem' fontFamily='Cafe24SsurroundAir'>돌보미</CustomFont>
+                                        <CustomFont color='black' font='1.7rem' fontWeight='bold' fontFamily='Cafe24SsurroundAir'>로그인</CustomFont>
+                                    </CustomColumn>
                                 </CustomColumn>
-                            </CustomColumn>
-                        </MainDiv>
-                    </CustomRow>
-                    <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
-                        <AdminButton>
-                            <CustomFont color='black' font='1rem' fontFamily='Cafe24SsurroundAir'>관리자 전용</CustomFont>
-                        </AdminButton>
-                    </CustomRow>
+                            </MainDiv>
+                        </CustomRow>
+                        <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
+                            <AdminButton>
+                                <CustomFont color='black' font='1rem' fontFamily='Cafe24SsurroundAir'>관리자 전용</CustomFont>
+                            </AdminButton>
+                        </CustomRow>
+                    </CustomColumn>
                 </CustomColumn>
             </PageContainer>
         </ContainerCenter>
