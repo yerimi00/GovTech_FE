@@ -98,8 +98,9 @@ const StyledInput = styled.input.attrs((props) => ({
 const ModalContainer = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 390px;
   height: 100%;
   display: flex;
   align-items: center;

@@ -74,8 +74,9 @@ export default ReviewModal;
 const Overlay = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 390px;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   display: flex;
@@ -88,16 +89,16 @@ const ModalContainer = styled.div`
   background: white;
   padding: 2rem;
   border-radius: 35px;
-  width: 90%;
-  max-width: 500px;
+  width: 300px;
   position: relative;
   gap: 1rem;
+  box-sizing: border-box;
 `;
 
 const ModalHeader = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 1rem;
   margin-bottom: 1rem;
 `;
@@ -113,7 +114,7 @@ const CloseButton = styled.button`
 
 const ModalTitle = styled.h2`
   margin: 0;
-  font-size: 22px;
+  font-size: 1.1rem;
   font-weight: light;
 `;
 

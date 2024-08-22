@@ -10,6 +10,7 @@ import CardContainer from "../../components/container/CardContainer";
 import PaymentModal from "../../components/modal/PaymentModal";
 import ConfirmModal from "../../components/modal/ConfirmModal";
 import ReviewModal from "../../components/modal/ReviewModal";
+import CustomFont from "../../components/container/CustomFont";
 
 const ChatPage = () => {
   const navigate = useNavigate();
@@ -142,7 +143,9 @@ const ChatPage = () => {
                   <ReturnBtn />
                 </ReturnIconWrapper>
                 <WantCategory width="40%" borderRadius="20px" zIndex="5">
-                  제목 돌봄 원해요01
+                  <CustomFont color='#3E3537' font='1.5rem' fontWeight='bold'>
+                    돌봄 원해요 01
+                  </CustomFont>
                 </WantCategory>
               </CustomRow>
             </HeaderContainer>
@@ -274,7 +277,7 @@ const PageContainer = styled(ChatPageContainer)`
 const HeaderContainer = styled.div`
   position: sticky;
   top: 0;
-  width: 100%;
+  width: 80%;
   background-color: white;
   z-index: 10;
   padding-bottom: 1rem;

@@ -62,8 +62,8 @@ const SubDiv = styled.button`
   justify-content: flex-start;
 `;
 const NowPwInput = styled.input.attrs({
-    placeholder: '현재 비밀번호를 입력해주세요.',
-    type: 'password',
+  placeholder: '현재 비밀번호를 입력해주세요.',
+  type: 'password',
 })`
   width: 100%;
   height: 3rem;
@@ -78,8 +78,8 @@ const NowPwInput = styled.input.attrs({
 `;
 
 const NewPwInput = styled.input.attrs({
-    placeholder: '변경할 비밀번호를 입력해주세요.',
-    type: 'password',
+  placeholder: '변경할 비밀번호를 입력해주세요.',
+  type: 'password',
 })`
   width: 100%;
   height: 3rem;
@@ -94,8 +94,8 @@ const NewPwInput = styled.input.attrs({
 `;
 
 const NewPw2Input = styled.input.attrs({
-    placeholder: '변경할 비밀번호를 다시 입력해주세요.',
-    type: 'password',
+  placeholder: '변경할 비밀번호를 다시 입력해주세요.',
+  type: 'password',
 })`
   width: 100%;
   height: 3rem;
@@ -112,8 +112,9 @@ const NewPw2Input = styled.input.attrs({
 const ModalBackground = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 390px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -131,74 +132,74 @@ const Modal = styled.div`
 `;
 
 const EditPasswordPage = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [nowpw, setNowpw] = useState('');
-    const [newpw, setNewpw] = useState('');
-    const [newpw2, setNewpw2] = useState('');
-    const [showModal, setShowModal] = useState(false);
+  const [nowpw, setNowpw] = useState('');
+  const [newpw, setNewpw] = useState('');
+  const [newpw2, setNewpw2] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
-    const isButtonDisabled = nowpw === '' || newpw === '' || newpw2 === '';
+  const isButtonDisabled = nowpw === '' || newpw === '' || newpw2 === '';
 
-    const goLogin = () => {
+  const goLogin = () => {
+    navigate('/firstloginpage');
+  }
+
+  const doneEdit = () => {
+    if (!isButtonDisabled) {
+      setShowModal(true);
+      setTimeout(() => {
+        setShowModal(false);
         navigate('/firstloginpage');
+      }, 2000);
     }
+  }
 
-    const doneEdit = () => {
-        if (!isButtonDisabled) {
-            setShowModal(true);
-            setTimeout(() => {
-                setShowModal(false);
-                navigate('/firstloginpage');
-            }, 2000);
-        }
-    }
+  return (
+    <ContainerCenter>
+      <PageContainer>
+        <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='2rem'>
+          <MainDiv backgroundColor="white" borderRadius="35px">
+            <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
+              <Category width="40%" borderRadius="20px">
+                <CustomRow width='100%' alignItems='flex-end' justifyContent='center' gap='0.5rem'>
+                  <CustomFont color='#5E694D' font='2rem' fontWeight='bold'>마이페이지</CustomFont>
+                  <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>회원 정보 수정</CustomFont>
+                </CustomRow>
+              </Category>
+            </CustomRow>
 
-    return (
-        <ContainerCenter>
-            <PageContainer>
-                <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='2rem'>
-                    <MainDiv backgroundColor="white" borderRadius="35px">
-                        <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
-                            <Category width="40%" borderRadius="20px">
-                                <CustomRow width='100%' alignItems='flex-end' justifyContent='center' gap='0.5rem'>
-                                    <CustomFont color='#5E694D' font='2rem' fontWeight='bold'>마이페이지</CustomFont>
-                                    <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>회원 정보 수정</CustomFont>
-                                </CustomRow>
-                            </Category>
-                        </CustomRow>
+            <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='4rem'>
 
-                        <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='4rem'>
+              <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
+                <CustomFont color='#5E694D' font='1.3rem' fontWeight='bold'>비밀번호 수정</CustomFont>
+              </CustomRow>
 
-                            <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
-                                <CustomFont color='#5E694D' font='1.3rem' fontWeight='bold'>비밀번호 수정</CustomFont>
-                            </CustomRow>
+              <CustomColumn width='100% ' alignItems='center' justifyContent='center' gap='0.5rem'>
+                <NowPwInput value={nowpw} onChange={(e) => setNowpw(e.target.value)} />
+                <NewPwInput value={newpw} onChange={(e) => setNewpw(e.target.value)} />
+                <NewPw2Input value={newpw2} onChange={(e) => setNewpw2(e.target.value)} />
+              </CustomColumn>
 
-                            <CustomColumn width='100% ' alignItems='center' justifyContent='center' gap='0.5rem'>
-                                <NowPwInput value={nowpw} onChange={(e) => setNowpw(e.target.value)} />
-                                <NewPwInput value={newpw} onChange={(e) => setNewpw(e.target.value)} />
-                                <NewPw2Input value={newpw2} onChange={(e) => setNewpw2(e.target.value)} />
-                            </CustomColumn>
+              <SubDiv borderRadius='3rem' onClick={doneEdit}>
+                <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>비밀번호 수정하기</CustomFont>
+              </SubDiv>
 
-                            <SubDiv borderRadius='3rem' onClick={doneEdit}>
-                                <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>비밀번호 수정하기</CustomFont>
-                            </SubDiv>
+            </CustomColumn>
 
-                        </CustomColumn>
+            {showModal && (
+              <ModalBackground>
+                <Modal>
+                  <CustomFont color='black' fontWeight='bold' font='1.2rem'>비밀번호가 변경되었습니다!</CustomFont>
+                </Modal>
+              </ModalBackground>
+            )}
 
-                        {showModal && (
-                            <ModalBackground>
-                                <Modal>
-                                    <CustomFont color='black' fontWeight='bold' font='1.2rem'>비밀번호가 변경되었습니다!</CustomFont>
-                                </Modal>
-                            </ModalBackground>
-                        )}
-
-                    </MainDiv>
-                </CustomColumn>
-            </PageContainer>
-        </ContainerCenter>
-    );
+          </MainDiv>
+        </CustomColumn>
+      </PageContainer>
+    </ContainerCenter>
+  );
 };
 
 export default EditPasswordPage;

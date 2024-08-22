@@ -111,8 +111,9 @@ const BigButton = styled.button`
 const ModalBackground = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 390px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
