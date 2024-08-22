@@ -30,7 +30,7 @@ const MainDiv = styled.div`
   border: none;
   width: ${(props) => props.width || "100%"};
   border-radius: ${(props) => props.borderRadius || "auto"};
-  min-height: 40rem;
+  min-height: 30rem;
   padding: 0.5rem;
   padding-top: 7vh;
   display: flex;
@@ -44,7 +44,7 @@ const Category = styled.div`
   background-color: #FBDA8B;
   border-radius: 35px;
   position: absolute;
-  top: 5vh;
+  top: 9rem;
   font-size: 30px;
   font-weight: bold;
   font-family: "Cafe24SsurroundAir", sans-serif;
@@ -73,6 +73,11 @@ const BigButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #FDE9BA;
+}
 `;
 
 const SmallButton = styled.button`
@@ -85,6 +90,11 @@ const SmallButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #FDE9BA;
+}
 `;
 
 const StyledInput = styled.input.attrs({
@@ -173,7 +183,7 @@ const EditSentencePage = () => {
                                 <CustomFont color='#5E694D' font='1.3rem' fontWeight='bold'>한줄소개 수정하기</CustomFont>
                             </CustomRow>
 
-                            <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='12rem'>
+                            <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='4rem'>
 
                                 <SubDiv isEditing={editing}>
                                     <CustomRow width='100%' alignItems='center' justifyContent='center'>

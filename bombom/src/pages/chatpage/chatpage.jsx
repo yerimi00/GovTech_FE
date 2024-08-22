@@ -424,6 +424,9 @@ const OptionButton = styled.button`
   cursor: pointer;
   font-size: 16px;
   height: 135px;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #C6C0AF;
 `;
 
 const PaymentButton = styled.button`

@@ -30,7 +30,7 @@ const MainDiv = styled.div`
   border: none;
   width: ${(props) => props.width || "100%"};
   border-radius: ${(props) => props.borderRadius || "auto"};
-  min-height: 40rem;
+  min-height: 30rem;
   padding: 0.5rem;
   padding-top: 5vh;
   display: flex;
@@ -44,7 +44,7 @@ const Category = styled.div`
   background-color: #FBDA8B;
   border-radius: 35px;
   position: absolute;
-  top: 5vh;
+  top: 9rem;
   font-size: 30px;
   font-weight: bold;
   font-family: "Cafe24SsurroundAir", sans-serif;
@@ -60,6 +60,12 @@ const SubDiv = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
+  cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #FDE9BA;
+}
 `;
 const NowPwInput = styled.input.attrs({
   placeholder: '현재 비밀번호를 입력해주세요.',

@@ -150,8 +150,9 @@ const WriteIconDiv = styled.div`
     font-family: "Noto Sans KR";
   }
 
-  &:hover {
-    background-color: ${({ theme }) =>
-      theme.colors.lightGray || "#ccc"} !important;
-  }
+  cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #E5DDC9;
+}
 `;

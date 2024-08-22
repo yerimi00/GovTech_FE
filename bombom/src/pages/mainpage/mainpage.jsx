@@ -54,6 +54,12 @@ align-items: center;
 justify-content: center;
 padding: 0.5rem;
 background-color: #E5DDC9;
+
+cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #C6C0AF;
+}
 `;
 
 const HomePage = () => {

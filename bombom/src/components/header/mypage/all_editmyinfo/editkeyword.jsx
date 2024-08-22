@@ -72,6 +72,11 @@ const BigButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #FDE9BA;
+}
 `;
 
 const SmallButton = styled.button`
@@ -84,6 +89,11 @@ const SmallButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #FDE9BA;
+}
 `;
 
 const EditButton = styled.button`

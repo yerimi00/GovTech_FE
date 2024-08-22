@@ -36,7 +36,11 @@ const Detail = styled.button`
   color: white;
   width: 8rem;
   height: 3rem;
+
   cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #FDE9BA;
 `;
 
 const MainDiv = styled.div`

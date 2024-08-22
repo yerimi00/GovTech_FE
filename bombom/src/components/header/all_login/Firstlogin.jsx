@@ -57,6 +57,7 @@ align-items: center;
 justify-content: center;
 padding: 0.5rem;
 background-color: white;
+cursor: pointer;
 background-color: ${(props) =>
         props.isClicked ? props.clickedColor : props.backgroundColor};
 `;
@@ -69,6 +70,7 @@ align-items: center;
 justify-content: center;
 padding: 0.5rem;
 background-color: rgba(251, 218, 139, 0.5);
+cursor: pointer;
 `;
 
 const FirstLoginPage = () => {

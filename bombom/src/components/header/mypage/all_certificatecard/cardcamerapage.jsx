@@ -45,7 +45,7 @@ const Category = styled.div`
   background-color: #FBDA8B;
   border-radius: 35px;
   position: absolute;
-  top: 5vh;
+  top: 4rem;
   font-size: 30px;
   font-weight: bold;
   font-family: "Cafe24SsurroundAir", sans-serif;
@@ -63,6 +63,10 @@ const SubDiv = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #FDE9BA;
 `;
 
 const Overlay = styled.div`
@@ -106,6 +110,10 @@ const BigButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #FDE9BA;
 `;
 
 const ModalBackground = styled.div`

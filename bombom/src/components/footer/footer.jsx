@@ -24,8 +24,6 @@ const NaviContainer = styled.footer`
 
 const StyledCustomColumn = styled(CustomColumn)`
 padding-top: 0.7rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
   background-color: ${({ isActive }) => (isActive ? '#C6C0AF' : 'transparent')};
   width: 25%;
   height: 100%;
@@ -33,6 +31,8 @@ padding-top: 0.7rem;
   align-items: center;
   justify-content: center;
 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   &:hover {
     background-color: #E5DDC9;
   }

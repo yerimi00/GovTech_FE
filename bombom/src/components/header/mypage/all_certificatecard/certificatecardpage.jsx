@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import CustomColumn from '../../../container/CustomColumn';
 import CustomFont from '../../../container/CustomFont';
 import CustomRow from '../../../container/CustomRow';
+import { CloseIcon } from '../../../icons/wantbolbom';
 
 const ContainerCenter = styled.div`
   display: flex;
@@ -30,7 +31,7 @@ const MainDiv = styled.div`
   border: none;
   width: ${(props) => props.width || "100%"};
   border-radius: ${(props) => props.borderRadius || "auto"};
-  min-height: 40rem;
+  min-height: 30rem;
   padding: 0.5rem;
   padding-top: 7vh;
   display: flex;
@@ -44,7 +45,7 @@ const Category = styled.div`
   background-color: #FBDA8B;
   border-radius: 35px;
   position: absolute;
-  top: 5vh;
+  top: 9rem;
   font-size: 30px;
   font-weight: bold;
   font-family: "Cafe24SsurroundAir", sans-serif;
@@ -73,6 +74,11 @@ const BigButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #FDE9BA;
+}
 `;
 
 const ModalBackground = styled.div`
@@ -100,6 +106,15 @@ width: 80%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+const CloseButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
 `;
 
 const CertificateCardPage = () => {
@@ -144,6 +159,11 @@ const CertificateCardPage = () => {
                         <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='6rem'>
                             <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='4rem'>
                                 <SubDiv width='100%' onClick={handleCardInfo}>
+                                    <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
+                                        <CloseButton>
+                                            <CloseIcon />
+                                        </CloseButton>
+                                    </CustomRow>
                                     <CustomRow width='90%' alignItems='center' justifyContent='space-between'>
                                         <SubDiv width='6rem' height='6rem' backgroundColor='#D9BD78'>
                                             사진

@@ -60,6 +60,7 @@ const SubDiv = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  cursor: pointer;
 `;
 
 const MainChatPage = () => {
@@ -88,10 +89,10 @@ const MainChatPage = () => {
                                         <CustomFont color='#3E3537' font='1.4rem' fontWeight='bold'>제목 돌봄 원해요01</CustomFont>
                                     </CustomRow>
                                     <CustomRow width='90%' alignItems='center' justifyContent='flex-end'>
-                                        <CustomFont color='#3E3537' font='1rem'>경기도 용인시 외대로 81</CustomFont>
+                                        <CustomFont color='#3E3537' font='0.8rem'>경기도 용인시 외대로 81</CustomFont>
                                     </CustomRow>
                                     <CustomRow width='90%' alignItems='center' justifyContent='flex-end'>
-                                        <CustomFont color='#3E3537' font='1rem'>5세/활발함, 활동적임, 힘이 넘침</CustomFont>
+                                        <CustomFont color='#3E3537' font='0.8rem'>5세/활발함, 활동적임, 힘이 넘침</CustomFont>
                                     </CustomRow>
                                     <CustomRow width='90%' alignItems='center' justifyContent='flex-end'>
                                         <CustomFont color='#3E3537' font='1.3rem' fontWeight='bold'>15,000원</CustomFont>
