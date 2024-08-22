@@ -43,6 +43,7 @@ import CardCameraPage from "./components/header/mypage/all_certificatecard/cardc
 import MainMyNoticePage from "./components/header/mypage/all_detailmynotice/mainmynoticepage";
 import DetailMyNoticePage from "./components/header/mypage/all_detailmynotice/detailmynoticepage";
 import MainChatPage from "./pages/chatpage/mainchatpage";
+import AdminLoginPage from "./components/header/all_login/AdminLogin";
 
 const AppRouter = () => {
   return (
@@ -102,6 +103,7 @@ const AppRouter = () => {
             <Route path="/mainmynoticepage" element={<MainMyNoticePage />} />
             <Route path="/detailmynoticepage" element={<DetailMyNoticePage />} />
             <Route path="/mainchatpage" element={<MainChatPage />} />
+            <Route path="/adminloginpage" element={<AdminLoginPage />} />
           </Route>
         </Routes>
       </Router>

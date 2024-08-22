@@ -84,6 +84,10 @@ const FirstLoginPage = () => {
         navigate('/dolbomloginpage')
     }
 
+    const goAdminLogin = () => {
+        navigate('/adminloginpage');
+    }
+
     return (
         <ContainerCenter>
             <PageContainer>
@@ -135,7 +139,7 @@ const FirstLoginPage = () => {
                             </MainDiv>
                         </CustomRow>
                         <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
-                            <AdminButton>
+                            <AdminButton onClick={goAdminLogin}>
                                 <CustomFont color='black' font='1rem' fontFamily='Cafe24SsurroundAir'>관리자 전용</CustomFont>
                             </AdminButton>
                         </CustomRow>
