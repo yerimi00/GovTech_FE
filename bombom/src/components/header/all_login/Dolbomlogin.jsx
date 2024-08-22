@@ -85,8 +85,9 @@ const PWInput = styled.input.attrs({
 const ModalBackground = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 390px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -101,6 +102,17 @@ const Modal = styled.div`
   border-radius: 0.5rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1001;
+`;
+
+const Button3 = styled.button`
+background-color: transparent;
+border: none;
+display: flex;
+align-items: center;
+justify-content: center;
+width: ${props => props.width || 'auto'};
+height: ${props => props.height || 'auto'};
+cursor: pointer;
 `;
 
 const DolbomLoginPage = () => {
@@ -136,7 +148,9 @@ const DolbomLoginPage = () => {
 
                     <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='1rem'>
                         <CustomFont color='#6E5F3B' font='1rem'>카카오로 로그인하기</CustomFont>
-                        <StyledImg src={'kakao_banner.png'} width='90%' />
+                        <Button3>
+                            <StyledImg src={'kakao_banner.png'} width='90%' />
+                        </Button3>
                     </CustomColumn>
 
                     <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='0.5rem'>
@@ -153,9 +167,11 @@ const DolbomLoginPage = () => {
 
                         <CustomRow width='100%' alignItems='center' justifyContent='space-around' gap='1rem'>
 
-                            <CustomFont color='#5E694D' font='0.6rem' fontWeight='bold'>
-                                아이디찾기/비밀번호찾기
-                            </CustomFont>
+                            <Button3>
+                                <CustomFont color='#5E694D' font='0.6rem' fontWeight='bold'>
+                                    아이디찾기/비밀번호찾기
+                                </CustomFont>
+                            </Button3>
 
                             <Button2 onClick={goSignup}>
                                 <CustomFont color='#5E694D' font='0.6rem'>

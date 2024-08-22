@@ -27,13 +27,14 @@ const PageContainer = styled(ContainerCenter)`
 const MainButton = styled.button`
   background-color: #FCECC4;
   border: none;
-  border-radius: 1rem;
+  border-radius: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   color: black;
-  padding: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
 `;
 
 const Detail = styled.button`

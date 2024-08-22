@@ -40,8 +40,9 @@ const Button = styled.button`
 const ModalBackground = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 390px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -51,6 +52,11 @@ const ModalBackground = styled.div`
 `;
 
 const Modal = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
   background-color: white;
   padding: 2rem;
   border-radius: 0.5rem;
@@ -142,6 +148,9 @@ const ArbeitDolbomSignupPage = () => {
                             <Modal>
                                 <CustomFont color='black' fontWeight='bold' font='1.2rem'>
                                     교육영상 시청이 완료되었습니다!
+                                </CustomFont>
+                                <CustomFont color='black' fontWeight='bold' font='1.2rem'>
+                                    돌보미로 회원가입되었습니다.
                                 </CustomFont>
                             </Modal>
                         </ModalBackground>

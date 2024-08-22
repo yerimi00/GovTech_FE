@@ -72,6 +72,11 @@ const BigButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #FDE9BA;
+}
 `;
 
 const SmallButton = styled.button`
@@ -84,6 +89,11 @@ const SmallButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #FDE9BA;
+}
 `;
 
 const EditButton = styled.button`
@@ -97,6 +107,7 @@ const EditButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 const StyledInput = styled.input.attrs({
@@ -117,8 +128,9 @@ const StyledInput = styled.input.attrs({
 const ModalBackground = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 390px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;

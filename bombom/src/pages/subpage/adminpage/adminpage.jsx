@@ -35,6 +35,7 @@ justify-content: center;
 width: 100%;
 color: black;
 padding: 1rem;
+cursor: pointer;
 `;
 
 const MainDiv = styled.div`

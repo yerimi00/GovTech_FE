@@ -47,6 +47,7 @@ const Detail = styled.button`
   color: white;
   width: 2rem;
   height: 2rem;
+  cursor: pointer;
 
   &::before {
     content: '';
@@ -97,6 +98,7 @@ const Edit = styled.button`
   width: 5rem;
   color: black;
   padding: 0.5rem;
+  cursor: pointer;
 `;
 
 const ToggleButton = styled.button`
@@ -119,6 +121,7 @@ const ToggleButton = styled.button`
 const PlusButton = styled(ToggleButton)`
   background-color: #6E5F3B;
   margin-top: 1rem;
+  cursor: pointer;
 `;
 
 const MinusButton = styled(ToggleButton)`
@@ -128,6 +131,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 background-color: #D9534F;
+cursor: pointer;
 `;
 
 const HamburgerButton = styled(ToggleButton)`
@@ -138,6 +142,7 @@ height: 1.5rem;
 display: flex;
 align-items: center;
 justify-content: center;
+cursor: pointer;
 `;
 
 const DolbomEduVideoPage = () => {

@@ -36,7 +36,11 @@ const Detail = styled.button`
   color: white;
   width: 8rem;
   height: 3rem;
+
   cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #FDE9BA;
 `;
 
 const MainDiv = styled.div`
@@ -98,8 +102,9 @@ const StyledInput = styled.input.attrs((props) => ({
 const ModalContainer = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 390px;
   height: 100%;
   display: flex;
   align-items: center;

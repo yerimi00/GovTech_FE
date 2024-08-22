@@ -9,7 +9,9 @@ import { BsPersonCircle } from 'react-icons/bs';
 const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 390px;
+  left: 50%;
+  transform: translateX(-50%);
   height: 6vh;
   display: flex;
   flex-direction: row;
@@ -74,8 +76,8 @@ export default function Header() {
 
     return (
         <HeaderContainer>
-            <CustomRow width='100%' justifyContent='space-between'>
-                <CustomRow width='100%' justifyContent='space-between' gap='1rem'>
+            <CustomRow width='100%' justifyContent='space-between' gap='0'>
+                <CustomRow width='100%' justifyContent='space-between'>
                     {isSpecialRoute ? (
                         <CustomFont color='#626262' font='0.8rem'>여기 로고</CustomFont>
                     ) : (

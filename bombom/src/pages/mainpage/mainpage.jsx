@@ -30,7 +30,7 @@ const PageContainer = styled(ContainerCenter)`
   gap: 2rem;
 `;
 
-const MainDiv = styled.div`
+const InfoDiv = styled.div`
   background-color: ${(props) => props.backgroundColor || "#AFAFAF"};
   border: none;
   width: ${(props) => props.width || "100%"};
@@ -46,6 +46,27 @@ const MainDiv = styled.div`
   box-shadow: 0px 4px 6px #E5DDC9;
 `;
 
+const MainDiv = styled.button`
+  background-color: ${(props) => props.backgroundColor || "#AFAFAF"};
+  border: none;
+  width: ${(props) => props.width || "100%"};
+  height: ${(props) => props.height || "auto"};
+  border-radius: ${(props) => props.borderRadius || "auto"};
+  min-height: 6rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: ${(props) => props.fontFamily || "Noto Sans KR"};
+  box-shadow: 0px 4px 6px #E5DDC9;
+  cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #C6C0AF;
+}
+`;
+
 const Button = styled.button`
 border: none;
 border-radius: 50%;
@@ -54,6 +75,12 @@ align-items: center;
 justify-content: center;
 padding: 0.5rem;
 background-color: #E5DDC9;
+
+cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #C6C0AF;
+}
 `;
 
 const HomePage = () => {
@@ -72,11 +99,11 @@ const HomePage = () => {
     <ContainerCenter>
       <PageContainer>
         <CustomColumn width='90%' alignItems='center' justifyContent='flex-start' gap='1rem'>
-          <MainDiv backgroundColor="white" borderRadius="35px" height='30vh'>
+          <InfoDiv backgroundColor="white" borderRadius="35px" height='40vh'>
             <CustomFont color='black' font='1rem'>
               수요예측 정보
             </CustomFont>
-          </MainDiv>
+          </InfoDiv>
 
 
           <CustomRow width='100%' alignItems='center' justifyContent='space-between'>
@@ -84,7 +111,7 @@ const HomePage = () => {
               <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='1rem'>
                 <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
                   <Button onClick={goDolbomWant}>
-                    <FaArrowRight style={{ color: 'white' }} />
+                    <FaArrowRight style={{ color: 'white', fontSize: '2rem' }} />
                   </Button>
                 </CustomRow>
                 <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
@@ -111,7 +138,7 @@ const HomePage = () => {
               <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='1rem'>
                 <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
                   <Button onClick={goDolbomWantN}>
-                    <FaArrowRight style={{ color: 'white' }} />
+                    <FaArrowRight style={{ color: 'white', fontSize: '2rem' }} />
                   </Button>
                 </CustomRow>
                 <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>

@@ -35,6 +35,7 @@ const MenuButton = styled.button`
   color: black;
   padding: 0.5rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 
   &:hover {
     background-color: #D9BD78;
@@ -74,6 +75,8 @@ const Detail = styled.button`
   color: white;
   width: 2rem;
   height: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
   &::before {
     content: '';

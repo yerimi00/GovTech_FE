@@ -2,9 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { CloseIcon } from "../icons/wantbolbom";
 import CustomButtonSubmit from "../container/CustomButtonSubmit";
+import { useNavigate } from 'react-router-dom';
 
 const Modal = ({ show, onClose, cardData }) => {
   if (!show) return null;
+
+  const navigate = useNavigate();
+
+  const goChat = () => {
+    navigate('/chatpage');
+  }
 
   return (
     <Overlay>
@@ -43,7 +50,7 @@ const Modal = ({ show, onClose, cardData }) => {
             </p>
           </CareInformationDiv>
         </ModalContent>
-        <CustomButtonSubmit>채팅방 생성하기</CustomButtonSubmit>
+        <CustomButtonSubmit onClick={goChat}>채팅방 생성하기</CustomButtonSubmit>
       </ModalContainer>
     </Overlay>
   );
@@ -54,8 +61,9 @@ export default Modal;
 const Overlay = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 390px;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   display: flex;
@@ -68,9 +76,10 @@ const ModalContainer = styled.div`
   background: white;
   padding: 2rem;
   border-radius: 35px;
-  width: 90%;
-  max-width: 500px;
+  width: 300px;
   position: relative;
+  gap: 1rem;
+  box-sizing: border-box;
 `;
 
 const ModalHeader = styled.div`

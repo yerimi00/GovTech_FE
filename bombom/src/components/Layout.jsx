@@ -7,12 +7,13 @@ import AdminFooter from './footer/adminFooter';
 import { Outlet, useLocation } from 'react-router-dom';
 import ResetCss from '../ResetCss';
 
-const Container = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 390px;  /* 모바일 너비 */
+  margin: 0 auto;
   min-height: 100vh;
-  padding-top: 6vh;
-  background-color: transparent;
+  background-color: #f8f8f8;
 `;
 
 const Main = styled.main`
@@ -36,7 +37,8 @@ const Layout = () => {
             location.pathname === '/maineditmyinfopage' || location.pathname === '/editpasswordpage' ||
             location.pathname === '/editkeywordpage' || location.pathname === '/editsentencepage' ||
             location.pathname === '/certificatecardpage' || location.pathname === '/cardcamerapage' ||
-            location.pathname === '/mainmynoticepage' || location.pathname === '/detailmynoticepage') {
+            location.pathname === '/mainmynoticepage' || location.pathname === '/detailmynoticepage' ||
+            location.pathname === '/chatpage' || location.pathname === '/adminloginpage') {
             return <NewHeader />;
         }
         return <Header />;
@@ -52,13 +54,13 @@ const Layout = () => {
     return (
         <>
             <ResetCss />
-            <Container>
+            <Wrapper>
                 {renderHeader()}
                 <Main>
                     <Outlet />
                 </Main>
                 {renderFooter()}
-            </Container>
+            </Wrapper>
         </>
     );
 };

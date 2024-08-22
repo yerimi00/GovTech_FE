@@ -26,6 +26,18 @@ const PageContainer = styled(ContainerCenter)`
   background: linear-gradient(to bottom, #D9F0B4 0%, #D9F0B4 10%, white 90%, white 100%);
 `;
 
+const StyledBsAwardFill = styled(BsAwardFill)`
+  color: #5E694D;
+  font-size: 3rem;
+  transition: color 0.3s ease;
+`;
+
+const StyledBsStopwatchFill = styled(BsStopwatchFill)`
+  color: #5E694D;
+  font-size: 3rem;
+  transition: color 0.3s ease;
+`;
+
 const Button = styled.button`
   width: ${props => props.width || 'auto'};
   height: ${props => props.height || 'auto'};
@@ -37,7 +49,17 @@ const Button = styled.button`
   cursor: pointer;
   border: none;
   border-radius: ${(props) => props.borderRadius || "2rem"};
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: #BDD398;
+    
+    ${StyledBsAwardFill}, ${StyledBsStopwatchFill} {
+        color: white;
+      }
+  }
 `;
+
 
 const MainDiv = styled.div`
   background-color: ${(props) => props.backgroundColor || "#AFAFAF"};
@@ -81,7 +103,7 @@ const FirstDolbomSignupPage = () => {
                             <Button width='50%' height='15rem' onClick={goCertSignup}>
                                 <CustomColumn width='90%' alignItems='center' justifyContent='center'>
                                     <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
-                                        <BsAwardFill style={{ color: '#5E694D', fontSize: '3rem' }} />
+                                        <StyledBsAwardFill />
                                     </CustomRow>
                                     <CustomColumn width='100%' alignItems='flex-start' justifyContent='center' gap='0.5rem'>
                                         <CustomFont color='#5E694D' font='1rem'>
@@ -99,7 +121,7 @@ const FirstDolbomSignupPage = () => {
                             <Button width='50%' height='15rem' onClick={goArbeitSignup}>
                                 <CustomColumn width='90%' alignItems='center' justifyContent='center'>
                                     <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
-                                        <BsStopwatchFill style={{ color: '#5E694D', fontSize: '3rem' }} />
+                                        <StyledBsStopwatchFill />
                                     </CustomRow>
                                     <CustomColumn width='100%' alignItems='flex-start' justifyContent='center' gap='0.5rem'>
                                         <CustomFont color='#5E694D' font='1rem'>

@@ -131,8 +131,9 @@ const EmailInput = styled.input.attrs({
 const ModalBackground = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 390px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -223,7 +224,7 @@ const SecondDolbomSignupPage = () => {
           {showModal && (
             <ModalBackground>
               <Modal>
-                <CustomFont fontWeight='bold' font='1.2rem'>다음 단계로 이동합니다.</CustomFont>
+                <CustomFont color='black' fontWeight='bold' font='1.2rem'>다음 단계로 이동합니다.</CustomFont>
               </Modal>
             </ModalBackground>
           )}

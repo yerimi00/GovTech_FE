@@ -10,11 +10,12 @@ const NaviContainer = styled.footer`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 390px;
+  transform: translateX(-50%);
   height: 11vh;
   background-color: white;
   bottom: 0;
-  left: 0;
+  left: 50%;
   pointer-events: auto;
   position: fixed;
   border-top: 0.5rem solid #C6C0AF;
@@ -23,8 +24,6 @@ const NaviContainer = styled.footer`
 
 const StyledCustomColumn = styled(CustomColumn)`
 padding-top: 0.7rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
   background-color: ${({ isActive }) => (isActive ? '#C6C0AF' : 'transparent')};
   width: 25%;
   height: 100%;
@@ -32,6 +31,8 @@ padding-top: 0.7rem;
   align-items: center;
   justify-content: center;
 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   &:hover {
     background-color: #E5DDC9;
   }
@@ -51,7 +52,7 @@ const Footer = () => {
   };
 
   const handleChatClick = () => {
-    navigate("/chatpage");
+    navigate("/mainchatpage");
   };
 
   const handleMoreClick = () => {
@@ -91,7 +92,7 @@ const Footer = () => {
         alignItems="center"
         justifyContent="center"
         onClick={handleChatClick}
-        isActive={location.pathname === "/chatpage"}
+        isActive={location.pathname === "/mainchatpage"}
       >
         <ChatIcon />
         <CustomFont color="black" font="0.7rem">

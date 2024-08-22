@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useNavigate, useLocation } from 'react-router-dom';  // useLocation 추가
+import { useNavigate, useLocation } from 'react-router-dom';
 import CustomRow from '../../container/CustomRow';
 import CustomFont from '../../container/CustomFont';
 import StyledImg from '../../container/StyledImg';
@@ -8,7 +8,9 @@ import StyledImg from '../../container/StyledImg';
 const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 390px;
+  left: 50%;
+  transform: translateX(-50%);
   height: 6vh;
   display: flex;
   flex-direction: row;
@@ -61,9 +63,11 @@ export default function NewHeader() {
         <HeaderContainer bgColor={getBackgroundColor()}>
             <CustomRow width='100%' justifyContent='space-between'>
                 <CustomRow width='100%' justifyContent='flex-start'>
-                    <Button onClick={handleGoBack}>
-                        <StyledImg src={'icon_back.png'} width='2rem' height='2rem' />
-                    </Button>
+                    {location.pathname !== '/chatpage' && (
+                        <Button onClick={handleGoBack}>
+                            <StyledImg src={'icon_back.png'} width='2rem' height='2rem' />
+                        </Button>
+                    )}
                 </CustomRow>
             </CustomRow>
         </HeaderContainer>
