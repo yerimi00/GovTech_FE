@@ -30,7 +30,7 @@ const MainDiv = styled.div`
   border: none;
   width: ${(props) => props.width || "100%"};
   border-radius: ${(props) => props.borderRadius || "auto"};
-  min-height: 40rem;
+  min-height: 35rem;
   padding: 0.5rem;
   padding-top: 7vh;
   display: flex;
@@ -44,7 +44,7 @@ const Category = styled.div`
   background-color: #C6C0AF;
   border-radius: 35px;
   position: absolute;
-  top: 5vh;
+  top: 11vh;
   font-size: 30px;
   font-weight: bold;
   font-family: "Cafe24SsurroundAir", sans-serif;
