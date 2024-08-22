@@ -44,6 +44,8 @@ import MainMyNoticePage from "./components/header/mypage/all_detailmynotice/main
 import DetailMyNoticePage from "./components/header/mypage/all_detailmynotice/detailmynoticepage";
 import MainChatPage from "./pages/chatpage/mainchatpage";
 import AdminLoginPage from "./components/header/all_login/AdminLogin";
+import DolbomFindIdPage from "./components/header/all_login/all_findid/DolbomFindId";
+import ProtectorFindIdPage from "./components/header/all_login/all_findid/ProtectorFindId";
 
 const AppRouter = () => {
   return (
@@ -104,6 +106,8 @@ const AppRouter = () => {
             <Route path="/detailmynoticepage" element={<DetailMyNoticePage />} />
             <Route path="/mainchatpage" element={<MainChatPage />} />
             <Route path="/adminloginpage" element={<AdminLoginPage />} />
+            <Route path="/dolbomfindidpage" element={<DolbomFindIdPage />} />
+            <Route path="/protectorfindidpage" element={<ProtectorFindIdPage />} />
           </Route>
         </Routes>
       </Router>
