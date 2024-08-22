@@ -68,7 +68,7 @@ const ChatPage = () => {
   };
 
   const handleFindClick = () => {
-    navigate("/want");
+    navigate(-1);
   };
 
   const handlePaymentRequest = () => {
@@ -236,7 +236,10 @@ const ChatPage = () => {
       {showReviewModal && (
         <ReviewModal
           show={showReviewModal}
-          onClose={() => setShowReviewModal(false)}
+          onClose={() => {
+            console.log('Closing modal');
+            setshowReviewModal(false);
+          }}
           onReviewRequest={handleReviewRequest}
         />
       )}
@@ -334,10 +337,13 @@ const ChatMessages = styled.div`
 const ChatMessage = styled.div`
   max-width: 60%;
   padding: 10px;
-  border-radius: 15px;
   background-color: ${(props) => (props.isMe ? "#E5DDC9" : "#F6F3EC")};
   align-self: ${(props) => (props.isMe ? "flex-end" : "flex-start")};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: ${(props) =>
+    props.isMe
+      ? "1.5rem 1.5rem 0 1.5rem"
+      : "1.5rem 1.5rem 1.5rem 0"};
 `;
 
 const ChatInputContainer = styled.div`

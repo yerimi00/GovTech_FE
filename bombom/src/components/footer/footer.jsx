@@ -51,7 +51,7 @@ const Footer = () => {
   };
 
   const handleChatClick = () => {
-    navigate("/chatpage");
+    navigate("/mainchatpage");
   };
 
   const handleMoreClick = () => {
@@ -91,7 +91,7 @@ const Footer = () => {
         alignItems="center"
         justifyContent="center"
         onClick={handleChatClick}
-        isActive={location.pathname === "/chatpage"}
+        isActive={location.pathname === "/mainchatpage"}
       >
         <ChatIcon />
         <CustomFont color="black" font="0.7rem">

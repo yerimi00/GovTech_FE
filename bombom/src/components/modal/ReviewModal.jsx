@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import CustomButtonSubmit from "../container/CustomButtonSubmit";
-import InputContainer from "../container/InputContainer";
 import CardContainer from "../container/CardContainer";
+import CustomRow from "../container/CustomRow";
 
 const ReviewModal = ({ show, onClose, onReviewRequest }) => {
+  const [rating, setRating] = useState(0);
+
   if (!show) return null;
 
   const keywordData = ["돌보미 키워드1", "돌보미 키워드2", "돌보미 키워드3"];
@@ -20,27 +22,47 @@ const ReviewModal = ({ show, onClose, onReviewRequest }) => {
       console.error("리뷰작성 요청 중 오류 발생:", error);
     }
   };
+
+  const handleStarClick = (index) => {
+    if (rating === index + 1) {
+      setRating(index); // 같은 별을 클릭하면 그 별을 비활성화
+    } else {
+      setRating(index + 1); // 해당 별까지 모두 활성화
+    }
+  };
+
   return (
     <Overlay>
       <ModalContainer>
+        <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
+          <CloseButton onClick={onClose}>&times;</CloseButton>
+        </CustomRow>
         <ModalHeader>
           <ModalTitle>돌보미 BBB님의 리뷰 남기기</ModalTitle>
         </ModalHeader>
         <ModalContent>
-          {keywordData.map((keyword, index) => (
-            <p key={index}>
-              <BText fontSize="16px">
-                {keyword}
-                {index < keywordData.length - 1 && ", "}
-              </BText>
-            </p>
-          ))}
+          <KeywordContainer>
+            {keywordData.map((keyword, index) => (
+              <Keyword key={index}>{keyword}</Keyword>
+            ))}
+          </KeywordContainer>
           <CardContainer width="100%">
-            <InputTextArea placeholder="돌봄자 정보" />
+            <InputTextArea />
           </CardContainer>
+          <StarContainer>
+            {[...Array(5)].map((_, index) => (
+              <Star
+                key={index}
+                filled={index < rating}
+                onClick={() => handleStarClick(index)}
+              >
+                ★
+              </Star>
+            ))}
+          </StarContainer>
         </ModalContent>
         <CustomButtonSubmit onClick={handleReviewClick}>
-          리뷰작성하기
+          리뷰 작성하기
         </CustomButtonSubmit>
       </ModalContainer>
     </Overlay>
@@ -69,12 +91,14 @@ const ModalContainer = styled.div`
   width: 90%;
   max-width: 500px;
   position: relative;
+  gap: 1rem;
 `;
 
 const ModalHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 `;
 
@@ -95,12 +119,48 @@ const ModalTitle = styled.h2`
 
 const ModalContent = styled.div`
   margin-bottom: 2rem;
-  p {
-    margin: 0.5rem 0;
+`;
+
+const KeywordContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+`;
+
+const Keyword = styled.div`
+  background-color: trnaparent;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 14px;
+`;
+
+const InputTextArea = styled.textarea.attrs({
+  placeholder: "돌봄자 정보",
+})`
+  width: 100%;
+  height: 7rem;
+  border: 2px solid #eae4d4;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background-color: transparent;
+  vertical-align: top;
+
+  &::placeholder {
+    color: #5e694d;
   }
 `;
 
-const BText = styled.span`
-  font-weight: bold;
-  font-size: ${(props) => props.fontSize || "18px"};
+const StarContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+`;
+
+const Star = styled.span`
+  font-size: 2rem;
+  color: ${(props) => (props.filled ? "#EAE4D4" : "white")};
+  cursor: pointer;
+  text-shadow: 0 0 2px black;
+  margin: 0 0.25rem;
 `;
