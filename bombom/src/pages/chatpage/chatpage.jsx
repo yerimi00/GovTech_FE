@@ -7,7 +7,7 @@ import WantCategory from "../../components/container/WantCategory";
 import WantCard from "../../components/card/wantcard";
 import { ReturnBtn } from "../../components/icons/wantbolbom";
 import CardContainer from "../../components/container/CardContainer";
-import Modal from "../../components/modal/Modal";
+import PaymentModal from "../../components/modal/PaymentModal";
 
 const ChatPage = () => {
   const navigate = useNavigate();
@@ -129,19 +129,22 @@ const ChatPage = () => {
               />
 
               <ChatMessages>
-                <CardContainer
-                  alignItems="center"
-                  height="5em"
-                  borderRadius="35px"
-                >
-                  위 글에 대한 채팅이 시작됩니다.
-                  <div>
-                    <p>보호자 AAA님의 프로필 보러가기</p>
-                  </div>
-                  <div>
-                    <p>돌보미 BBB님의 프로필 보러가기</p>
-                  </div>
-                </CardContainer>
+                <MainDiv backgroundColor="white" width="100%">
+                  <CardContainer
+                    alignItems="center"
+                    height="5em"
+                    borderRadius="35px"
+                  >
+                    위 글에 대한 채팅이 시작됩니다.
+                    <div>
+                      <p>보호자 AAA님의 프로필 보러가기</p>
+                    </div>
+                    <div>
+                      <p>돌보미 BBB님의 프로필 보러가기</p>
+                    </div>
+                  </CardContainer>
+                </MainDiv>
+
                 {chatData.map((message, index) => (
                   <ChatMessage key={index} isMe={message.isMe}>
                     {message.chat}
@@ -182,11 +185,14 @@ const ChatPage = () => {
       )}
 
       {showModal && (
-        <Modal show={showModal} onClose={handleCloseModal} cardData={cardData}>
-          <OptionButton onClick={handlePaymentRequest}>
-            결제 요청하기
-          </OptionButton>
-        </Modal>
+        <PaymentModal
+          show={showModal}
+          onClose={handleCloseModal}
+          cardData={cardData}
+          onPaymentRequest={handlePaymentRequest}
+        >
+          <OptionButton>결제 요청하기</OptionButton>
+        </PaymentModal>
       )}
     </ChatPageContainer>
   );
