@@ -10,11 +10,12 @@ const NaviContainer = styled.footer`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 390px;
+  transform: translateX(-50%);
   height: 11vh;
   background-color: white;
   bottom: 0;
-  left: 0;
+  left: 50%;
   pointer-events: auto;
   position: fixed;
   border-top: 0.5rem solid #C6C0AF;

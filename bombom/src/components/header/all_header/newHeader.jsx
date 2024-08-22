@@ -8,7 +8,9 @@ import StyledImg from '../../container/StyledImg';
 const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 390px;
+  left: 50%;
+  transform: translateX(-50%);
   height: 6vh;
   display: flex;
   flex-direction: row;

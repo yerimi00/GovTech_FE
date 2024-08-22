@@ -253,38 +253,22 @@ const ChatPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 390px;
+  margin: 0 auto;
   height: 100%;
   min-height: 100vh;
   padding-bottom: 10vh;
+  background-color: white;
 `;
 
 const PageContainer = styled(ChatPageContainer)`
-  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   position: relative;
   background: linear-gradient(to bottom, #e5ddc9, white);
   gap: 2rem;
   padding-top: 10vh;
-`;
-
-const MainDiv = styled.div`
-  background-color: ${(props) => props.backgroundColor || "#AFAFAF"};
-  border: none;
-  width: ${(props) => props.width || "90%"};
-  border-radius: ${(props) => props.borderRadius || "auto"};
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: ${(props) => props.fontFamily || "Noto Sans KR"};
-  // position: relative;
-  position: ${(props) => props.position || "relative"};
-  top: ${(props) => props.top || "auto"};
-
-  transition: height 0.3s ease; /* height 변경시 애니메이션 효과 추가 */
 `;
 
 const HeaderContainer = styled.div`
@@ -306,7 +290,7 @@ const ContentContainer = styled.div`
   overflow-y: auto;
   padding: 1rem;
   box-sizing: border-box;
-  max-height: 100%; /* 최대 높이 설정 */
+  max-height: 100%;
 `;
 
 const ReturnIconWrapper = styled.div`
@@ -329,9 +313,9 @@ const ChatMessages = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  overflow-y: auto; /* 채팅이 많아지면 스크롤이 가능하도록 설정 */
-  padding: 1rem; /* padding 추가로 가독성 개선 */
-  box-sizing: border-box; /* 패딩이 포함된 크기 계산 */
+  overflow-y: auto;
+  padding: 1rem;
+  box-sizing: border-box;
 `;
 
 const ChatMessage = styled.div`
@@ -346,16 +330,34 @@ const ChatMessage = styled.div`
       : "1.5rem 1.5rem 1.5rem 0"};
 `;
 
+const MainDiv = styled.div`
+  background-color: ${(props) => props.backgroundColor || "#AFAFAF"};
+  border: none;
+  width: 100%;
+  max-width: 390px;
+  border-radius: ${(props) => props.borderRadius || "auto"};
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: ${(props) => props.fontFamily || "Noto Sans KR"};
+  position: ${(props) => props.position || "relative"};
+  top: ${(props) => props.top || "auto"};
+  transition: height 0.3s ease;
+`;
+
 const ChatInputContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 10px;
   width: 100%;
+  max-width: 390px;
   background-color: #ffffff;
   border-top: 1px solid #dddddd;
+  padding: 0.5rem;
   position: fixed;
-  bottom: ${(props) => (props.showOptions ? "30vh" : "11vh")}; /* 위치 조정 */
-  left: 0;
+  bottom: ${(props) => (props.showOptions ? "30vh" : "11vh")};
+  left: 50%;
+  transform: translateX(-50%);
   transition: bottom 0.3s ease;
   z-index: 2;
 `;
@@ -364,7 +366,9 @@ const OptionsContainer = styled.div`
   position: fixed;
   bottom: 10vh;
   left: 0;
-  width: 100%;
+  width: 390px;
+  left: 50%;
+  transform: translateX(-50%);
   height: 20vh;
   display: flex;
   justify-content: space-around;
