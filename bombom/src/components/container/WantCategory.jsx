@@ -8,10 +8,11 @@ const WantCategory = styled.div`
   position: relative;
   float: left;
   left: 10px;
-  top: -30px;
+  top: ${(props) => props.top || "-30px"};
   font-size: 30px;
   font-weight: bold;
   font-family: "Cafe24SsurroundAir", sans-serif;
+  margin-top: ${(props) => props.marginTop || "auto"};
   // width: 100%;
 `;
 
