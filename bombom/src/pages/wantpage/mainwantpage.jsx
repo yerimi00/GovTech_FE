@@ -30,7 +30,7 @@ const PageContainer = styled(ContainerCenter)`
   gap: 2rem;
 `;
 
-const MainDiv = styled.div`
+const MainDiv = styled.button`
   background-color: ${(props) => props.backgroundColor || "#AFAFAF"};
   border: none;
   width: 100%;
@@ -43,6 +43,11 @@ const MainDiv = styled.div`
   justify-content: center;
   font-family: ${(props) => props.fontFamily || "Noto Sans KR"};
   box-shadow: 0px 4px 6px #E5DDC9;
+  cursor: pointer;
+transition: background-color 0.3s ease;
+&:hover {
+  background-color: #C6C0AF;
+}
 `;
 
 const Button = styled.button`
@@ -78,7 +83,7 @@ const MainWantPage = () => {
                 <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='1rem'>
 
                     <CustomColumn width='100%' alignItems='center' justifyContent='space-between'>
-                        <MainDiv backgroundColor="white" width='100%' borderRadius="35px">
+                        <MainDiv backgroundColor="white" width='100%' borderRadius="35px" onClick={goDolbomWant}>
                             <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='1rem'>
                                 <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
                                     <Button onClick={goDolbomWant}>
@@ -110,7 +115,7 @@ const MainWantPage = () => {
                             </CustomColumn>
                         </MainDiv>
 
-                        <MainDiv backgroundColor="white" width='100%' borderRadius="35px">
+                        <MainDiv backgroundColor="white" width='100%' borderRadius="35px" onClick={goDolbomWantN}>
                             <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='1rem'>
                                 <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
                                     <Button onClick={goDolbomWantN}>
