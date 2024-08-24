@@ -151,8 +151,8 @@ const WriteIconDiv = styled.div`
   }
 
   cursor: pointer;
-transition: background-color 0.3s ease;
-&:hover {
-  background-color: #E5DDC9;
-}
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #e5ddc9;
+  }
 `;

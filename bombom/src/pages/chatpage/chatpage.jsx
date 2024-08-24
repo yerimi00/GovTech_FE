@@ -42,7 +42,7 @@ const ChatPage = () => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [confirmRequested, setConfirmRequested] = useState(false);
 
-  const [showReviewModal, setshowReviewModal] = useState(false);
+  const [showReviewModal, setShowReviewModal] = useState(false);
   const [reviewRequested, setReviewRequested] = useState(false);
 
   const contentRef = useRef(null);
@@ -95,13 +95,8 @@ const ChatPage = () => {
   };
 
   const handleReviewClick = () => {
-    setshowReviewModal(true);
-    console.log("리뷰 작성하기 버튼 클릭");
-  };
-
-  const handleReviewRequest = () => {
-    setReviewRequested(true);
-    setChatData([...chatData, { chat: "리뷰가 작성되었습니다", isMe: true }]);
+    setShowReviewModal(true);
+    console.log("리뷰버튼 클릭");
   };
 
   const cardData = {
@@ -143,7 +138,7 @@ const ChatPage = () => {
                   <ReturnBtn />
                 </ReturnIconWrapper>
                 <WantCategory width="40%" borderRadius="20px" zIndex="5">
-                  <CustomFont color='#3E3537' font='1.5rem' fontWeight='bold'>
+                  <CustomFont color="#3E3537" font="1.5rem" fontWeight="bold">
                     돌봄 원해요 01
                   </CustomFont>
                 </WantCategory>
@@ -240,7 +235,7 @@ const ChatPage = () => {
         <ReviewModal
           show={showReviewModal}
           onClose={() => {
-            console.log('Closing modal');
+            console.log("Closing modal");
             setshowReviewModal(false);
           }}
           onReviewRequest={handleReviewRequest}
@@ -330,7 +325,7 @@ const ChatMessages = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #E7E0CE;
+    background-color: #e7e0ce;
     border-radius: 5px;
     border: 2px solid #f1f1f1;
   }
@@ -340,7 +335,6 @@ const ChatMessages = styled.div`
   }
 `;
 
-
 const ChatMessage = styled.div`
   max-width: 60%;
   padding: 10px;
@@ -348,9 +342,7 @@ const ChatMessage = styled.div`
   align-self: ${(props) => (props.isMe ? "flex-end" : "flex-start")};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: ${(props) =>
-    props.isMe
-      ? "1.5rem 1.5rem 0 1.5rem"
-      : "1.5rem 1.5rem 1.5rem 0"};
+    props.isMe ? "1.5rem 1.5rem 0 1.5rem" : "1.5rem 1.5rem 1.5rem 0"};
 `;
 
 const MainDiv = styled.div`

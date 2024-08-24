@@ -31,6 +31,7 @@ import NoticePage from "./pages/subpage/adminpage/all_notice/Notice";
 import DetailNoticePage from "./pages/subpage/adminpage/all_notice/DetailNotice";
 import ChatPage from "./pages/chatpage/chatpage";
 import MorePage from "./pages/morepage/morepage";
+import ComplainWrite from "./pages/morepage/complainWrite";
 import WantPageN from "./pages/wantpage/wantpage_n";
 import MainWantPage from "./pages/wantpage/mainwantpage";
 import MyPage from "./components/header/mypage/mypage";
@@ -86,28 +87,56 @@ const AppRouter = () => {
             <Route path="/carewrite" element={<CareWrite />} />
             <Route path="/adminpage" element={<AdminPage />} />
             <Route path="/dolbomokpage" element={<DolbomOkPage />} />
-            <Route path="/detaildolbomokpage" element={<DetailDolbomOkPage />} />
-            <Route path="/dolbomeduvideopage" element={<DolbomEduVideoPage />} />
-            <Route path="/eduvideodetailpage" element={<EduVideoDetailPage />} />
-            <Route path="/lowprotectorokpage" element={<LowProtectorOkPage />} />
-            <Route path="/detaillowprotectorpage" element={<DetailLowProtectorPage />} />
+            <Route
+              path="/detaildolbomokpage"
+              element={<DetailDolbomOkPage />}
+            />
+            <Route
+              path="/dolbomeduvideopage"
+              element={<DolbomEduVideoPage />}
+            />
+            <Route
+              path="/eduvideodetailpage"
+              element={<EduVideoDetailPage />}
+            />
+            <Route
+              path="/lowprotectorokpage"
+              element={<LowProtectorOkPage />}
+            />
+            <Route
+              path="/detaillowprotectorpage"
+              element={<DetailLowProtectorPage />}
+            />
             <Route path="/noticepage" element={<NoticePage />} />
             <Route path="/detailnoticepage" element={<DetailNoticePage />} />
             <Route path="/chatpage" element={<ChatPage />} />
             <Route path="/morepage" element={<MorePage />} />
+            <Route path="/complainwrite" element={<ComplainWrite />} />
             <Route path="/mypage" element={<MyPage />} />
-            <Route path="/maineditmyinfopage" element={<MainEditMyInfoPage />} />
+            <Route
+              path="/maineditmyinfopage"
+              element={<MainEditMyInfoPage />}
+            />
             <Route path="/editpasswordpage" element={<EditPasswordPage />} />
             <Route path="/editkeywordpage" element={<EditKeywordPage />} />
             <Route path="/editsentencepage" element={<EditSentencePage />} />
-            <Route path="/certificatecardpage" element={<CertificateCardPage />} />
+            <Route
+              path="/certificatecardpage"
+              element={<CertificateCardPage />}
+            />
             <Route path="/cardcamerapage" element={<CardCameraPage />} />
             <Route path="/mainmynoticepage" element={<MainMyNoticePage />} />
-            <Route path="/detailmynoticepage" element={<DetailMyNoticePage />} />
+            <Route
+              path="/detailmynoticepage"
+              element={<DetailMyNoticePage />}
+            />
             <Route path="/mainchatpage" element={<MainChatPage />} />
             <Route path="/adminloginpage" element={<AdminLoginPage />} />
             <Route path="/dolbomfindidpage" element={<DolbomFindIdPage />} />
-            <Route path="/protectorfindidpage" element={<ProtectorFindIdPage />} />
+            <Route
+              path="/protectorfindidpage"
+              element={<ProtectorFindIdPage />}
+            />
           </Route>
         </Routes>
       </Router>

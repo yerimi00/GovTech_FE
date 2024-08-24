@@ -14,6 +14,13 @@ const WantCategory = styled.div`
   font-family: "Cafe24SsurroundAir", sans-serif;
   margin-top: ${(props) => props.marginTop || "auto"};
   // width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  p {
+    padding-left: 15px;
+    font-size: 22px;
+  }
 `;
 
 export default WantCategory;
