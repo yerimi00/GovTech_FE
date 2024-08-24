@@ -127,6 +127,10 @@ const DolbomLoginPage = () => {
         navigate('/firstdolbomsignuppage');
     }
 
+    const goDolbomFindId = () => {
+        navigate('/dolbomfindidpage');
+    }
+
     const doneLogin = () => {
         if (!isButtonDisabled) {
             setShowModal(true);
@@ -167,9 +171,9 @@ const DolbomLoginPage = () => {
 
                         <CustomRow width='100%' alignItems='center' justifyContent='space-around' gap='1rem'>
 
-                            <Button3>
+                            <Button3 onClick={goDolbomFindId}>
                                 <CustomFont color='#5E694D' font='0.6rem' fontWeight='bold'>
-                                    아이디찾기/비밀번호찾기
+                                    아이디찾기
                                 </CustomFont>
                             </Button3>
 

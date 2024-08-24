@@ -127,6 +127,10 @@ const ProtectorLoginPage = () => {
         navigate('/protectorsignuppage');
     }
 
+    const goProtectorFindId = () => {
+        navigate('/protectorfindidpage');
+    }
+
     const doneLogin = () => {
         if (!isButtonDisabled) {
             setShowModal(true);
@@ -167,9 +171,9 @@ const ProtectorLoginPage = () => {
 
                         <CustomRow width='100%' alignItems='center' justifyContent='space-around' gap='1rem'>
 
-                            <Button3>
+                            <Button3 onClick={goProtectorFindId}>
                                 <CustomFont color='#6E5F3B' font='0.6rem'>
-                                    아이디찾기/비밀번호찾기
+                                    아이디찾기
                                 </CustomFont>
                             </Button3>
 

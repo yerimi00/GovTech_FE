@@ -43,10 +43,11 @@ export default function NewHeader() {
             || pathname === '/detaildolbomokpage' || pathname === '/dolbomeduvideopage' || pathname === '/eduvideodetailpage' ||
             pathname === '/maineditmyinfopage' || pathname === '/editpasswordpage' || pathname === '/editkeywordpage' || pathname === '/editsentencepage' ||
             pathname === '/certificatecardpage' || pathname === '/cardcamerapage' || pathname === '/mainmynoticepage' ||
-            pathname === '/detailmynoticepage') {
+            pathname === '/detailmynoticepage' || pathname === '/protectorfindidpage') {
             return '#FBDA8B';
         } else if (pathname === '/dolbomloginpage' || pathname === '/firstdolbomsignuppage' || pathname === '/certificatedolbomsignuppage' ||
-            pathname === '/arbeitdolbomsignuppage' || pathname === '/lowprotectorokpage' || pathname === '/detaillowprotectorpage') {
+            pathname === '/arbeitdolbomsignuppage' || pathname === '/lowprotectorokpage' || pathname === '/detaillowprotectorpage' ||
+            pathname === '/dolbomfindidpage') {
             return '#D8F0B2';
         } else if (pathname === '/seconddolbomsignuppage' && search === '?type=cert' ||
             pathname === '/seconddolbomsignuppage' && search === '?type=arbeit') {
