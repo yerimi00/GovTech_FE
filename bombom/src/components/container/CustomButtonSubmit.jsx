@@ -6,11 +6,11 @@ const CustomButtonSubmit = styled.button`
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 35px;
+  border-radius: ${(props) => props.borderRadius || "35px"};
   cursor: pointer;
   font-size: 24px;
   font-weight: bold;
-  width: 100%;
+  width: ${(props) => props.width || "100%"};
   font-family: "Cafe24SsurroundAir", sans-serif;
 `;
 
