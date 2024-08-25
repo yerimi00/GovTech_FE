@@ -7,7 +7,7 @@ const InputContainer = styled.input.attrs({ type: "text" })`
   align-content: flex-start;
   width: ${(props) => props.width || "85%"};
   height: ${(props) => props.height || "auto"};
-  padding: 10px 30px;
+  padding: 10px 15px;
   border: 1.5px solid ${({ theme }) => theme.colors.lightGray};
   border-radius: ${(props) => props.borderRadius || "35px"};
   font-size: 18px;

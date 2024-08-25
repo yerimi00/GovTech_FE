@@ -143,9 +143,6 @@ const ChatPage = () => {
                   </CustomFont>
                 </WantCategory>
               </CustomRow>
-            </HeaderContainer>
-
-            <ContentContainer ref={contentRef}>
               <WantCard
                 title={cardData.title}
                 location={cardData.location}
@@ -153,7 +150,9 @@ const ChatPage = () => {
                 hourlyRate={cardData.hourlyRate}
                 styled={{ backgroundColor: "white", border: "none" }}
               />
+            </HeaderContainer>
 
+            <ContentContainer ref={contentRef}>
               <ChatMessages>
                 <MainDiv backgroundColor="white" width="100%">
                   <CardContainer
@@ -303,6 +302,7 @@ const ReturnIconWrapper = styled.div`
   justify-content: flex-start;
   align-items: left;
   cursor: pointer;
+  height: 50px;
 `;
 
 const ChatMessages = styled.div`

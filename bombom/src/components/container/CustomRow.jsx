@@ -13,7 +13,7 @@ const CustomRow = styled.div`
   padding-right: ${(props) => props.paddingRight || 0};
   padding-top: ${(props) => props.paddingTop || 0};
   padding-bottom: ${(props) => props.paddingBottom || 0};
-  padding: ${(props) => props.padding || 0};
+  // padding: ${(props) => props.padding || 0};
 
   margin-bottom: ${(props) => props.marginBottom || 0};
 
