@@ -10,6 +10,8 @@ const theme = {
     greenHover: "#BDD398",
     lightGray: "#E5DDC9",
     lightGrayHover: "#C6C0AF",
+    mainRed: "#EC7060",
+    permissionGreen: "#6CE3B1",
   },
   card: {
     backgroundColor: "#EAE4D4",
