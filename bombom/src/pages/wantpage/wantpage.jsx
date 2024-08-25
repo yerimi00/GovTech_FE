@@ -21,18 +21,24 @@ const WantPage = () => {
       location: "경기도 성남시",
       caregiverInfo: ["나이: 70세, 키워드: 친절, 경험 많음"],
       hourlyRate: "시급: 15,000원",
+      recruitmentStatus: "모집중",
+      time: "2024.08.25 12:40",
     },
     {
       title: "돌봄 원해요02",
       location: "서울특별시 강남구",
       caregiverInfo: ["나이: 65세, 키워드: 따뜻함, 신뢰"],
       hourlyRate: "시급: 12,000원",
+      recruitmentStatus: "모집완료",
+      time: "2024.08.25 12:40",
     },
     {
       title: "돌봄 원해요03",
       location: "부산광역시 해운대구",
       caregiverInfo: ["나이: 80세, 키워드: 정직, 성실"],
       hourlyRate: "시급: 18,000원",
+      recruitmentStatus: "모집중",
+      time: "2024.08.25 12:22",
     },
   ];
 
@@ -60,7 +66,7 @@ const WantPage = () => {
           justifyContent="flex-start"
           gap="1rem"
         >
-          <MainDiv backgroundColor="white" borderRadius="35px">
+          <MainDiv height="75vh" backgroundColor="white" borderRadius="35px">
             <CustomRow width="90%" justifyContent="space-between">
               <WantCategory width="40%" borderRadius="20px">
                 1 : 1 돌봄
@@ -75,7 +81,7 @@ const WantPage = () => {
                 <p>글쓰기</p>
               </WriteIconDiv>
             </CustomRow>
-            <InputContainer placeholder="위치로 검색하기" />
+            <InputContainer marginTop="0px" placeholder="위치로 검색하기" />
             {cardData.map((card, index) => (
               <WantCard
                 key={index}
@@ -83,6 +89,8 @@ const WantPage = () => {
                 location={card.location}
                 caregiverInfo={card.caregiverInfo.join(", ")}
                 hourlyRate={card.hourlyRate}
+                recruitmentStatus={card.recruitmentStatus}
+                time={card.time}
                 onClick={() => handleCardClick(card)}
               />
             ))}
@@ -112,6 +120,7 @@ const ContainerCenter = styled.div`
 
 const PageContainer = styled(ContainerCenter)`
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -131,7 +140,7 @@ const MainDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-family: ${(props) => props.fontFamily || "Noto Sans KR"};
 `;
 
