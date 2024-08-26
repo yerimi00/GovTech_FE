@@ -12,34 +12,44 @@ import { RemoveChat } from "../../components/icons/chatbolbom";
 const MainChatPage = () => {
   const navigate = useNavigate();
 
-  const goChat = () => {
-    navigate("/chatpage");
-  };
-
-  const handleDeletClick = () => {
-    navigate("/carewrite");
-  };
-
-  const cardData = [
+  const [cards, setCards] = useState([
     {
+      id: 1,
       title: "돌봄 원해요01",
       location: "경기도 성남시",
       lastChat: "결제완료",
       time: "2024.08.25 12:40",
     },
     {
+      id: 2,
       title: "돌봄 원해요02",
       location: "서울특별시 강남구",
       lastChat: "결제완료",
       time: "2024.08.25 12:40",
     },
     {
+      id: 3,
       title: "돌봄 원해요03",
       location: "부산광역시 해운대구",
       lastChat: "결제완료",
       time: "2024.08.25 12:22",
     },
-  ];
+  ]);
+
+  const [isDeleteMode, setIsDeleteMode] = useState(false);
+
+  const goChat = () => {
+    navigate("/chatpage");
+  };
+
+  const handleDeleteClick = (id) => {
+    setCards(cards.filter((card) => card.id !== id));
+    console.log(`${id}번 카드가 삭제되었습니다.`);
+  };
+
+  const toggleDeleteMode = () => {
+    setIsDeleteMode(!isDeleteMode);
+  };
 
   return (
     <ContainerCenter>
@@ -62,22 +72,31 @@ const MainChatPage = () => {
                   채팅방
                 </CustomFont>
               </WantCategory>
-              <RemoveChat />
+              <WriteIconDiv
+                backgroundColor="white"
+                display="flex"
+                width="50px"
+                height="50px"
+                onClick={toggleDeleteMode}
+              >
+                <RemoveChat />
+              </WriteIconDiv>
             </CustomRow>
 
             <InputContainer
               marginTop="0px"
               placeholder="채팅방 제목 검색하기"
             />
-            {cardData.map((card, index) => (
+            {cards.map((card) => (
               <ChatCard
-                key={index}
+                key={card.id}
                 title={card.title}
                 location={card.location}
                 lastChat={card.lastChat}
-                recruitmentStatus={card.recruitmentStatus}
                 time={card.time}
                 onClick={() => goChat(card)}
+                onDelete={() => handleDeleteClick(card.id)}
+                isDeleteMode={isDeleteMode}
               />
             ))}
           </MainDiv>
@@ -124,7 +143,7 @@ const MainDiv = styled.div`
 `;
 
 const WriteIconDiv = styled.div`
-  display: ${(props) => (props.show ? "flex" : "none")};
+  display: flex;
   border: none;
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "auto"};
@@ -143,4 +162,16 @@ const WriteIconDiv = styled.div`
   &:hover {
     background-color: #e5ddc9;
   }
+`;
+
+const RemoveBtn = styled.button`
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: ${(props) => (props.show ? "block" : "none")};
 `;

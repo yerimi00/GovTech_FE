@@ -1,25 +1,45 @@
 import React from "react";
 import styled from "styled-components";
-import CustomColumn from "../container/CustomColumn";
-import CustomRow from "../container/CustomRow";
 
-const ChatCard = ({ title, location, lastChat, time, onClick }) => {
+const ChatCard = ({
+  title,
+  location,
+  lastChat,
+  time,
+  onClick,
+  onDelete,
+  isDeleteMode,
+}) => {
   return (
-    <CardContainer height="125px" onClick={onClick} backgroundColor="#EAE4D4">
-      <Title>{title}</Title>
-      <Content justifyContent="space-between">
-        <LastChat>{lastChat}</LastChat>
-        <RecruitmentTime>{time}</RecruitmentTime>
-      </Content>
+    <Container>
+      {isDeleteMode && <DeleteButton onClick={onDelete}>-</DeleteButton>}
+      <CardContainer
+        height="125px"
+        onClick={onClick}
+        backgroundColor="#EAE4D4"
+        isDeleteMode={isDeleteMode}
+      >
+        <Title>{title}</Title>
+        <Content justifyContent="space-between">
+          <LastChat>{lastChat}</LastChat>
+          <RecruitmentTime>{time}</RecruitmentTime>
+        </Content>
 
-      <Content>
-        <Location>{location}</Location>
-      </Content>
-    </CardContainer>
+        <Content>
+          <Location>{location}</Location>
+        </Content>
+      </CardContainer>
+    </Container>
   );
 };
 
 export default ChatCard;
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
 
 const CardContainer = styled.div`
   background-color: ${(props) =>
@@ -35,7 +55,8 @@ const CardContainer = styled.div`
   cursor: pointer;
   min-height: 120px;
   align-items: ${(props) => props.alignItems || "flex-start"};
-  width: ${(props) => props.width || "20rem"};
+  width: ${(props) =>
+    props.isDeleteMode ? "17rem" : "20rem"}; // isDeleteMode에 따라 width 설정
   height: ${(props) => props.height || "150px"};
   position: relative;
 
@@ -79,4 +100,20 @@ const LastChat = styled.p`
   font-size: 20px;
   color: #555;
   text-align: right;
+`;
+
+const DeleteButton = styled.button`
+  background-color: ${({ theme }) => theme.colors.editYellow};
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 1rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 `;
