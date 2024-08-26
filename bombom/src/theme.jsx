@@ -12,6 +12,8 @@ const theme = {
     lightGrayHover: "#C6C0AF",
     mainRed: "#EC7060",
     permissionGreen: "#6CE3B1",
+
+    editYellow: "#B1A68C",
   },
   card: {
     backgroundColor: "#EAE4D4",
