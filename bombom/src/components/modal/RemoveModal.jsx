@@ -7,8 +7,8 @@ const RemoveModal = ({ show, onClose, cardData, onRemoveRequest }) => {
 
   const handleRemoveClick = async () => {
     try {
-      await onRemoveRequest(); // 카드 삭제 요청 실행
-      onClose(); // 모달 닫기
+      await onRemoveRequest();
+      onClose();
     } catch (error) {
       console.error("채팅방 삭제 요청 중 오류 발생:", error);
     }
@@ -18,7 +18,7 @@ const RemoveModal = ({ show, onClose, cardData, onRemoveRequest }) => {
     <Overlay>
       <ModalContainer>
         <ModalHeader>
-          <ModalTitle>{cardData.title}</ModalTitle>
+          <ModalTitle>{cardData ? cardData.title : "삭제할 채팅방"}</ModalTitle>
         </ModalHeader>
         <ModalContent>
           <Message>해당 채팅방을 삭제하시겠습니까?</Message>

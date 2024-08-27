@@ -46,14 +46,15 @@ const MainChatPage = () => {
   };
 
   const handleDeleteClick = (card) => {
-    setCurrentCard(card); // 삭제할 카드 설정
-    setShowRemoveModal(true); // 모달 표시
+    setCurrentCard(card);
+    setShowRemoveModal(true);
+    console.log("Delete clicked");
   };
 
   const handleRemoveRequest = () => {
     if (currentCard) {
-      setCards(cards.filter((card) => card.id !== currentCard.id)); // 카드 삭제
-      setShowRemoveModal(false); // 모달 닫기
+      setCards(cards.filter((card) => card.id !== currentCard.id));
+      setShowRemoveModal(false);
     }
   };
 
