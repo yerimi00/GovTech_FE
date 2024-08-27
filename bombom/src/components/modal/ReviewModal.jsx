@@ -12,12 +12,12 @@ const ReviewModal = ({ show, onClose, onReviewRequest }) => {
   const keywordData = ["돌보미 키워드1", "돌보미 키워드2", "돌보미 키워드3"];
 
   const handleReviewClick = async () => {
-    console.log("리뷰버튼 클릭");
+    console.log("리뷰 요청 시작");
     try {
       await onReviewRequest();
-      console.log("리뷰 작성완료");
+      console.log("리뷰 작성 완료");
       onClose();
-      console.log("리뷰모달 닫기 요청");
+      console.log("리뷰작성모달 닫기 요청");
     } catch (error) {
       console.error("리뷰작성 요청 중 오류 발생:", error);
     }
@@ -34,7 +34,7 @@ const ReviewModal = ({ show, onClose, onReviewRequest }) => {
   return (
     <Overlay>
       <ModalContainer>
-        <CustomRow width='100%' alignItems='center' justifyContent='flex-end'>
+        <CustomRow width="100%" alignItems="center" justifyContent="flex-end">
           <CloseButton onClick={onClose}>&times;</CloseButton>
         </CustomRow>
         <ModalHeader>

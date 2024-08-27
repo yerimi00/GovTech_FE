@@ -4,7 +4,7 @@ import styled from "styled-components";
 import CustomRow from "../../components/container/CustomRow";
 import CustomColumn from "../../components/container/CustomColumn";
 import WantCategory from "../../components/container/WantCategory";
-import WantCard from "../../components/card/wantcard";
+import ChatHeader from "../../components/card/ChatHeader";
 import { ReturnBtn } from "../../components/icons/wantbolbom";
 import CardContainer from "../../components/container/CardContainer";
 import PaymentModal from "../../components/modal/PaymentModal";
@@ -94,9 +94,12 @@ const ChatPage = () => {
     setChatData([...chatData, { chat: "결제가 완료되었습니다", isMe: true }]);
   };
 
-  const handleReviewClick = () => {
-    setShowReviewModal(true);
-    console.log("리뷰버튼 클릭");
+  const handleReviewRequest = () => {
+    setReviewRequested(true);
+    setChatData([
+      ...chatData,
+      { chat: "리뷰작성이 완료되었습니다.", isMe: true },
+    ]);
   };
 
   const cardData = {
@@ -143,7 +146,7 @@ const ChatPage = () => {
                   </CustomFont>
                 </WantCategory>
               </CustomRow>
-              <WantCard
+              <ChatHeader
                 title={cardData.title}
                 location={cardData.location}
                 caregiverInfo={cardData.caregiverInfo.join(", ")}
@@ -208,7 +211,9 @@ const ChatPage = () => {
               결제 요청하기
             </OptionButton>
           )}
-          <OptionButton onClick={handleReviewClick}>리뷰 작성하기</OptionButton>
+          <OptionButton onClick={() => setShowReviewModal(true)}>
+            리뷰 작성하기
+          </OptionButton>
         </OptionsContainer>
       )}
 
@@ -234,8 +239,7 @@ const ChatPage = () => {
         <ReviewModal
           show={showReviewModal}
           onClose={() => {
-            console.log("Closing modal");
-            setshowReviewModal(false);
+            setShowReviewModal(false);
           }}
           onReviewRequest={handleReviewRequest}
         />
