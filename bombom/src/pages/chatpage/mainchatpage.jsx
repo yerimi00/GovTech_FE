@@ -8,6 +8,7 @@ import CustomFont from "../../components/container/CustomFont";
 import ChatCard from "../../components/card/ChatCard";
 import InputContainer from "../../components/container/InputContainer";
 import { RemoveChat } from "../../components/icons/chatbolbom";
+import RemoveModal from "../../components/modal/RemoveModal";
 
 const MainChatPage = () => {
   const navigate = useNavigate();
@@ -37,14 +38,23 @@ const MainChatPage = () => {
   ]);
 
   const [isDeleteMode, setIsDeleteMode] = useState(false);
+  const [showRemoveModal, setShowRemoveModal] = useState(false);
+  const [currentCard, setCurrentCard] = useState(null);
 
   const goChat = () => {
     navigate("/chatpage");
   };
 
-  const handleDeleteClick = (id) => {
-    setCards(cards.filter((card) => card.id !== id));
-    console.log(`${id}번 카드가 삭제되었습니다.`);
+  const handleDeleteClick = (card) => {
+    setCurrentCard(card); // 삭제할 카드 설정
+    setShowRemoveModal(true); // 모달 표시
+  };
+
+  const handleRemoveRequest = () => {
+    if (currentCard) {
+      setCards(cards.filter((card) => card.id !== currentCard.id)); // 카드 삭제
+      setShowRemoveModal(false); // 모달 닫기
+    }
   };
 
   const toggleDeleteMode = () => {
@@ -95,13 +105,23 @@ const MainChatPage = () => {
                 lastChat={card.lastChat}
                 time={card.time}
                 onClick={() => goChat(card)}
-                onDelete={() => handleDeleteClick(card.id)}
+                onDelete={() => handleDeleteClick(card)}
                 isDeleteMode={isDeleteMode}
               />
             ))}
           </MainDiv>
         </CustomColumn>
       </PageContainer>
+      {showRemoveModal && (
+        <RemoveModal
+          show={showRemoveModal}
+          onClose={() => {
+            setShowRemoveModal(false);
+          }}
+          cardData={currentCard}
+          onRemoveRequest={handleRemoveRequest}
+        />
+      )}
     </ContainerCenter>
   );
 };

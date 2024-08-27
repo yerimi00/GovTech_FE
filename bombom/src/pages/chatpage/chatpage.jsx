@@ -142,7 +142,7 @@ const ChatPage = () => {
                 </ReturnIconWrapper>
                 <WantCategory width="40%" borderRadius="20px" zIndex="5">
                   <CustomFont color="#3E3537" font="1.5rem" fontWeight="bold">
-                    돌봄 원해요 01
+                    {cardData.title}
                   </CustomFont>
                 </WantCategory>
               </CustomRow>
