@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import WantCategory from "../../components/container/WantCategory";
@@ -39,7 +39,7 @@ const MainChatPage = () => {
 
   const [isDeleteMode, setIsDeleteMode] = useState(false);
   const [showRemoveModal, setShowRemoveModal] = useState(false);
-  const [currentCard, setCurrentCard] = useState(null);
+  const [currentCard, setCurrentCard] = useState([]);
 
   const goChat = () => {
     navigate("/chatpage");
@@ -49,7 +49,15 @@ const MainChatPage = () => {
     setCurrentCard(card);
     setShowRemoveModal(true);
     console.log("Delete clicked");
+    console.log(card);
+    console.log("current card: " + currentCard);
   };
+
+  useEffect(() => {
+    if (currentCard !== null) {
+      console.log("Updated currentCard: ", currentCard);
+    }
+  }, [currentCard]);
 
   const handleRemoveRequest = () => {
     if (currentCard) {
@@ -105,7 +113,7 @@ const MainChatPage = () => {
                 location={card.location}
                 lastChat={card.lastChat}
                 time={card.time}
-                onClick={() => goChat(card)}
+                onClick={goChat}
                 onDelete={() => handleDeleteClick(card)}
                 isDeleteMode={isDeleteMode}
               />
@@ -113,12 +121,10 @@ const MainChatPage = () => {
           </MainDiv>
         </CustomColumn>
       </PageContainer>
-      {showRemoveModal && (
+      {showRemoveModal && currentCard && (
         <RemoveModal
           show={showRemoveModal}
-          onClose={() => {
-            setShowRemoveModal(false);
-          }}
+          onClose={() => setShowRemoveModal(false)}
           cardData={currentCard}
           onRemoveRequest={handleRemoveRequest}
         />
