@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import WantCategory from "../../components/container/WantCategory";
@@ -8,6 +8,7 @@ import CustomFont from "../../components/container/CustomFont";
 import ChatCard from "../../components/card/ChatCard";
 import InputContainer from "../../components/container/InputContainer";
 import { RemoveChat } from "../../components/icons/chatbolbom";
+import RemoveModal from "../../components/modal/RemoveModal";
 
 const MainChatPage = () => {
   const navigate = useNavigate();
@@ -37,14 +38,32 @@ const MainChatPage = () => {
   ]);
 
   const [isDeleteMode, setIsDeleteMode] = useState(false);
+  const [showRemoveModal, setShowRemoveModal] = useState(false);
+  const [currentCard, setCurrentCard] = useState([]);
 
   const goChat = () => {
     navigate("/chatpage");
   };
 
-  const handleDeleteClick = (id) => {
-    setCards(cards.filter((card) => card.id !== id));
-    console.log(`${id}번 카드가 삭제되었습니다.`);
+  const handleDeleteClick = (card) => {
+    setCurrentCard(card);
+    setShowRemoveModal(true);
+    console.log("Delete clicked");
+    console.log(card);
+    console.log("current card: " + currentCard);
+  };
+
+  useEffect(() => {
+    if (currentCard !== null) {
+      console.log("Updated currentCard: ", currentCard);
+    }
+  }, [currentCard]);
+
+  const handleRemoveRequest = () => {
+    if (currentCard) {
+      setCards(cards.filter((card) => card.id !== currentCard.id));
+      setShowRemoveModal(false);
+    }
   };
 
   const toggleDeleteMode = () => {
@@ -94,14 +113,22 @@ const MainChatPage = () => {
                 location={card.location}
                 lastChat={card.lastChat}
                 time={card.time}
-                onClick={() => goChat(card)}
-                onDelete={() => handleDeleteClick(card.id)}
+                onClick={goChat}
+                onDelete={() => handleDeleteClick(card)}
                 isDeleteMode={isDeleteMode}
               />
             ))}
           </MainDiv>
         </CustomColumn>
       </PageContainer>
+      {showRemoveModal && currentCard && (
+        <RemoveModal
+          show={showRemoveModal}
+          onClose={() => setShowRemoveModal(false)}
+          cardData={currentCard}
+          onRemoveRequest={handleRemoveRequest}
+        />
+      )}
     </ContainerCenter>
   );
 };

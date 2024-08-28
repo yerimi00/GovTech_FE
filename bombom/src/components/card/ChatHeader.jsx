@@ -29,7 +29,6 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  cursor: pointer;
   min-height: 120px;
   align-items: flex-start;
   width: 20rem;
@@ -43,14 +42,6 @@ const CardContainer = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     gap: 0.5rem;
-  }
-
-  &:hover {
-    background-color: ${({ theme }) =>
-      theme.colors?.lightGrayHover || "#f0f0f0"};
-  }
-  &:active {
-    background-color: white;
   }
 `;
 

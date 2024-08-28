@@ -11,6 +11,7 @@ import PaymentModal from "../../components/modal/PaymentModal";
 import ConfirmModal from "../../components/modal/ConfirmModal";
 import ReviewModal from "../../components/modal/ReviewModal";
 import CustomFont from "../../components/container/CustomFont";
+import ProfileModal from "../../components/modal/ProfileModal";
 
 const ChatPage = () => {
   const navigate = useNavigate();
@@ -44,6 +45,10 @@ const ChatPage = () => {
 
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [reviewRequested, setReviewRequested] = useState(false);
+
+  // 프로필 모달 관련 상태
+  const [showProfileModal, setShowProfileModal] = useState(false);
+  const [selectedProfile, setSelectedProfile] = useState(""); // 선택된 프로필의 이름
 
   const contentRef = useRef(null);
 
@@ -101,6 +106,11 @@ const ChatPage = () => {
       { chat: "리뷰작성이 완료되었습니다.", isMe: true },
     ]);
   };
+  // 프로필 모달을 여는 함수
+  const handleProfileClick = (profileName) => {
+    setSelectedProfile(profileName);
+    setShowProfileModal(true);
+  };
 
   const cardData = {
     title: "돌봄 원해요01",
@@ -142,7 +152,7 @@ const ChatPage = () => {
                 </ReturnIconWrapper>
                 <WantCategory width="40%" borderRadius="20px" zIndex="5">
                   <CustomFont color="#3E3537" font="1.5rem" fontWeight="bold">
-                    돌봄 원해요 01
+                    {cardData.title}
                   </CustomFont>
                 </WantCategory>
               </CustomRow>
@@ -165,10 +175,14 @@ const ChatPage = () => {
                   >
                     위 글에 대한 채팅이 시작됩니다.
                     <div>
-                      <p>보호자 AAA님의 프로필 보러가기</p>
+                      <Profile onClick={() => handleProfileClick("보호자 AAA")}>
+                        보호자 AAA님의 프로필 보러가기
+                      </Profile>
                     </div>
                     <div>
-                      <p>돌보미 BBB님의 프로필 보러가기</p>
+                      <Profile onClick={() => handleProfileClick("돌보미 BBB")}>
+                        돌보미 BBB님의 프로필 보러가기
+                      </Profile>
                     </div>
                   </CardContainer>
                 </MainDiv>
@@ -244,6 +258,15 @@ const ChatPage = () => {
           onReviewRequest={handleReviewRequest}
         />
       )}
+      {showProfileModal && (
+        <ProfileModal
+          show={showProfileModal}
+          onClose={() => {
+            setShowProfileModal(false);
+          }}
+          profileName={selectedProfile}
+        />
+      )}
     </ChatPageContainer>
   );
 };
@@ -279,6 +302,11 @@ const HeaderContainer = styled.div`
   background-color: white;
   z-index: 10;
   padding-bottom: 1rem;
+`;
+
+const Profile = styled.p`
+  // font-size: 25px;
+  cuser-select: pointer;
 `;
 
 const ContentContainer = styled.div`
