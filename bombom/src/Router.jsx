@@ -51,6 +51,7 @@ import ProtectorFindIdPage from "./components/header/all_login/all_findid/Protec
 import MainEditWantPage from "./components/header/mypage/all_editwant/maineditwantpage";
 import DetailEditWantPage from "./components/header/mypage/all_editwant/detaileditwantpage";
 import MainCheckReviewPage from "./components/header/mypage/all_checkreview/maincheckreviewpage";
+import ThirdDolbomSignupPage from "./components/header/all_signup/all_dolbomsignup/ThirdDolbomSignup";
 
 const AppRouter = () => {
   return (
@@ -154,6 +155,10 @@ const AppRouter = () => {
             <Route
               path="/maincheckreviewpage"
               element={<MainCheckReviewPage />}
+            />
+            <Route
+              path="/thirddolbomsignuppage"
+              element={<ThirdDolbomSignupPage />}
             />
           </Route>
         </Routes>
