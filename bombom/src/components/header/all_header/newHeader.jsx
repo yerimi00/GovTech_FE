@@ -44,7 +44,7 @@ export default function NewHeader() {
             pathname === '/maineditmyinfopage' || pathname === '/editpasswordpage' || pathname === '/editkeywordpage' || pathname === '/editsentencepage' ||
             pathname === '/certificatecardpage' || pathname === '/cardcamerapage' || pathname === '/mainmynoticepage' ||
             pathname === '/detailmynoticepage' || pathname === '/protectorfindidpage' || pathname === '/maineditwantpage' ||
-            pathname === '/detaileditwantpage') {
+            pathname === '/maincheckreviewpage' || pathname === '/detaileditwantpage') {
             return '#FBDA8B';
         } else if (pathname === '/dolbomloginpage' || pathname === '/firstdolbomsignuppage' || pathname === '/certificatedolbomsignuppage' ||
             pathname === '/arbeitdolbomsignuppage' || pathname === '/lowprotectorokpage' || pathname === '/detaillowprotectorpage' ||

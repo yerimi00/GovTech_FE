@@ -84,7 +84,7 @@ const MyPage = () => {
     }
 
     const CheckReview = () => {
-        navigate('/checkreviewpage'); // 리뷰 확인하기 페이지
+        navigate('/maincheckreviewpage'); // 리뷰 확인하기 페이지
     }
 
     const CertificateCard = () => {

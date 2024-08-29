@@ -50,6 +50,7 @@ import DolbomFindIdPage from "./components/header/all_login/all_findid/DolbomFin
 import ProtectorFindIdPage from "./components/header/all_login/all_findid/ProtectorFindId";
 import MainEditWantPage from "./components/header/mypage/all_editwant/maineditwantpage";
 import DetailEditWantPage from "./components/header/mypage/all_editwant/detaileditwantpage";
+import MainCheckReviewPage from "./components/header/mypage/all_checkreview/maincheckreviewpage";
 
 const AppRouter = () => {
   return (
@@ -149,6 +150,10 @@ const AppRouter = () => {
             <Route
               path="/detaileditwantpage"
               element={<DetailEditWantPage />}
+            />
+            <Route
+              path="/maincheckreviewpage"
+              element={<MainCheckReviewPage />}
             />
           </Route>
         </Routes>
