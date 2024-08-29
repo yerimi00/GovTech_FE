@@ -49,6 +49,7 @@ import AdminLoginPage from "./components/header/all_login/AdminLogin";
 import DolbomFindIdPage from "./components/header/all_login/all_findid/DolbomFindId";
 import ProtectorFindIdPage from "./components/header/all_login/all_findid/ProtectorFindId";
 import MainEditWantPage from "./components/header/mypage/all_editwant/maineditwantpage";
+import DetailEditWantPage from "./components/header/mypage/all_editwant/detaileditwantpage";
 
 const AppRouter = () => {
   return (
@@ -143,6 +144,11 @@ const AppRouter = () => {
             <Route
               path="/maineditwantpage"
               element={<MainEditWantPage />}
+            />
+
+            <Route
+              path="/detaileditwantpage"
+              element={<DetailEditWantPage />}
             />
           </Route>
         </Routes>

@@ -40,7 +40,7 @@ const Layout = () => {
             location.pathname === '/mainmynoticepage' || location.pathname === '/detailmynoticepage' ||
             location.pathname === '/chatpage' || location.pathname === '/adminloginpage' ||
             location.pathname === '/dolbomfindidpage' || location.pathname === '/protectorfindidpage' ||
-            location.pathname === '/maineditwantpage') {
+            location.pathname === '/maineditwantpage' || location.pathname === '/detaileditwantpage') {
             return <NewHeader />;
         }
         return <Header />;
