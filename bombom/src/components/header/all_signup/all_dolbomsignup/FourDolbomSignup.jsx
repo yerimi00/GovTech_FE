@@ -23,7 +23,7 @@ const PageContainer = styled(ContainerCenter)`
   position: relative;
   background: linear-gradient(to bottom, #D9F0B4 0%, #D9F0B4 10%, white 90%, white 100%);
 
-  padding-top: 30vh;
+  padding-top: 40vh;
   padding-bottom: 15vh;
 `;
 

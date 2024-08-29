@@ -112,6 +112,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 gap: 0.5rem;
+width: 90%;
 `;
 
 const CertificateDolbomSignupPage = () => {
@@ -220,7 +221,7 @@ const CertificateDolbomSignupPage = () => {
             {isModalVisible && (
                 <ModalBackground>
                     <Modal>
-                        <CustomFont color='black' fontWeight='bold' font='1.2rem'>{modalText}</CustomFont>
+                        <CustomFont color='black' font='1rem'>{modalText}</CustomFont>
                     </Modal>
                 </ModalBackground>
             )}
