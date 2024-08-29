@@ -48,7 +48,7 @@ export default function NewHeader() {
             return '#FBDA8B';
         } else if (pathname === '/dolbomloginpage' || pathname === '/firstdolbomsignuppage' || pathname === '/certificatedolbomsignuppage' ||
             pathname === '/arbeitdolbomsignuppage' || pathname === '/lowprotectorokpage' || pathname === '/detaillowprotectorpage' ||
-            pathname === '/dolbomfindidpage' || pathname === '/thirddolbomsignuppage') {
+            pathname === '/dolbomfindidpage' || pathname === '/thirddolbomsignuppage' || pathname === '/fourdolbomsignuppage') {
             return '#D8F0B2';
         } else if (pathname === '/seconddolbomsignuppage' && search === '?type=cert' ||
             pathname === '/seconddolbomsignuppage' && search === '?type=arbeit') {

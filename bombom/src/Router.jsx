@@ -52,6 +52,7 @@ import MainEditWantPage from "./components/header/mypage/all_editwant/maineditwa
 import DetailEditWantPage from "./components/header/mypage/all_editwant/detaileditwantpage";
 import MainCheckReviewPage from "./components/header/mypage/all_checkreview/maincheckreviewpage";
 import ThirdDolbomSignupPage from "./components/header/all_signup/all_dolbomsignup/ThirdDolbomSignup";
+import FourDolbomSignupPage from "./components/header/all_signup/all_dolbomsignup/FourDolbomSignup";
 
 const AppRouter = () => {
   return (
@@ -159,6 +160,10 @@ const AppRouter = () => {
             <Route
               path="/thirddolbomsignuppage"
               element={<ThirdDolbomSignupPage />}
+            />
+            <Route
+              path="/fourdolbomsignuppage"
+              element={<FourDolbomSignupPage />}
             />
           </Route>
         </Routes>
