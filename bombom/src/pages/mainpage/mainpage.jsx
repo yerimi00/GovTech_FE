@@ -45,7 +45,7 @@ const InfoDiv = styled.div`
   justify-content: center;
   font-family: ${(props) => props.fontFamily || "Noto Sans KR"};
   box-shadow: 0px 4px 6px #E5DDC9;
-  gap: 3rem;
+  gap: 2rem;
 `;
 
 const MainDiv = styled.button`
@@ -101,7 +101,7 @@ const HomePage = () => {
     <ContainerCenter>
       <PageContainer>
         <CustomColumn width='90%' alignItems='center' justifyContent='flex-start' gap='1rem'>
-          <InfoDiv backgroundColor="white" borderRadius="35px" height='40vh'>
+          <InfoDiv backgroundColor="white" borderRadius="35px" height='25vh'>
             <CustomColumn width='90%' alignItems='center' justifyContent='center' gap='2rem'>
               <CustomRow width='100%' alignItems='center' justifyContent='center'>
                 <CustomRow width='60%' alignItems='center' justifyContent='flex-start' gap='0.5rem'>
@@ -115,7 +115,7 @@ const HomePage = () => {
                 </CustomColumn>
               </CustomRow>
 
-              <CustomColumn width='100%' alignItems='center' justifyContent='center'>
+              <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='0.5rem'>
                 <CustomRow width='100%' alignItems='center' justifyContent='center' gap='0.3rem'>
                   <CustomFont color='black' font='1rem' fontWeight='bold'>오늘</CustomFont>
                   <CustomFont color='black' font='1.5rem' fontWeight='bold'>35</CustomFont>
