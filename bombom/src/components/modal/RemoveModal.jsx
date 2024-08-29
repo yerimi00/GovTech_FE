@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CustomButtonSubmit from "../container/CustomButtonSubmit";
+import CustomRow from "../container/CustomRow";
 
 const RemoveModal = ({ show, onClose, cardData, onRemoveRequest }) => {
   if (!show) return null;
@@ -23,12 +24,12 @@ const RemoveModal = ({ show, onClose, cardData, onRemoveRequest }) => {
         <ModalContent>
           <Message>해당 채팅방을 삭제하시겠습니까?</Message>
         </ModalContent>
-        <ButtonContainer>
+        <CustomRow width='100%' alignItems='center' justifyContent='center'>
           <CustomButtonSubmit onClick={handleRemoveClick}>
             예
           </CustomButtonSubmit>
           <CustomButtonSubmit onClick={onClose}>아니오</CustomButtonSubmit>
-        </ButtonContainer>
+        </CustomRow>
       </ModalContainer>
     </Overlay>
   );
@@ -39,8 +40,9 @@ export default RemoveModal;
 const Overlay = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 390px;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   display: flex;
@@ -53,9 +55,10 @@ const ModalContainer = styled.div`
   background: white;
   padding: 2rem;
   border-radius: 35px;
-  width: 90%;
-  max-width: 500px;
+  width: 300px;
   position: relative;
+  gap: 1rem;
+  box-sizing: border-box;
 `;
 
 const ModalHeader = styled.div`
