@@ -39,7 +39,7 @@ const MainChatPage = () => {
 
   const [isDeleteMode, setIsDeleteMode] = useState(false);
   const [showRemoveModal, setShowRemoveModal] = useState(false);
-  const [currentCard, setCurrentCard] = useState([]);
+  const [currentCard, setCurrentCard] = useState(null);
 
   const goChat = () => {
     navigate("/chatpage");
@@ -47,22 +47,34 @@ const MainChatPage = () => {
 
   const handleDeleteClick = (card) => {
     setCurrentCard(card);
-    setShowRemoveModal(true);
+    // setShowRemoveModal(true);
     console.log("Delete clicked");
     console.log(card);
-    console.log("current card: " + currentCard);
+    console.log("current card: ", currentCard);
   };
 
   useEffect(() => {
-    if (currentCard !== null) {
-      console.log("Updated currentCard: ", currentCard);
+    if (currentCard) {
+      console.log("currentCard is not null, opening modal...");
+      setShowRemoveModal(true);
+      console.log("currentCard:", currentCard);
+      console.log("showRemoveModal:", showRemoveModal);
+    } else {
+      console.log("currentCard is null, not opening modal.");
     }
   }, [currentCard]);
+
+  // useEffect(() => {
+  //   console.log("삭제 모달창 여부", showRemoveModal);
+  //   setShowRemoveModal(true);
+  //   console.log("삭제 모달창 여부", showRemoveModal);
+  // }, showRemoveModal);
 
   const handleRemoveRequest = () => {
     if (currentCard) {
       setCards(cards.filter((card) => card.id !== currentCard.id));
       setShowRemoveModal(false);
+      setCurrentCard(null);
     }
   };
 
@@ -121,7 +133,7 @@ const MainChatPage = () => {
           </MainDiv>
         </CustomColumn>
       </PageContainer>
-      {showRemoveModal && currentCard && (
+      {showRemoveModal && (
         <RemoveModal
           show={showRemoveModal}
           onClose={() => setShowRemoveModal(false)}

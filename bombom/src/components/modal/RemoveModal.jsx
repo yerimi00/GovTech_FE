@@ -3,7 +3,15 @@ import styled from "styled-components";
 import CustomButtonSubmit from "../container/CustomButtonSubmit";
 
 const RemoveModal = ({ show, onClose, cardData, onRemoveRequest }) => {
-  if (!show) return null;
+  if (!show) {
+    console.log("show 없음");
+    return null;
+  }
+
+  if (!cardData) {
+    console.log("카드 데이터 없음");
+    return null;
+  }
 
   const handleRemoveClick = async () => {
     try {
