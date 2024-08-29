@@ -48,6 +48,7 @@ import MainChatPage from "./pages/chatpage/mainchatpage";
 import AdminLoginPage from "./components/header/all_login/AdminLogin";
 import DolbomFindIdPage from "./components/header/all_login/all_findid/DolbomFindId";
 import ProtectorFindIdPage from "./components/header/all_login/all_findid/ProtectorFindId";
+import MainEditWantPage from "./components/header/mypage/all_editwant/maineditwantpage";
 
 const AppRouter = () => {
   return (
@@ -138,6 +139,10 @@ const AppRouter = () => {
             <Route
               path="/protectorfindidpage"
               element={<ProtectorFindIdPage />}
+            />
+            <Route
+              path="/maineditwantpage"
+              element={<MainEditWantPage />}
             />
           </Route>
         </Routes>

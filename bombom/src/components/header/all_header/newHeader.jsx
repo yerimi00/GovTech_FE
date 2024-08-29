@@ -43,7 +43,7 @@ export default function NewHeader() {
             || pathname === '/detaildolbomokpage' || pathname === '/dolbomeduvideopage' || pathname === '/eduvideodetailpage' ||
             pathname === '/maineditmyinfopage' || pathname === '/editpasswordpage' || pathname === '/editkeywordpage' || pathname === '/editsentencepage' ||
             pathname === '/certificatecardpage' || pathname === '/cardcamerapage' || pathname === '/mainmynoticepage' ||
-            pathname === '/detailmynoticepage' || pathname === '/protectorfindidpage') {
+            pathname === '/detailmynoticepage' || pathname === '/protectorfindidpage' || pathname === '/maineditwantpage') {
             return '#FBDA8B';
         } else if (pathname === '/dolbomloginpage' || pathname === '/firstdolbomsignuppage' || pathname === '/certificatedolbomsignuppage' ||
             pathname === '/arbeitdolbomsignuppage' || pathname === '/lowprotectorokpage' || pathname === '/detaillowprotectorpage' ||
