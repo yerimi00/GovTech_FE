@@ -8,7 +8,7 @@ const CustomButtonSubmit = styled.button`
   border: none;
   border-radius: ${(props) => props.borderRadius || "35px"};
   cursor: pointer;
-  font-size: 24px;
+  font-size: 1rem;
   font-weight: bold;
   width: ${(props) => props.width || "100%"};
   font-family: "Cafe24SsurroundAir", sans-serif;
