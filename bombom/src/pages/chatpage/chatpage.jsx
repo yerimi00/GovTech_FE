@@ -16,10 +16,12 @@ import ProfileModal from "../../components/modal/ProfileModal";
 const ChatPage = () => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
+
+  const [isDolbom, setIsDolbom] = useState(false);
+
   const [chatData, setChatData] = useState([
     { chat: "안녕하세요", isMe: false },
     { chat: "안녕하세요", isMe: true },
-
     { chat: "안녕하세요", isMe: false },
     { chat: "안녕하세요", isMe: true },
     { chat: "안녕하세요", isMe: false },
@@ -46,9 +48,8 @@ const ChatPage = () => {
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [reviewRequested, setReviewRequested] = useState(false);
 
-  // 프로필 모달 관련 상태
   const [showProfileModal, setShowProfileModal] = useState(false);
-  const [selectedProfile, setSelectedProfile] = useState(""); // 선택된 프로필의 이름
+  const [selectedProfile, setSelectedProfile] = useState("");
 
   const contentRef = useRef(null);
 
@@ -220,14 +221,27 @@ const ChatPage = () => {
 
       {showOptions && (
         <OptionsContainer>
-          {!paymentRequested && (
-            <OptionButton onClick={() => setShowModal(true)}>
-              결제 요청하기
-            </OptionButton>
+          {isDolbom ? (
+            <>
+              {!paymentRequested && (
+                <OptionButton onClick={() => setShowModal(true)}>
+                  결제 요청하기
+                </OptionButton>
+              )}
+              <OptionButton onClick={() => setShowReviewModal(true)}>
+                리뷰 작성하기
+              </OptionButton>
+            </>
+          ) : (
+            <>
+              <OptionButton onClick={() => alert("모집 완료 처리되었습니다.")}>
+                작성글 모집완료하기
+              </OptionButton>
+              <OptionButton onClick={() => setShowReviewModal(true)}>
+                리뷰 작성하기
+              </OptionButton>
+            </>
           )}
-          <OptionButton onClick={() => setShowReviewModal(true)}>
-            리뷰 작성하기
-          </OptionButton>
         </OptionsContainer>
       )}
 

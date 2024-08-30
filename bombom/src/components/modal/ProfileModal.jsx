@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { CloseIcon } from "../icons/wantbolbom";
 import CustomButtonSubmit from "../container/CustomButtonSubmit";
 import ProfileCard from "../card/ProfileCard";
+import CustomRow from "../container/CustomRow";
 
 const ProfileModal = ({ show, onClose, profileName }) => {
   if (!show) return null;
@@ -31,14 +32,19 @@ const ProfileModal = ({ show, onClose, profileName }) => {
   return (
     <Overlay>
       <ModalContainer>
+        <CustomRow
+          onClick={onClose}
+          width="100%"
+          alignItems="center"
+          justifyContent="flex-end"
+        >
+          <CloseIcon />
+        </CustomRow>
         <ModalHeader>
           <div>
             <ModalTitle>{profileName}의 프로필</ModalTitle>
             <p>국가 자격 돌보미</p>
           </div>
-          <CloseButton onClick={onClose}>
-            <CloseIcon />
-          </CloseButton>
         </ModalHeader>
         <ModalContent>
           {reviewData.map((review, index) => (

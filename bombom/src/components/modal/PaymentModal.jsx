@@ -3,6 +3,8 @@ import styled from "styled-components";
 import CustomButtonSubmit from "../container/CustomButtonSubmit";
 import WantCategory from "../container/WantCategory";
 import InputContainer from "../container/InputContainer";
+import CustomRow from "../container/CustomRow";
+import { CloseIcon } from "../icons/wantbolbom";
 
 const PaymentModal = ({ show, onClose, cardData, onPaymentRequest }) => {
   if (!show) return null;
@@ -22,6 +24,14 @@ const PaymentModal = ({ show, onClose, cardData, onPaymentRequest }) => {
   return (
     <Overlay>
       <ModalContainer>
+        <CustomRow
+          onClick={onClose}
+          width="100%"
+          alignItems="center"
+          justifyContent="flex-end"
+        >
+          <CloseIcon />
+        </CustomRow>
         <ModalHeader>
           <ModalTitle>
             <WantCategory top="0px">결제창</WantCategory>

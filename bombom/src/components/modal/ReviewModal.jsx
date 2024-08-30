@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CustomButtonSubmit from "../container/CustomButtonSubmit";
 import CardContainer from "../container/CardContainer";
 import CustomRow from "../container/CustomRow";
+import { CloseIcon } from "../icons/wantbolbom";
 
 const ReviewModal = ({ show, onClose, onReviewRequest }) => {
   const [rating, setRating] = useState(0);
@@ -34,8 +35,13 @@ const ReviewModal = ({ show, onClose, onReviewRequest }) => {
   return (
     <Overlay>
       <ModalContainer>
-        <CustomRow width="100%" alignItems="center" justifyContent="flex-end">
-          <CloseButton onClick={onClose}>&times;</CloseButton>
+        <CustomRow
+          onClick={onClose}
+          width="100%"
+          alignItems="center"
+          justifyContent="flex-end"
+        >
+          <CloseIcon />
         </CustomRow>
         <ModalHeader>
           <ModalTitle>돌보미 BBB님의 리뷰 남기기</ModalTitle>

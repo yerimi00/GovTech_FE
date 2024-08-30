@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import CustomButtonSubmit from "../container/CustomButtonSubmit";
 import InputContainer from "../container/InputContainer";
+import CustomRow from "../container/CustomRow";
+import { CloseIcon } from "../icons/wantbolbom";
 
 const ConfirmModal = ({ show, onClose, cardData, onConfirmRequest }) => {
   if (!show) return null;
@@ -21,6 +23,14 @@ const ConfirmModal = ({ show, onClose, cardData, onConfirmRequest }) => {
   return (
     <Overlay>
       <ModalContainer>
+        <CustomRow
+          onClick={onClose}
+          width="100%"
+          alignItems="center"
+          justifyContent="flex-end"
+        >
+          <CloseIcon />
+        </CustomRow>
         <ModalHeader>
           <ModalTitle>
             <ModalTitle>{cardData.title}</ModalTitle>
@@ -53,11 +63,6 @@ const ConfirmModal = ({ show, onClose, cardData, onConfirmRequest }) => {
               <BText fontSize="16px">기타:</BText> {cardData.hourlyRate}
             </p>
           </CareInformationDiv>
-          <InputContainer
-            marginTop="10px"
-            width="100%"
-            placeholder="약속된 시급을 입력하세요"
-          />
           <ResultDiv>
             <p>총결제금액</p>
             <span>45,000원</span>
