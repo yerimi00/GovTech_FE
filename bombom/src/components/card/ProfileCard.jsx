@@ -32,7 +32,7 @@ const CardContainer = styled.div`
   flex-direction: column;
   gap: 0;
   min-height: 120px;
-  width: ${(props) => props.width || "15rem"};
+  width: 100%;
   height: ${(props) => props.height || "auto"};
 
   div {

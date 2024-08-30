@@ -82,7 +82,7 @@ const Overlay = styled.div`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 390px;
+  width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   display: flex;
@@ -95,7 +95,8 @@ const ModalContainer = styled.div`
   background: white;
   padding: 2rem;
   border-radius: 35px;
-  width: 300px;
+  width: 90%;
+  max-width: 350px;
   position: relative;
   gap: 1rem;
   box-sizing: border-box;
@@ -136,7 +137,7 @@ const KeywordContainer = styled.div`
 
 const Keyword = styled.div`
   background-color: trnaparent;
-  padding: 0.5rem 1rem;
+  padding: 0.05rem 0.05rem;
   border-radius: 20px;
   font-size: 14px;
 `;

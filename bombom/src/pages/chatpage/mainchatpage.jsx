@@ -64,12 +64,6 @@ const MainChatPage = () => {
     }
   }, [currentCard]);
 
-  // useEffect(() => {
-  //   console.log("삭제 모달창 여부", showRemoveModal);
-  //   setShowRemoveModal(true);
-  //   console.log("삭제 모달창 여부", showRemoveModal);
-  // }, showRemoveModal);
-
   const handleRemoveRequest = () => {
     if (currentCard) {
       setCards(cards.filter((card) => card.id !== currentCard.id));

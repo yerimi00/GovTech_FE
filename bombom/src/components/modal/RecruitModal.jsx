@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CustomButtonSubmit from "../container/CustomButtonSubmit";
 import CustomRow from "../container/CustomRow";
 
-const RemoveModal = ({ show, onClose, cardData, onRemoveRequest }) => {
+const RecruitModal = ({ show, onClose, cardData, onRecruitRequest }) => {
   if (!show) {
     console.log("show 없음");
     return null;
@@ -14,12 +14,12 @@ const RemoveModal = ({ show, onClose, cardData, onRemoveRequest }) => {
     return null;
   }
 
-  const handleRemoveClick = async () => {
+  const handleRecruitClick = async () => {
     try {
-      await onRemoveRequest();
+      await onRecruitRequest();
       onClose();
     } catch (error) {
-      console.error("채팅방 삭제 요청 중 오류 발생:", error);
+      console.error("채팅방 모집 완료 요청 중 오류 발생:", error);
     }
   };
 
@@ -27,13 +27,15 @@ const RemoveModal = ({ show, onClose, cardData, onRemoveRequest }) => {
     <Overlay>
       <ModalContainer>
         <ModalHeader>
-          <ModalTitle>{cardData ? cardData.title : "삭제할 채팅방"}</ModalTitle>
+          <ModalTitle>
+            {cardData ? cardData.title : "모집완료할 채팅방"}
+          </ModalTitle>
         </ModalHeader>
         <ModalContent>
-          <Message>해당 채팅방을 삭제하시겠습니까?</Message>
+          <Message>해당 채팅방을 모집 완료로 변경하시겠습니까?</Message>
         </ModalContent>
         <CustomRow width="100%" alignItems="center" justifyContent="center">
-          <CustomButtonSubmit onClick={handleRemoveClick}>
+          <CustomButtonSubmit onClick={handleRecruitClick}>
             예
           </CustomButtonSubmit>
           <CustomButtonSubmit onClick={onClose}>아니오</CustomButtonSubmit>
@@ -43,7 +45,7 @@ const RemoveModal = ({ show, onClose, cardData, onRemoveRequest }) => {
   );
 };
 
-export default RemoveModal;
+export default RecruitModal;
 
 const Overlay = styled.div`
   position: fixed;
