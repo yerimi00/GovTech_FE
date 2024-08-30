@@ -4,13 +4,14 @@ import CustomButtonSubmit from "../container/CustomButtonSubmit";
 import WantCategory from "../container/WantCategory";
 import InputContainer from "../container/InputContainer";
 
-const ComplainComplainModal = ({ show, onClose }) => {
+const ComplainComplainModal = ({ show, onClose, navigate }) => {
   if (!show) return null;
 
   const handleCheckClick = async () => {
     console.log("완료");
     try {
       onClose();
+      navigate("/morepage");
     } catch (error) {
       console.error("민원 요청 중 오류 발생:", error);
     }
@@ -26,7 +27,7 @@ const ComplainComplainModal = ({ show, onClose }) => {
           <p>
             작성하신 민원은
             <br />
-            <BText fontSize="16px">마이페이지 나의 미원 확인하기</BText>에서
+            <BText fontSize="16px">마이페이지 나의 민원 확인하기</BText>에서
             <br />
             확인, 수정, 삭제가 가능합니다.
           </p>
