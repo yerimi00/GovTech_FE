@@ -177,7 +177,7 @@ const SecondDolbomSignupPage = () => {
       setShowModal(true);
       setTimeout(() => {
         setShowModal(false);
-        navigate(dolbomType === 'cert' ? '/certificatedolbomsignuppage' : '/arbeitdolbomsignuppage');
+        navigate('/thirddolbomsignuppage');
       }, 2000);
     }
   };

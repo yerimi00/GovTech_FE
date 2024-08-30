@@ -99,7 +99,7 @@ const FirstDolbomSignupPage = () => {
                     </CustomColumn>
 
                     <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='2rem'>
-                        <CustomRow width='100%' alignItems='center' justifyContent='space-between' gap='1rem'>
+                        <CustomRow width='100%' alignItems='center' justifyContent='center' gap='1rem'>
                             <Button width='50%' height='15rem' onClick={goCertSignup}>
                                 <CustomColumn width='90%' alignItems='center' justifyContent='center'>
                                     <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
@@ -111,24 +111,6 @@ const FirstDolbomSignupPage = () => {
                                         </CustomFont>
                                         <CustomFont color='#5E694D' font='1rem'>
                                             돌보미
-                                        </CustomFont>
-                                        <CustomFont color='#5E694D' font='1.3rem' fontWeight='bold'>
-                                            회원가입
-                                        </CustomFont>
-                                    </CustomColumn>
-                                </CustomColumn>
-                            </Button>
-                            <Button width='50%' height='15rem' onClick={goArbeitSignup}>
-                                <CustomColumn width='90%' alignItems='center' justifyContent='center'>
-                                    <CustomRow width='100%' alignItems='center' justifyContent='flex-start'>
-                                        <StyledBsStopwatchFill />
-                                    </CustomRow>
-                                    <CustomColumn width='100%' alignItems='flex-start' justifyContent='center' gap='0.5rem'>
-                                        <CustomFont color='#5E694D' font='1rem'>
-                                            돌보미
-                                        </CustomFont>
-                                        <CustomFont color='#5E694D' font='1rem'>
-                                            아르바이트
                                         </CustomFont>
                                         <CustomFont color='#5E694D' font='1.3rem' fontWeight='bold'>
                                             회원가입

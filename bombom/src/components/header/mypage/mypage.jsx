@@ -30,7 +30,7 @@ const MainDiv = styled.div`
   border: none;
   width: ${(props) => props.width || "100%"};
   border-radius: ${(props) => props.borderRadius || "auto"};
-  min-height: 30rem;
+  min-height: 33rem;
   padding: 0.5rem;
   padding-top: 5vh;
   display: flex;
@@ -44,7 +44,7 @@ const Category = styled.div`
   background-color: #FBDA8B;
   border-radius: 35px;
   position: absolute;
-  top: 9rem;
+  top: 7rem;
   font-size: 30px;
   font-weight: bold;
   font-family: "Cafe24SsurroundAir", sans-serif;
@@ -79,6 +79,14 @@ const MyPage = () => {
         navigate('/editcardpage'); // 내 결제정보 수정하기 (아직 기획디자인 안됨!)
     }
 
+    const EditWant = () => {
+        navigate('/maineditwantpage'); // 돌봄글 수정하기 
+    }
+
+    const CheckReview = () => {
+        navigate('/maincheckreviewpage'); // 리뷰 확인하기 페이지
+    }
+
     const CertificateCard = () => {
         navigate('/certificatecardpage'); // 행복카드 인증하기 
     }
@@ -98,23 +106,37 @@ const MyPage = () => {
                             </Category>
                         </CustomRow>
 
-                        <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='1rem'>
+                        <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='3rem'>
 
-                            <SubDiv borderRadius='3rem' onClick={EditInfo}>
-                                <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>회원정보 수정</CustomFont>
-                            </SubDiv>
+                            <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='0.7rem'>
+                                <SubDiv borderRadius='3rem' onClick={EditInfo}>
+                                    <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>회원정보 수정</CustomFont>
+                                </SubDiv>
 
-                            <SubDiv borderRadius='3rem' onClick={EditCard}>
-                                <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>결제정보 수정</CustomFont>
-                            </SubDiv>
+                                <SubDiv borderRadius='3rem' onClick={EditCard}>
+                                    <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>결제정보 수정</CustomFont>
+                                </SubDiv>
 
-                            <SubDiv borderRadius='3rem' onClick={CertificateCard}>
-                                <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>행복카드 인증하기</CustomFont>
-                            </SubDiv>
+                                <SubDiv borderRadius='3rem' onClick={EditWant}>
+                                    <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>돌봄글 수정하기</CustomFont>
+                                </SubDiv>
+                            </CustomColumn>
 
-                            <SubDiv borderRadius='3rem' onClick={DetailMyNotice}>
-                                <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>나의 민원 확인하기</CustomFont>
-                            </SubDiv>
+                            <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='0.7rem'>
+                                <SubDiv borderRadius='3rem' onClick={CheckReview}>
+                                    <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>나의 리뷰 확인하기</CustomFont>
+                                </SubDiv>
+
+                                <SubDiv borderRadius='3rem' onClick={DetailMyNotice}>
+                                    <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>나의 민원 확인하기</CustomFont>
+                                </SubDiv>
+                            </CustomColumn>
+
+                            <CustomColumn width='100%' alignItems='center' justifyContent='center' gap='0.7rem'>
+                                <SubDiv borderRadius='3rem' onClick={CertificateCard}>
+                                    <CustomFont color='#5E694D' font='1rem' fontWeight='bold'>행복카드 인증하기</CustomFont>
+                                </SubDiv>
+                            </CustomColumn>
 
                         </CustomColumn>
 

@@ -5,6 +5,7 @@ import CustomRow from '../../container/CustomRow';
 import CustomColumn from '../../container/CustomColumn';
 import CustomFont from '../../container/CustomFont';
 import { BsPersonCircle } from 'react-icons/bs';
+import StyledImg from '../../container/StyledImg';
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -47,7 +48,7 @@ padding: 0.1rem;
 cursor: pointer;
 `;
 
-const StyledImg = styled.img`
+const StyledImg2 = styled.img`
   width: 2rem;
   height: 2rem;
 `;
@@ -79,10 +80,10 @@ export default function Header() {
             <CustomRow width='100%' justifyContent='space-between' gap='0'>
                 <CustomRow width='100%' justifyContent='space-between'>
                     {isSpecialRoute ? (
-                        <CustomFont color='#626262' font='0.8rem'>여기 로고</CustomFont>
+                        <StyledImg src={'main_logo.png'} />
                     ) : (
                         <Button onClick={handleGoBack}>
-                            <StyledImg src={'icon_back.png'} alt="뒤로가기" />
+                            <StyledImg2 src={'icon_back.png'} alt="뒤로가기" />
                         </Button>
                     )}
 

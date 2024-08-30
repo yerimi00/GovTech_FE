@@ -39,7 +39,10 @@ const Layout = () => {
             location.pathname === '/certificatecardpage' || location.pathname === '/cardcamerapage' ||
             location.pathname === '/mainmynoticepage' || location.pathname === '/detailmynoticepage' ||
             location.pathname === '/chatpage' || location.pathname === '/adminloginpage' ||
-            location.pathname === '/dolbomfindidpage' || location.pathname === '/protectorfindidpage') {
+            location.pathname === '/dolbomfindidpage' || location.pathname === '/protectorfindidpage' ||
+            location.pathname === '/maineditwantpage' || location.pathname === '/detaileditwantpage' ||
+            location.pathname === '/maincheckreviewpage' || location.pathname === '/thirddolbomsignuppage' ||
+            location.pathname === '/fourdolbomsignuppage') {
             return <NewHeader />;
         }
         return <Header />;
